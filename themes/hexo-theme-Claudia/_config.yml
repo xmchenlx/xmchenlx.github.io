@@ -1,0 +1,69 @@
+# main menu navigation
+language: zh-CN
+menu:
+  主页: /
+  关于我: /about
+  旧版博客: https://blog.chenlx.top
+  Archive: /archives
+
+widgets:
+  - xtdlj
+  - tag
+  - archive
+  - recent_posts
+  - category
+  - profile
+
+blogrolls: #友情链接
+- bruce sha's duapp wordpress: http://ibruce.duapp.com
+- bruce sha's javaeye: http://buru.iteye.com
+- bruce sha's oschina blog: http://my.oschina.net/buru
+- bruce sha's baidu space: http://hi.baidu.com/iburu
+
+# social config
+social:
+  zhihu:
+  github: https://github.com/xmchenlx
+
+user:
+  name: chenlx
+  avatar: /images/myAva.jpg
+  location: 中华人民共和国，福建，厦门
+  description: 当我和世界初相见，当我曾经是少年
+  footnotes: # footnotes
+
+# documents: https://github.com/utterance/utterances
+# API config: https://utteranc.es/
+comment_utteranc:
+  enable: false
+  repo: Haojen/Claudia-theme-blog # your blog repo
+
+
+# documents: https://valine.js.org/quickstart.html
+comment_valine:
+  enable: true
+  appId: 'jbLdG9Wm4fUslNXKHRkiHBX1-gzGzoHsz'
+  appKey: 'XRedUk8PBsDbjjc11hIToxm5'
+
+comment_disqus:
+    enable: false
+    url:  # the url of your website main domain like this https://xxx.xxx/
+    name: # the short name in disqus
+
+# dark
+# light
+# user-can-set
+appearance: auto # Default value is auto
+
+# Miscellaneous
+favicon: /images/lx.ico
+
+# Google Analytics
+ga_track_id:
+ga_domain:
+
+# Baidu Analytics
+ba_track_id:
+
+# picture of about page
+about_pic: about.png
