@@ -98,7 +98,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-Claudia
+# theme: hexo-theme-Claudia
+theme: kratos-rebirth
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
