@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彩蛋：群聊教师节祝福语大作战(1)</title>
+    <link href="./css/main.css" type="text/css" rel="stylesheet" />
+    <link href="https://at.alicdn.com/t/font_2052635_u9aq8fv76h.css" type="text/css" rel="stylesheet" />
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- <script src="https://richtr.github.io/NoSleep.js/dist/NoSleep.min.js"></script> -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/nosleep/0.1.0/NoSleep.js"></script> -->
+</head>
+
+<body>
+    <audio id="audio" src=""></audio>
+    <!-- <div id="titleView">
+        <span style="font-size:4.5vw;font-weight: bold;">&lt; 教师节祝福语大作战(<span id="member">2</span>)</span>
+        <span style="float:right;font-weight:bold;">…</span>
+    </div> -->
+    <div id="msgView">
+    </div>
+    <span style="display: none;" id="member">1</span>
+    <div id="talkingView">
+        <span><i class="iconfont icon-yuyin"></i></span>
+        <input placeholder="围观模式不能发言，不然就被发现啦!!!" readonly style="width: 80%;height:150%"></input>
+        <span><i class="iconfont icon-biaoqing"></i></span>
+        <span><i class="iconfont icon-add_circle"></i></span>
+    </div>
+    <script>
+        var pi = '<table>'
+            // import NoSleep from 'nosleep.js';
+        // var noSleep = new NoSleep();
+        // var msglist = $.getJSON("data/msgJson.json?callback=?",function(data){
+        //     pi=data
+        // })
+        var msglist = ""
+        $.ajax({
+            url: "./data/msgJson.json",
+            async: false,
+            success: function (data) {
+                msglist = data
+                // console.log(data)
+            }
+        })
+        function readAudio(id) {
+            $("#talkRedCircle_" + id).text("已听")
+            $("#talkRedCircle_" + id).css("color", "gray")
+            $("#audio").attr("src", "./data/audio/" + id + ".mp3")
+            $("#audio")[0].play();
+
+
+        }
+        function keepBottom() {
+            // console.log('出发')
+            // var scrollHeight = $('html').prop("scrollHeight");
+            // $('html').animate({ scrollTop: scrollHeight }, 1000);
+            window.scrollTo(0, document.documentElement.scrollHeight+350)
+            getMember()
+        // noSleep.enable();
+
+
+        }
+        function getMember() {
+            let m = $("#member").text()
+            m = parseInt(m)
+
+            if (m <= 52) {
+                var rndN = Math.round(Math.random() * 3 + 1)
+
+                var fin = m + 0 + rndN
+
+                if((fin)>52)fin=52
+                $("#member").text(fin)
+                $('title').text('【彩蛋】群聊-祝福语大作战('+fin+')')
+            }
+        }
+        function printMsg() {
+            for (var i = 0; i < msglist.length; i++) {
+                // setTimeout(() => {
+                if (msglist[i].type == 'tip') {
+                    let p = '<tr><td colspan="2">'
+                    p += '<p class="tipBubbles">' + msglist[i].msg + '</p></td></tr>'
+                    setTimeout(() => {
+                        printDelay(p)
+                    }, 1700 * (i + 1));
+                    continue;
+                }
+                let pi = '<tr><td>'
+
+                pi += '<img class="usericon" src="./img/user_icon/' + msglist[i].name + '.jpg" /></td><td>'
+                pi += '<p class="talkname">' + msglist[i].name + '</p>'
+                if (msglist[i].type == 'text') {
+                    pi += '<p class="lBuubles">' + msglist[i].msg + '</p>'
+
+                } else if (msglist[i].type == 'img') {
+                    pi += '<img class="biaoqing" src="./img/biaoqing/' + msglist[i].msg + '" />'
+                } else if (msglist[i].type == 'talk') {
+                    pi += '<img class="talkBubbles" onClick="readAudio(' + msglist[i].index + ')" src="./img/talkBubbles.jpg"/><span class="tbSpan">3</span>'
+                    pi += '<span class="redCircle" id="talkRedCircle_' + msglist[i].index + '">●</span>'
+                }
+
+                pi += '</td></tr>'
+                // $("#msgView").append(pi)
+
+                // }, timeout);
+                let rndTime = Math.random() * 500 + (800 * i)
+                var t = 700 * i + rndTime
+                // setTimeout(function pDaly() {
+                //     printDelay(pi)
+                // }, t);
+                // setTimeout(printDelay(pi),1000*i)
+                setTimeout(() => {
+                    printDelay(pi)
+                }, t);
+
+            }
+        }
+
+        function printDelay(p) {
+            $("#msgView").append(p)
+            keepBottom()
+            // $("#msgView").scrollTop($("#msgView")[0].scrollHeight)
+
+        }
+
+
+
+        printMsg()
+    </script>
+</body>
+
+</html>

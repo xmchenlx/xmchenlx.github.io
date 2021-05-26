@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>普通的倒数计时</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            
+        }
+		html{
+		background-image: url('https://i.loli.net/2020/11/11/NxoagCFc4n8q5kw.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;}
+
+        #main{
+            /* text-align:center;
+      height:100px;
+      line-height:100px; */
+            /* width: 300px; */
+            width: 80%;
+            height: auto;
+            padding: 10px;
+            text-align: center;
+            text-shadow: 1px 1px 2px gray;
+            margin: 0 auto;
+            /*水平居中*/
+            position: relative;
+            top: 50%;
+            /*偏移*/
+            margin-top: -150px;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        #nowTime {
+            font-weight: bold;
+            font-size: 7vw;
+        }
+
+        /* 上拉加载 */
+	.load_more_box {
+	height:40px;
+	line-height:40px;
+	position:relative;
+	text-align:center;
+}
+.load_more_box span {
+	width:5px;
+	height:5px;
+	margin:0 1px;
+	display:inline-block;
+	vertical-align:middle;
+	background:#9b59b6;
+	animation:load_more_box 1.5s  infinite ease-in-out;
+}
+.load_more_box span:nth-child(2) {
+	animation-delay:.2s;
+}
+.load_more_box span:nth-child(3) {
+	animation-delay:.4s;
+}
+.load_more_box span:nth-child(4) {
+	animation-delay:.6s;
+}
+.load_more_box span:nth-child(5) {
+	animation-delay:.8s;
+}
+@keyframes load_more_box {
+	0% {
+	height:5px;
+	background:#9b59b6;
+}
+25% {
+	height:30px;
+	background:#0081ff;
+}
+50% {
+	height:5px;
+	background:#9b59b6;
+}
+100% {
+	height:5px;
+	background:#9b59b6;
+}
+}
+    </style>
+    <script>
+        window.onload = function () {
+            setInterval(FreeTime, 1000);
+        }
+        function FreeTime() {
+            var curTime = Date.now();
+            var endTime = new Date("2021-6-15 10:00");
+            var allFreeSeconds = (endTime - curTime) / 1000;
+            if (allFreeSeconds > 0) {
+                var freeDay = Math.floor(allFreeSeconds / (24 * 60 * 60));
+                var freeHour = Math.floor(allFreeSeconds / (60 * 60) % 24);
+                var freeMinute = Math.floor(allFreeSeconds / 60 % 60);
+                var freeSecond = Math.floor(allFreeSeconds % 60);
+                document.getElementById("nowTime").innerHTML = "剩余" + freeDay + "天" + freeHour + "时" + freeMinute + "分" + freeSecond + "秒";
+            }
+            else {
+                document.getElementById("nowTime").innerHTML = "已结束";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="main">
+	
+        <h2 style="font-size: 5vw;">距离“前端工程师系统学习”倒计时</h2>
+        <div id="nowTime">
+            <div class="load_more_box">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+	<div class="falling-leaves"></div>
+</body>
+
+</html>
