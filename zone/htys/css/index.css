@@ -1,0 +1,42 @@
+*{
+border: 0;
+margin: 0;
+padding: 0;
+}
+
+#desc{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+img{
+    width: 60vw;
+}
+
+.small{
+    width: 40vw;
+}
+
+a{
+    font-weight: 600;
+    font-size: 30px;
+    padding: 2vh;
+    margin: 2vh;
+    padding-bottom: 10vh;
+    color: red;
+    text-decoration: none;
+}
+a:hover{
+    color: orange;
+}
+@font-face{
+    font-family: 'penwrite';
+    src: url('../resources/FZSJ-YISNLYSBA.TTF');
+  /*src: url('http://sbcfc.chenlx.top/FZSJ-YISNLYSBA.TTF');*/
+
+}
+
+div{
+ font-family: penwrite;
+ font-size: 150%;
+}

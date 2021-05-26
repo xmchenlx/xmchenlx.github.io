@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="免费在线教程">
+    <meta name="keywords" content="MilkTea,奶茶,热量,统计数据,一点点,快乐番薯">
+    <meta name="author" content="chenlx">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奶茶热量查询（福建地区）</title>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+</head>
+<div id="app" v-cloak>
+    <br><br>
+    <p class="desc_p" style="font-size: 0.5rem;">数据更新：{{allJsonData.version_date}}（v.{{allJsonData.version}}） |
+        <el-button type="text" style="font-size: 0.5rem;" @click="webDescShow=!twebDescShow">关于本网站</el-button>
+    </p>
+    <el-form inline @submit.native.prevent>
+        <el-form-item label="搜索">
+            <el-input v-model="search" size="mini" placeholder="输入搜索名称，按回车查询"  @keyup.enter.native="searchMk()"> 
+                <i slot="prefix" class="el-input__icon el-icon-search"></i>
+            </el-input>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="searchMk()" icon="el-icon-search" size="mini">查询</el-button>
+
+        </el-form-item>
+    </el-form>
+    <el-table :data="tableData" style="width: 100%" :row-class-name="tableRowClassName">
+        <template slot="empty" style="width: 100%;padding: 1rem;">
+            <i class="el-icon-milk-tea" style="font-size: 4rem;"></i>
+            <p style="line-height: 1rem;width: 100%;">
+                <span style="color:coral">目前奶茶资料库里暂无【{{search}}】。</span>
+                <br>
+                如您想扩大搜索范围，请单击蓝色文字，
+                <br>将为您跳转到<el-link type="primary" target="_blank" :href="'http://www.boohee.com/food/search?keyword='+search">薄荷健康食物库</el-link>搜索更多信息。</p>
+          </template>
+        <el-table-column label="品牌" min-width="15%" prop="pp" :filters="filterPPList" :filter-method="filterHandler">
+        </el-table-column>
+        <el-table-column label="饮品名" min-width="25%" prop="ypm">
+        </el-table-column>
+        <el-table-column label="价格" min-width="10%" prop="pri">
+        </el-table-column>
+        <el-table-column label="通常热量" min-width="23%" prop="rl" sortable>
+            <template slot-scope="scope">
+                {{scope.row.rl}} Kcal
+            </template>
+        </el-table-column>
+        <el-table-column label="操作" min-width="27%">
+            
+            <template slot-scope="scope">
+                <el-button type="primary" size="mini" @click="handleOpen(scope.$index, scope.row)">查看详细</el-button>
+            </template>
+        </el-table-column>
+    </el-table>
+
+
+    <el-drawer title="详细热量查阅" :visible.sync="isOpen" direction="ltr" size="90%" >
+       <div id="milk-tea-detial" style="height:95vh;overflow-y: scroll;">
+        <el-form ref="detailMilkTea" label-position="right" :disabled="isDis" label-width="100px" :model="detailMilkTea" size="mini">
+            <el-form-item label="奶茶名">
+                <h3>{{detailMilkTea.pp}}·{{detailMilkTea.ypm}}</h3>
+            </el-form-item>
+            <el-form-item label="价格">
+                <h3>{{((detailMilkTea.pri==='0'?'信息未搜集或免费':detailMilkTea.pri))}}</h3>
+            </el-form-item>
+            <el-form-item label="杯型">
+                <el-radio-group v-model="detailMilkTea.cup" size="small" @change="radioChangeGeneral">
+                    <el-radio-button label="1">大杯</el-radio-button>
+                    <el-radio-button label="2">中杯</el-radio-button>
+                </el-radio-group>
+            </el-form-item>
+            <el-form-item label="冰度">
+                <el-radio-group v-model="detailMilkTea.ice" size="small" @change="radioChangeGeneral">
+                    <el-radio-button :label="1">标准冰</el-radio-button>
+                    <el-radio-button :label="1.2">少冰</el-radio-button>
+                    <el-radio-button :label="1.4">去冰</el-radio-button>
+                    <el-radio-button :label="1.39">温/热</el-radio-button>
+                </el-radio-group>
+
+            </el-form-item>
+            <el-form-item label="糖度">
+                <el-radio-group v-model="detailMilkTea.sugar" size="small" @change="radioChangeGeneral">
+                    <el-radio-button :label="0">标糖</el-radio-button>
+                    <el-radio-button :label="50">半糖</el-radio-button>
+                    <el-radio-button :label="80">少糖</el-radio-button>
+                    <el-radio-button :label="100">微糖/无糖</el-radio-button>
+                </el-radio-group>
+
+            </el-form-item>
+            <el-form-item label="加料">
+                <!-- v-if="selectIngJsonList.length!==0" -->
+                <div id="isSelectIngViewBox" v-show="selectIngJsonList.length!==0">
+                    <el-divider>已加小料列表</el-divider>
+                    <el-tag size="small" style="margin: 0.5rem; width: 65px;" v-for="obj in selectIngJsonList"
+                        :key="obj.index">{{obj.nm}}</el-tag>
+                        <p class="desc_p">数量/总热量：{{selectIngJsonList.length}}种/{{calcIngKcalNum}}Kcal</p>  
+                                              <el-divider></el-divider>
+
+                </div>
+                <el-badge value="新功能" class="item">
+                <el-button type="primary" @click="ingDialogShow=!ingDialogShow">点击进入小料选择</el-button>
+            </el-badge>
+
+            </el-form-item>
+            <el-form-item label="参考热量">
+                <h1>{{resKcal}} Kcal</h1>
+            </el-form-item>
+        </el-form>
+        <div id="processbox">
+            <el-progress :text-inside="true" :stroke-width="24" :percentage="kcalOfDay" v-if="kcalOfDay" status="warning"></el-progress>
+            <div id="desc">
+                <p class="desc_p">
+                    *根据《中国居民膳食指南》的推荐，一般正常人每日食物热量的摄入总量控制在1800—2500千卡(Kcal)。假设人一天摄入能量为取均值的2150Kcal，当前的奶茶摄入热量占一天摄入的{{kcalOfDay}}%。
+                </p>
+                <p class="desc_p">*推荐饮食比例为3:4:3。奶茶作为加餐时不推荐超过{{maxKcal}}Kcal，否则不好分配一天的营养比例与摄入总量。</p>
+                <p class="desc_p">*冰度：奶茶放入少冰或去冰量的冰块时，空出的部分会加入多余的奶茶液体，造成总体热量的提升。热量差异大约在五分之一到五分之二不等。</p>
+                <p class="desc_p">*糖度：奶茶原料制作时已经存在，如果糖等。在此基础上，如减少糖量，也只是去除了摇奶茶前加入的额外果糖。减量在50Kcal至100Kcal不等。</p>
+                <p class="desc_p">*杯型：依照容量进行比例计算。大杯通用容量为650ml，中杯通用容量为500ml。</p>
+                <p class="desc_p">*加料： - </p>
+            </div>
+        </div>
+       </div>
+    </el-drawer>
+
+
+    <el-drawer title="关于本网页" :visible.sync="webDescShow" direction="ltr" size="70%">
+        <div>
+            <el-collapse v-model="activeNames">
+                <el-collapse-item title="网站说明 Website Description" name="1">
+                    <div class="desc_div">
+                        本网站设计的初衷在于对市面上的奶茶有更进一步的了解。但由于品牌与产品繁多，且新品不断更迭，数据将尽量跟进市场。本网站仅用于学习与研究，不用于任何商业用途。网站内的数据仅供参考，请勿将数据作为重要依据。
+                    </div>
+                </el-collapse-item>
+                <el-collapse-item title="数据来源 Data sources" name="2">
+                    <div class="desc_div">
+                        <p>目前网站上统计的奶茶数据，默认的配置是：大杯-标准糖度-标准冰度。本网站的奶茶热量数据均来源于互联网。但会挑选基于检测实验室的数据纳入网站的奶茶信息。</p>
+                        <p>目前奶茶的信息来源于以下：</p>
+                        <div class="desc_div">
+                            <ul>
+                                <li>卡比实验室 - 小红书</li>
+                                <li>老爸测评 - 全网</li>
+                            </ul>
+                        </div>
+                    </div>
+                </el-collapse-item>
+                <el-collapse-item title="热量计算公式 The heat calculation formula " name="3">
+                    <div class="desc_div">
+                        <p>每一家的奶茶做法都不太相同，所以网站根据营养师博主提供的公式，对市面上的奶茶进行粗略估算。估算的热量数值已可以满足日常热量摄入计算或评估。</p>
+                        <p>①、冰度。以标冰为基准1，少冰*1.2 ， 去冰、温、热*1.4。 因为冰块本身没有热量，奶茶杯里没有冰块时，会由额外的奶茶液体代替，从而提升奶茶的热量。</p>
+                        <p>②、糖度。以标糖为基准，少糖-50Kcal ， 微糖-70Kcal ， 无糖-90Kcal。奶茶原料制作时已经存在，如果糖等。在此基础上，如减少糖量，也只是去除了摇奶茶前加入的额外果糖。
+                        </p>
+                        <p>③、杯型。以大杯为基准，中杯*0.77。目前市面上通用的大杯容量为650ml，中杯容量为500ml。由此得出中杯的热量差为大杯的33%。</p>
+                        <p>④、小料。小料为了口感，会与果糖一同搅拌后等待使用。所以小料本身就相当于糖。除了果糖，小料的成分也包含淀粉。减肥人士在减肥期间应当尽量少碰或者不碰。</p>
+                    </div>
+                </el-collapse-item>
+                <el-collapse-item title="网站未来维护 The Plan in Future" name="4">
+                    <div class="desc_div">
+                        /
+                    </div>
+                </el-collapse-item>
+            </el-collapse>
+            <br><br>
+            <div id="copyright" style="width: 100%;text-align: center;">
+                <p class="desc_p" style="font-size: 0.5rem">Copyright ©2018-2021 MITL小天地 <br>
+                    本站数据整理自互联网,仅供参考，详情见上方。 <br>
+                    网页内容仅用于学习或研究。请勿用于任意商业行为 <br>
+                    若因本网页数据内容引起相关纠纷概不负责。 <br>
+                </p>
+                <br>
+                <p class="desc_p" style="font-size:0.3rem;">
+                    This website is MADE AND DESIGNED BY chenlx. <br>
+                     The data on this website is collated from the Internet platform for reference only and please DO not for any commercial purposes.
+                </p>
+            </div>
+        </div>
+    </el-drawer>
+
+    <el-dialog title="QQㄋㄟㄋㄟ好吃到咩噗的小料" :visible.sync="ingDialogShow" width="90%">
+        <div id="selBox">
+            <!-- <slot v-for="(rowlist,index) in ingList" :index="index">
+    <el-checkbox-group v-model="selectIng" size="mini" >
+      <el-checkbox  border  v-for="(obj,index) in rowlist" :key="index" :label="obj.nm" />
+    </el-checkbox-group>
+    </slot> -->
+            <!-- <slot v-for="(rowlist,index) in ingList" :index="index"> -->
+            <br>
+            <el-checkbox-group v-model="selectIngList" size="small" class="box">
+                <el-checkbox border @change="calcIngKcal(obj)" v-for="(obj,index) in ingData"
+                    style="width: 90px;margin:2px  5px ;" :key="index" :label="obj.nm" />
+            </el-checkbox-group>
+            <!-- </slot> -->
+
+            <h3><span id="label">当前小料总数/热量总和：</span>{{selectIngJsonList.length}}种/{{calcIngKcalNum}}Kcal</h3>
+            <br>
+            <el-divider>小料选择说明</el-divider>
+            <span class="desc_div">*小料的热量根据本身材料与加入的糖分进行粗略估算，仅供参考。一般来说，一杯奶茶不可能装入超过5种以上的小料，但处于参考用途，网页在此不作出限制。<strong
+                    style="color:red">小料的容量与奶茶的液体容量会产生冲突</strong>，可以自己酌情减掉一些热量。</span>
+        </div>
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="ingDialogShow = false">取 消</el-button>
+            <el-button type="primary" @click="calcKcal()">确 定</el-button>
+        </span>
+    </el-dialog>
+</div>
+
+<body>
+
+
+    <script>
+        // const axios = require('axios').default;
+        new Vue({
+            el: '#app',
+            data: {
+                title: '奶茶热量查询',
+                tableData: [
+                    {
+                        id: 0,
+                        pp: '一点点',
+                        ypm: '四季奶茶',
+                        pri: '0',
+                        rl: '530'
+                    }
+                ],
+                detailMilkTea: {
+                    cup: 1,
+                    sugar: 0,
+                    ice: 1
+                },
+                resKcal: 0,
+                search: '',
+                isOpen: false,
+                webDescShow: false,
+                kcalOfDay: 0,
+                maxKcal: 400,
+                isDis: false,
+                activeNames: '1',
+                allJsonData: [],
+                ingData: [],
+                ingList: [],
+                selectIngList: [],
+                selectIngJsonList: [],
+                calcIngKcalNum: 0,
+                ingDialogShow: false, //小料模态框
+                search:'',
+                pplist: [
+                    '快乐番薯',
+                    '一点点',
+                    '益禾堂',
+                    'coco',
+                    '古茗',
+                    '贡茶',
+                    '壶见',
+                    '瑞幸',
+                    '瑞幸小鹿茶',
+                    '统一',
+                    '蜜雪冰城',
+                    '星巴克',
+                    '书亦',
+                    'Meco 蜜谷',
+                    'Wonderlab',
+                    '元气森林',
+                    'KOI',
+                    '茶百道',
+                    '沪上阿姨',
+                    '奈雪',
+                    '乐乐茶',
+                    '伏见',
+                    '厝内小眷村'
+
+                ],
+                filterPPList: []
+            },
+            created: function () {
+                this.loadJson()
+            },
+            methods: {
+                searchMk(){
+                    if(this.search === ''){
+                        this.loadJson()
+                        return false
+                    }
+                    let searchLen = this.search.length
+                    let searchList =[]
+                    this.tableData.forEach(obj=>{
+                        // console.log(obj)
+                        for(let i=0;i<obj.ypm.length;i++){
+                            // console.log(obj.ypm.substring(i,searchLen),',', this.search)
+                            if(obj.ypm.substring(i,searchLen) === this.search){
+                                searchList.push(obj)
+                                break;
+                            }
+                        }
+                    })
+                    this.tableData = searchList
+                },
+                format(percentage) {
+                    return percentage === 100 ? '爆' : `${percentage}%`;
+                },
+                radioChangeGeneral(v) {
+                    // console.log(v)
+                    this.calcKcal()
+                },
+                calcIngKcal(item) {
+                    let isFindFlag = false
+                    // 找寻已选中列表是否存在已选择的
+                    for (let i = 0; i < this.selectIngJsonList.length; i++) {
+                        if (item.index === this.selectIngJsonList[i].index) {
+                            isFindFlag = true
+                            this.selectIngJsonList.splice(i, 1)
+                            break;
+                        }
+                    }
+                    if (!isFindFlag) {
+                        this.selectIngJsonList.push(item)
+                    }
+                    console.log(this.selectIngJsonList)
+                    this.calcIngKcalNum = 0
+                    for (let i = 0; i < this.selectIngJsonList.length; i++) {
+                        console.log(this.selectIngJsonList[i])
+                        let x = this.selectIngJsonList[i].index
+                        this.calcIngKcalNum += Math.round(this.ingData[x].rl)
+                    }
+                    // this.calcIngKcalNum=value
+                },
+                calcKcal() {
+                    this.ingDialogShow = false
+                    let baseKacl = this.detailMilkTea.rl
+                    if (baseKacl === 0) {
+                        this.isDis = true
+                    } else {
+                        this.isDis = false
+
+                    }
+                    let cupPercent = (this.detailMilkTea.cup === '1' ? 1 : 0.77)
+                    this.resKcal = ((baseKacl * this.detailMilkTea.ice) - this.detailMilkTea.sugar) * cupPercent
+                    this.resKcal += this.calcIngKcalNum //小料
+
+                    //四舍五入
+                    this.resKcal = Math.round(this.resKcal)
+                    // 计算摄入比例
+                    this.kcalOfDay = Math.round(this.resKcal / 2150 * 100)
+
+
+                    if (this.resKcal < 0) this.resKcal = 0
+                    if (this.kcalOfDay < 0) this.kcalOfDay = 0
+
+                },
+                radioDefault() {
+                    // this.$nextTick(() => {
+                    //     
+                    // })
+                    console.log(this.detailMilkTea)
+                },
+                handleOpen(index, row) {
+                    let _this = this
+                    this.detailMilkTea={}
+                    this.isOpen = true
+                    this.selectIngList=[]
+                    this.selectIngJsonList=[]
+                    // this.$refs["detailMilkTea"].resetFields()
+                    this.calcIngKcalNum=0
+                    console.log(row)
+                    // this.detailMilkTea = this.tableData[index]
+                    
+                    let isFindDetailFlag=false
+                    let i=0
+                    while(!isFindDetailFlag){
+                        if(row.id === this.tableData[i++]['id']){
+                            isFindDetailFlag=true
+                        }
+                    }
+                    i--
+                    for (key in this.tableData[i]) {
+                        this.detailMilkTea[key] = this.tableData[i][key]
+                    }
+                    _this.detailMilkTea.ice = '1'
+                    _this.detailMilkTea.sugar = '0'
+                    _this.detailMilkTea.cup = '1'
+                    this.calcKcal()
+
+                },
+                tableRowClassName({ row, rowIndex }) {
+                    if (row.rl > this.maxKcal) {
+                        return 'warning-row';
+                    }
+                    return '';
+                },
+                loadJson() {
+                    let _this = this
+                    try {
+                        axios.get('./resources/jso.json').then(response => {
+                            //succces callback
+
+                            // this.allJsonData = this.allJsonData[0]
+                            this.allJsonData = response.data[0]
+                            // console.log('this.allJsonData.data')
+                            // console.log(this.allJsonData.data)
+                            this.tableData = this.allJsonData.data.milktea
+                            this.ingData = this.allJsonData.data.ingredients
+                            // 原本用于小料的排版，现在用flex自动布局，所以无用
+                            // let numsOfRow = 1
+                            // let ingListRows = Math.round((this.ingData.length / numsOfRow)) + Math.round(this.ingData.length % numsOfRow)
+                            // console.log('ingListRows=',ingListRows)
+                            // console.log('this.ingData.length=',this.ingData.length)
+                            // let ind = 0
+                            // let isEndFlag = false
+                            // for (let i = 0; i < ingListRows; i++) {
+                            //     let currentMaxInd = ind + numsOfRow
+                            //     let rowItem = []
+                            //     while (ind < currentMaxInd) {
+                            //         if (isEndFlag) break
+                            //         rowItem.push(this.ingData[ind++])
+                            //         if ((ind) >= this.ingData.length) isEndFlag = true
+                            //     }
+                            //     this.ingList.push(rowItem)
+                            //     if (isEndFlag) break
+
+                            // }
+                            // console.log('response=',response)
+                            // var data = response.body;
+                        }, response => {
+                            // error callback
+                            // alert('连接失败！')
+                        });
+                        this.pplist.forEach(obj => {
+                            _this.filterPPList.push({
+                                text: obj,
+                                value: obj
+                            })
+                        });
+                        this.$nextTick(() => {
+                            this.filterPPList = this.filterPPList
+                        })
+                        
+                        }
+                    catch (e) {
+                        console.log('axios异常')
+                    }
+                },
+                filterHandler(value, row, column) {
+                    const property = column['property'];
+                    return row[property] === value;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

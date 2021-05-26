@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《荷塘月色》500遍作业</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./resources/htys.json"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="./js/l-by-l.min.js"></script>
+</head>
+
+<body>
+    <div id="title"></div>
+    <div id="artBBox"></div>
+    <script>
+        var artBox = document.getElementById('artBBox')
+        var hiddenBBox = document.getElementById('hb')
+        var jst = ''
+        var count = 0
+        var maxcount = 500
+        var htys
+        var isUserMove =true
+        var siv = setInterval(() => {
+            if(isUserMove)siv.clearInterval()
+            /*$('html').scrollTop($('html')[0].scrollHeight);*/
+window.scrollTo(0, document.documentElement.scrollHeight+350)
+
+        }, 100);
+        $.getJSON('./resources/htys.json', (data) => {
+            // $("#artBBox").lbyl({
+            //     // content: data.content,
+            //     content: '这是第'+'饽饽山上吃饽饽',
+            //     speed: 100,
+            //     type: 'show',
+            //     finished: function () {
+            //         writing('波波啊啊啊啊啊啊')
+            //     } // Finished Callback
+            // });
+
+            writing(data)
+        })
+
+        function writing(data) {
+            isUserMove=false
+            if (count >= maxcount) return false;
+            let title = '这是第' + (++count) + '遍\n'
+            $('#title').html(title)
+            $('#artBBox').lbyl({
+                content: data.content,
+                speed: 5,
+                type: 'fade',
+                fadeSpeed: 150,
+                finished: function () {
+                    writing(data)
+                } // Finish
+            })
+        }
+
+    </script>
+</body>
+
+</html>

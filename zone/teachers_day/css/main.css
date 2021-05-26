@@ -1,0 +1,100 @@
+*,body,html{
+    margin:0;
+    padding:0;
+    border:0;
+    /* background-color: rgb(230,230,230); */
+}
+html{     background-color: rgb(237,237,237);
+}
+.lBuubles{
+    max-width: 80%;
+    background-color: rgb(247, 247, 247);
+    box-shadow: 0.5px 0.5px 2px gray;
+    border-radius: 5px;
+    padding: 5px;
+    margin:0;
+    display: inline-block;
+    font-size: 4vw;
+}
+#titleView{
+    background-color: rgb(238, 238, 238);
+    height: 4vh;
+    padding:4vw;
+    width: 100%;
+    z-index: 999;
+    position: fixed;
+    
+}
+.tipBubbles{
+    font-size: 2vw;
+    background-color: rgba(100,100,100,0.3);
+    color:white;
+    text-shadow: 0.5px 0.5px 1px gray;
+    padding:2vw;
+    margin: 2vw;
+    border-radius: 10px;
+}
+#msgView{
+    display: table-cell;
+    vertical-align: top;
+    /* max-height: 80%; */
+    /* min-height: 100%; */
+    overflow-y: scroll;
+    padding:0 2vw 9vh 2vw;
+    background-color: rgb(237,237,237);
+}
+#talkingView{
+    height:3vh;
+    font-size: 4vw;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 990;
+    padding:4vw;
+    background-color: rgb(226, 226, 226);
+}
+.redCircle{
+    /* background-color: red; */
+    font-size: 5px;
+    margin-left: -3vw;
+    color:red;
+}
+
+.talkBubbles{
+    width:35vw;
+    float:left;
+    display: inline-block;
+}
+.tbSpan{
+    float: left;
+    font-size: 5px;
+    margin-left: -25vw;
+    margin-top:1.5vh;
+}
+.talkname{
+    font-size: 2vw;
+    color:gray;
+    padding:5px 0;
+    margin:0;
+}
+.usericon{
+    width:9vw;
+    padding:0px;
+    border-radius: 3px;
+
+    margin-top: 2vh;
+    vertical-align: top;
+}
+
+.biaoqing{
+    max-width: 50%;
+}
+
+tr{
+    padding:15px 0;
+}
+td{
+    padding:0 5px ;
+    vertical-align: top;
+    
+}
