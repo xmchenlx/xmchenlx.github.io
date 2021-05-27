@@ -19,8 +19,11 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
 </head>
+<body>
+
 <div id="app" v-cloak>
     <br><br>
+    <el-backtop ></el-backtop>
     <p class="desc_p" style="font-size: 0.5rem;">数据更新：{{allJsonData.version_date}}（v.{{allJsonData.version}}） |
         <el-button type="text" style="font-size: 0.5rem;" @click="webDescShow=!webDescShow">关于本网站</el-button>
         | <el-link href="/milktea">如果有需求欢迎来博客留言，点我跳转到博客</el-link>
@@ -241,7 +244,6 @@
     </el-dialog>
 </div>
 
-<body>
 
 
     <script>
@@ -290,7 +292,7 @@
                     '古茗',
                     '贡茶',
                     '壶见',
-                    '瑞幸',
+                    '瑞幸咖啡',
                     '瑞幸小鹿茶',
                     '统一',
                     '蜜雪冰城',
