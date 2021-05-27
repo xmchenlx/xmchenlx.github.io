@@ -121,8 +121,8 @@
         </div>
         <div class="kratos-start kratos-hero-2">
             <!-- <div class="kratos-overlay"></div> -->
-            <div class="kratos-cover kratos-cover-2 text-left">
-                <div class="desc desc2 animate-box">
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box text-left">
                     <a href="/">
                         <h2>lx新博客</h2> <br />
                         <span>另一篇天地哈哈哈哈哈</span>
@@ -1115,5 +1115,20 @@ React不是一个完整的MVC框架，最多可以认为是MVC中的V（View）�
 <!-- Extra support for third-party plguins  -->
 
 
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
