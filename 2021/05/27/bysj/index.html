@@ -1,0 +1,2818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>毕业设计论文：基于javaEE的房屋租赁管理系统的设计与实现 | lx新博客</title>
+  <meta name="author" content="chenlx" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="JavaEE, Vue, 毕业设计, 论文" />
+  
+  <meta name="description" content="毕业设计（论文）    题目： 基于javaEE的房屋租赁管理系统的设计与实现    学生： 陈立祥   指导老师： 杨财英 讲师   院别： 软件学院   专业： 软件工程   班级： 1601   学号： 3168115101   2020年1月 福建工程学院本科毕业设计（论文）作者承诺保证书本人郑重承诺：本篇毕业设计（论文）的内容真实、可靠。如果存在弄虚作假、抄袭的情况，本人愿承担全部责任。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="毕业设计论文：基于javaEE的房屋租赁管理系统的设计与实现">
+<meta property="og:url" content="https://chenlx.top/2021/05/27/bysj/index.html">
+<meta property="og:site_name" content="lx新博客">
+<meta property="og:description" content="毕业设计（论文）    题目： 基于javaEE的房屋租赁管理系统的设计与实现    学生： 陈立祥   指导老师： 杨财英 讲师   院别： 软件学院   专业： 软件工程   班级： 1601   学号： 3168115101   2020年1月 福建工程学院本科毕业设计（论文）作者承诺保证书本人郑重承诺：本篇毕业设计（论文）的内容真实、可靠。如果存在弄虚作假、抄袭的情况，本人愿承担全部责任。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chenlx.top/null">
+<meta property="article:published_time" content="2021-05-27T07:54:15.000Z">
+<meta property="article:modified_time" content="2021-05-27T08:01:43.309Z">
+<meta property="article:author" content="chenlx">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="毕业设计">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="JavaEE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chenlx.top/null">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/about/"><i class="fa fa-file"></i>关于我</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>小天地项目引导</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://brps.chenlx.top">BRPS记账网</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://blog.chenlx.top">lx的旧博客</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">lx新博客</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-left">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>lx新博客</h2> <br />
+                        <span>另一篇天地哈哈哈哈哈</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                
+                    <h1 class="kratos-entry-title text-center">毕业设计论文：基于javaEE的房屋租赁管理系统的设计与实现</h1>
+                
+                
+                <ul class="kratos-post-meta text-center">
+                    <li><i class="fa fa-calendar"></i> 2021-05-27</li>
+                    <li><i class="fa fa-user"></i> 作者 chenlx</li>
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~27.95K
+                        
+                        字
+                    </li>
+                    
+                        <li id="/2021/05/27/bysj/" class="leancloud_visitors" data-flag-title="毕业设计论文：基于javaEE的房屋租赁管理系统的设计与实现">
+                            <i class="fa fa-eye"></i>
+                            <span class="leancloud-visitors-count"> </span> 次阅读
+                        </li>
+                        
+                    
+                </ul>
+            </header>
+            <div class="kratos-post-content">
+                <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                    本文最后编辑于 <time datetime="1622102503309"></time> 前，其中的内容可能需要更新。
+                </div>
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%8F%E5%BB%BA%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%EF%BC%88%E8%AE%BA%E6%96%87%EF%BC%89%E4%BD%9C%E8%80%85%E6%89%BF%E8%AF%BA%E4%BF%9D%E8%AF%81%E4%B9%A6"><span class="toc-number">1.</span> <span class="toc-text">福建工程学院本科毕业设计（论文）作者承诺保证书</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%8F%E5%BB%BA%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%EF%BC%88%E8%AE%BA%E6%96%87%EF%BC%89%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%E6%89%BF%E8%AF%BA%E4%BF%9D%E8%AF%81%E4%B9%A6"><span class="toc-number">2.</span> <span class="toc-text">福建工程学院本科毕业设计（论文）指导教师承诺保证书</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE-%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text">目 录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%98-%E8%A6%81"><span class="toc-number">4.</span> <span class="toc-text">摘 要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-number">5.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%BF%B0"><span class="toc-number">6.</span> <span class="toc-text">第一章 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E8%AF%BE%E9%A2%98%E8%83%8C%E6%99%AF%E5%8F%8A%E6%84%8F%E4%B9%89"><span class="toc-number">6.1.</span> <span class="toc-text">1.1 课题背景及意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%9B%BD%E5%86%85%E5%A4%96%E7%8E%B0%E7%8A%B6"><span class="toc-number">6.2.</span> <span class="toc-text">1.2 国内外现状</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1%E5%9B%BD%E5%86%85%E7%8E%B0%E7%8A%B6"><span class="toc-number">6.2.1.</span> <span class="toc-text">1.2.1国内现状</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2%E5%9B%BD%E5%A4%96%E7%8E%B0%E7%8A%B6"><span class="toc-number">6.2.2.</span> <span class="toc-text">1.2.2国外现状</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF"><span class="toc-number">7.</span> <span class="toc-text">第二章 相关技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">7.1.</span> <span class="toc-text">2.1开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF"><span class="toc-number">7.2.</span> <span class="toc-text">2.2相关技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-Vue%E6%8A%80%E6%9C%AF"><span class="toc-number">7.2.1.</span> <span class="toc-text">2.2.1 Vue技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-MySQL"><span class="toc-number">7.2.2.</span> <span class="toc-text">2.2.2 MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-SSM"><span class="toc-number">7.2.3.</span> <span class="toc-text">2.2.3 SSM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">8.</span> <span class="toc-text">第三章 系统需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-number">8.1.</span> <span class="toc-text">3.1 系统概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%B3%BB%E7%BB%9F%E4%B8%9A%E5%8A%A1%E5%88%86%E6%9E%90"><span class="toc-number">8.2.</span> <span class="toc-text">3.2 系统业务分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%9F%E5%AE%A2%E7%9A%84%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="toc-number">8.2.1.</span> <span class="toc-text">租客的业务流程分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%BF%E4%B8%9C%E7%9A%84%E4%B8%9A%E5%8A%A1%E5%88%86%E6%9E%90"><span class="toc-number">8.2.2.</span> <span class="toc-text">房东的业务分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82"><span class="toc-number">8.3.</span> <span class="toc-text">3.3 功能需求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E7%BD%91%E7%AB%99%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97"><span class="toc-number">8.3.1.</span> <span class="toc-text">3.3.1 网站前端模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E7%BD%91%E7%AB%99%E5%90%8E%E7%AB%AF%E6%A8%A1%E5%9D%97"><span class="toc-number">8.3.2.</span> <span class="toc-text">3.3.2 网站后端模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="toc-number">9.</span> <span class="toc-text">第四章 系统设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1"><span class="toc-number">9.1.</span> <span class="toc-text">4.1系统概要设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1"><span class="toc-number">9.2.</span> <span class="toc-text">4.2功能模块设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E5%85%AC%E5%85%B1%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97"><span class="toc-number">9.2.1.</span> <span class="toc-text">4.2.1 公共前端模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%E6%A8%A1%E5%9D%97"><span class="toc-number">9.2.2.</span> <span class="toc-text">4.2.2 个人中心模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-%E7%AE%A1%E7%90%86%E5%91%98%E6%A8%A1%E5%9D%97"><span class="toc-number">9.2.3.</span> <span class="toc-text">4.2.3 管理员模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">9.3.</span> <span class="toc-text">4.3数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1"><span class="toc-number">9.3.1.</span> <span class="toc-text">4.3.1 概要设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E7%89%A9%E7%90%86%E8%AE%BE%E8%AE%A1"><span class="toc-number">9.3.2.</span> <span class="toc-text">4.3.2 物理设计</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0"><span class="toc-number">10.</span> <span class="toc-text">第五章 系统实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1%E5%85%AC%E5%85%B1%E5%89%8D%E5%8F%B0%E6%A8%A1%E5%9D%97"><span class="toc-number">10.1.</span> <span class="toc-text">5.1公共前台模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-1-%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2"><span class="toc-number">10.1.1.</span> <span class="toc-text">5.1.1 欢迎页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-2-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E9%A1%B5"><span class="toc-number">10.1.2.</span> <span class="toc-text">5.1.2 用户注册页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-3-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E9%A1%B5"><span class="toc-number">10.1.3.</span> <span class="toc-text">5.1.3 用户登录页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-4-%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E9%A1%B5"><span class="toc-number">10.1.4.</span> <span class="toc-text">5.1.4 搜索结果页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-5-%E6%88%BF%E6%BA%90%E8%AF%A6%E6%83%85%E9%A1%B5"><span class="toc-number">10.1.5.</span> <span class="toc-text">5.1.5 房源详情页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E6%A8%A1%E5%9D%97"><span class="toc-number">10.2.</span> <span class="toc-text">5.2 租客中心模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E7%9A%84%E6%AC%A2%E8%BF%8E%E9%A1%B5"><span class="toc-number">10.2.1.</span> <span class="toc-text">5.2.1 租客中心的欢迎页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E7%9A%84%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81%E5%8A%9F%E8%83%BD"><span class="toc-number">10.2.2.</span> <span class="toc-text">5.2.2 租客中心的实名认证功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-3-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E7%9A%84%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9%E5%8A%9F%E8%83%BD"><span class="toc-number">10.2.3.</span> <span class="toc-text">5.2.3 租客中心的密码修改功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-4-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD"><span class="toc-number">10.2.4.</span> <span class="toc-text">5.2.4 租客中心的个人信息编辑功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-5-%E6%88%91%E7%9A%84%E5%90%88%E5%90%8C%E5%8A%9F%E8%83%BD"><span class="toc-number">10.2.5.</span> <span class="toc-text">5.2.5 我的合同功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-6-%E6%88%91%E7%9A%84%E8%B4%A6%E5%8D%95%E5%8A%9F%E8%83%BD"><span class="toc-number">10.2.6.</span> <span class="toc-text">5.2.6 我的账单功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-7-%E6%88%91%E7%9A%84%E7%9C%8B%E6%88%BF%E9%A2%84%E7%BA%A6%E5%8A%9F%E8%83%BD"><span class="toc-number">10.2.7.</span> <span class="toc-text">5.2.7 我的看房预约功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E6%A8%A1%E5%9D%97"><span class="toc-number">10.3.</span> <span class="toc-text">5.3 房东中心模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-1-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E7%9A%84%E6%AC%A2%E8%BF%8E%E9%A1%B5"><span class="toc-number">10.3.1.</span> <span class="toc-text">5.3.1 房东中心的欢迎页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-2-%E6%96%B0%E5%A2%9E%E6%88%BF%E6%BA%90%E5%8A%9F%E8%83%BD"><span class="toc-number">10.3.2.</span> <span class="toc-text">5.3.2 新增房源功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-3-%E6%88%BF%E6%BA%90%E5%88%97%E8%A1%A8%E5%8A%9F%E8%83%BD"><span class="toc-number">10.3.3.</span> <span class="toc-text">5.3.3 房源列表功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-4-%E7%9C%8B%E6%88%BF%E9%A2%84%E7%BA%A6%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD"><span class="toc-number">10.3.4.</span> <span class="toc-text">5.3.4 看房预约管理功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-5-%E5%90%88%E5%90%8C%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD"><span class="toc-number">10.3.5.</span> <span class="toc-text">5.3.5 合同管理功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-6-%E6%94%B6%E7%A7%9F%E5%8A%9F%E8%83%BD"><span class="toc-number">10.3.6.</span> <span class="toc-text">5.3.6 收租功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-7-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E7%9A%84%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81%E5%8A%9F%E8%83%BD"><span class="toc-number">10.3.7.</span> <span class="toc-text">5.3.7 房东中心的实名认证功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-8-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD"><span class="toc-number">10.3.8.</span> <span class="toc-text">5.3.8 房东中心的个人信息编辑功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-9-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E7%9A%84%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9%E5%8A%9F%E8%83%BD"><span class="toc-number">10.3.9.</span> <span class="toc-text">5.3.9 房东中心的密码修改功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E7%AE%A1%E7%90%86%E5%91%98%E6%A8%A1%E5%9D%97"><span class="toc-number">10.4.</span> <span class="toc-text">5.4 管理员模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-1-%E7%94%A8%E6%88%B7%E5%AE%9E%E5%90%8D%E4%BF%A1%E6%81%AF%E5%AE%A1%E6%A0%B8"><span class="toc-number">10.4.1.</span> <span class="toc-text">5.4.1 用户实名信息审核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-2-%E6%88%BF%E6%BA%90%E4%BF%A1%E6%81%AF%E5%AE%A1%E6%A0%B8"><span class="toc-number">10.4.2.</span> <span class="toc-text">5.4.2 房源信息审核</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95"><span class="toc-number">11.</span> <span class="toc-text">第六章 系统测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E7%B3%BB%E7%BB%9F%E7%94%A8%E4%BE%8B%E6%B5%8B%E8%AF%95"><span class="toc-number">11.1.</span> <span class="toc-text">6.1 系统用例测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-number">11.2.</span> <span class="toc-text">6.2 测试结果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB-%E7%BB%93"><span class="toc-number">12.</span> <span class="toc-text">总 结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">13.</span> <span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%B4-%E8%B0%A2"><span class="toc-number">14.</span> <span class="toc-text">致 谢</span></a></li></ol>
+                    </div>
+                
+                <hr />
+                <p>毕业设计（论文）</p>
+<table>
+<thead>
+<tr>
+<th>题目：</th>
+<th>基于javaEE的房屋租赁管理系统的设计与实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>学生：</td>
+<td>陈立祥</td>
+</tr>
+<tr>
+<td>指导老师：</td>
+<td>杨财英 讲师</td>
+</tr>
+<tr>
+<td>院别：</td>
+<td>软件学院</td>
+</tr>
+<tr>
+<td>专业：</td>
+<td>软件工程</td>
+</tr>
+<tr>
+<td>班级：</td>
+<td>1601</td>
+</tr>
+<tr>
+<td>学号：</td>
+<td>3168115101</td>
+</tr>
+</tbody></table>
+<p>2020年1月</p>
+<h1 id="福建工程学院本科毕业设计（论文）作者承诺保证书"><a href="#福建工程学院本科毕业设计（论文）作者承诺保证书" class="headerlink" title="福建工程学院本科毕业设计（论文）作者承诺保证书"></a>福建工程学院本科毕业设计（论文）作者承诺保证书</h1><p>本人郑重承诺：本篇毕业设计（论文）的内容真实、可靠。如果存在弄虚作假、抄袭的情况，本人愿承担全部责任。</p>
+<p>学生签名：</p>
+<p>2020 年 1 月 日</p>
+<h1 id="福建工程学院本科毕业设计（论文）指导教师承诺保证书"><a href="#福建工程学院本科毕业设计（论文）指导教师承诺保证书" class="headerlink" title="福建工程学院本科毕业设计（论文）指导教师承诺保证书"></a>福建工程学院本科毕业设计（论文）指导教师承诺保证书</h1><p>本人郑重承诺：我已按有关规定对本篇毕业设计(论文)的选题与内容进行了指导和审核，且提交的毕业设计（论文）终稿与上传至“大学生论文管理系统”检测的电子文档相吻合，未发现弄虚作假、抄袭的现象，本人愿承担指导教师的相关责任。</p>
+<p>指导教师签名：</p>
+<p>2020 年 月 日</p>
+<h1 id="目-录"><a href="#目-录" class="headerlink" title="目 录"></a>目 录</h1><p><a href="#_Toc29371863">摘  要    I</a></p>
+<p><a href="#_Toc29371864">Abstract    II</a></p>
+<p><a href="#_Toc29371865">第一章 概述    1</a></p>
+<blockquote>
+<p>  <a href="#_Toc29371866">1.1 课题背景及意义    1</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371867">1.2 国内外现状    1</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371868">1.2.1国内现状    1</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371869">1.2.2国外现状    1</a></p>
+</blockquote>
+<p><a href="#_Toc29371870">第二章 相关技术    2</a></p>
+<blockquote>
+<p>  <a href="#_Toc29371871">2.1开发环境    2</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371872">2.2相关技术    2</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371873">2.2.1 Vue技术    2</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371874">2.2.2 MySQL    2</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371875">2.2.3 SSM    2</a></p>
+</blockquote>
+<p><a href="#_Toc29371876">第三章 系统需求分析    3</a></p>
+<blockquote>
+<p>  <a href="#_Toc29371877">3.1 系统概述    3</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371878">3.2 系统业务分析    3</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371879">3.3 功能需求    5</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371880">3.3.1 网站前端模块    5</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371881">3.3.2 网站后端模块    11</a></p>
+</blockquote>
+<p><a href="#_Toc29371882">第四章 系统设计    12</a></p>
+<blockquote>
+<p>  <a href="#_Toc29371883">4.1系统概要设计    12</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371884">4.2功能模块设计    12</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371885">4.2.1 公共前端模块    12</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371886">4.2.2 个人中心模块    14</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371887">4.2.3 管理员模块    18</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371888">4.3数据库设计    18</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371889">4.3.1 概要设计    18</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371890">4.3.2 物理设计    22</a></p>
+</blockquote>
+<p><a href="#_Toc29371891">第五章 系统实现    27</a></p>
+<blockquote>
+<p>  <a href="#_Toc29371892">5.1公共前台模块    27</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371893">5.1.1 欢迎页面    27</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371894">5.1.2 用户注册页    27</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371895">5.1.3 用户登录页    28</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371896">5.1.4 搜索结果页    29</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371897">5.1.5 房源详情页    30</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371898">5.2 租客中心模块    34</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371899">5.2.1 租客中心的欢迎页    34</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371900">5.2.2 租客中心的实名认证功能    34</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371901">5.2.3 租客中心的密码修改功能    35</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371902">5.2.4 租客中心的个人信息编辑功能    36</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371903">5.2.5 我的合同功能    37</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371904">5.2.6 我的账单功能    39</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371905">5.2.7 我的看房预约功能    41</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371906">5.3 房东中心模块    42</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371907">5.3.1 房东中心的欢迎页    42</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371908">5.3.2 新增房源功能    42</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371909">5.3.3 房源列表功能    43</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371910">5.3.4 看房预约管理功能    44</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371911">5.3.5 合同管理功能    45</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371912">5.3.6 收租功能    46</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371913">5.3.7 房东中心的实名认证功能    48</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371914">5.3.8 房东中心的个人信息编辑功能    48</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371915">5.3.9 房东中心的密码修改功能    49</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371916">5.4 管理员模块    49</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371917">5.4.1 用户实名信息审核    49</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371918">5.4.2 房源信息审核    50</a></p>
+</blockquote>
+<p><a href="#_Toc29371919">第六章 系统测试    52</a></p>
+<blockquote>
+<p>  <a href="#_Toc29371920">6.1 系统用例测试    52</a></p>
+</blockquote>
+<blockquote>
+<p>  <a href="#_Toc29371921">6.2 测试结果    53</a></p>
+</blockquote>
+<p><a href="#_Toc29371922">总 结    54</a></p>
+<p><a href="#_Toc29371923">参考文献    55</a></p>
+<p><a href="#_Toc29371924">致 谢    56</a></p>
+<p>基于javaEE的房屋租赁管理系统的设计与实现</p>
+<h1 id="摘-要"><a href="#摘-要" class="headerlink" title="摘 要"></a>摘 要</h1><p>在如今的互联网时代，传统繁琐的租赁流程已不太适用于当下忙碌而又快节奏的生活。租客想在工作的城市借居却很难即时发现自己最为心仪的房源；流动租客过多时也导致房东难以进行管理。因此，本课题借由这一社会现象设计并实现了一套房屋租赁管理系统。该课题的开发语言选择Vue与JavaEE，采用Element<br>UI、SSM等技术框架；使用Tomcat搭建服务器，以及使用MySQL数据库进行数据存储。系统拥有搜索房源、租赁房源、签订合同、支付账单等功能。通过本系统，租客可以直接在网页搜索查询自己想要的房屋信息；通过查阅房源的评分，租客能对房源的客观状态一目了然，同时，也支持租客在网站内完成预约上门看房、申请租房、签约合同、支付房租等功能；房东也可以在网站上直接对合同、账单、租客预约等进行便捷的处理。在处理租客的租房申请时，房东也能根据租客的评分来决定是否向租客出租以避免糟心的问题。系统可以简化租赁流程，直接在一个网站上存储相应的租赁内容并提供随时查阅。不论是租客还是房东，在租赁结束后都能为对方进行评价，形成一套简单的用户评价体系。系统完成后的测试结果表明，该系统运行状态良好，对各个功能进行了不同环境的测试，基本符合用户的良好体验。</p>
+<p>关键字：房屋，租赁，Vue，J2EE</p>
+<p>Design and Implementation of a House Rental Management System Based on JavaEE</p>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>In today’s Internet age, the traditional tedious rental process is no longer<br>suitable for today’s busy and fast-paced life. Tenants want to live in the city<br>where they work, but it ’s difficult to find their favorite property instantly;<br>too many mobile tenants also make it difficult for landlords to manage.<br>Therefore, the subject designs and implements a house rental management system<br>based on this social phenomenon. Vue, SSM and other technologies were selected<br>as the development language used in this system. Using Tomcat to build the<br>server, and select MySQL database for data storage. The system has functions<br>such as searching for listings, renting listings, contracts, and paying bills.<br>Through this system, tenants can search for the desired housing information<br>directly on the webpage. By checking the ratings of the listing and the<br>landlord, the objective status of the listing or the landlord can be seen at a<br>glance. Apply for rent online, read and sign the contract, pay rent bill. The<br>landlord can also conveniently handle the contracts, the bills, the appointments<br>and the bill directly on the website. When processing a housing application, you<br>can decide whether to rent based on the tenant’s evaluation. Avoid bad<br>experiences. The system can make most of the leasing process paperless, store<br>the corresponding content directly on a website and can check it at any time.<br>Both the tenant and the landlord can evaluate the other party after the lease<br>ends, forming a simple user evaluation system. The test results after the<br>completion of the system show that the system is running well, and various<br>functions have been tested in different environments, which basically meets the<br>user’s good experience.</p>
+<p>Keywords: House, Rent, Vue, J2EE</p>
+<h1 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h1><h2 id="1-1-课题背景及意义"><a href="#1-1-课题背景及意义" class="headerlink" title="1.1 课题背景及意义"></a>1.1 课题背景及意义</h2><p>近年来，我国的社会经济迅猛发展，工作机遇也越来越多，市场对于房屋租赁的需求也在不断增多[1]。大部分的年轻人喜欢到大城市去寻找工作，因此，伴随着这一现象的基础问题之一就是住宿。</p>
+<p>中国之大，流动人口众多。在中国加入WTO后，房屋租赁行业受到国外竞争者的挑战[2]。如今，网络贯穿着我们生活的各个场景，人们越来越希望在繁琐重复的事情上节省更多的时间。传统的那种：租客四处寻、房东、房东用纸笔记录的方式已经不是那么得适用于目前的情况。而租客身在异乡人生地不熟，很难一时发现自己最为心仪的出租房；流动租客过多时，房东也很难进行便捷管理。本课题准备设计一个针对租客、房东两位核心角色，提供便捷寻房、租房和住房的平台。便捷二字，对于为生活奔波的租客、管理的房东来讲无疑是最重要的，所以，本课题的研究对于这两类角色有着减轻负担、节省时间、提升生活里的幸福感的意义。</p>
+<h2 id="1-2-国内外现状"><a href="#1-2-国内外现状" class="headerlink" title="1.2 国内外现状"></a>1.2 国内外现状</h2><h3 id="1-2-1国内现状"><a href="#1-2-1国内现状" class="headerlink" title="1.2.1国内现状"></a>1.2.1国内现状</h3><p>同发达国家相比，我国的租赁公寓起步较晚，租赁政策较少，因此我国目前的租赁市场并不健全，传统的住房租赁市场主要为个体房东，机构参与者较少[11]。稀少的平台导致在某些区域里，租赁价格与实际价值有出入、价格不透明，从而存在不同的租客租赁同一间房源时，存在没有理由的价格差异的现象。</p>
+<h3 id="1-2-2国外现状"><a href="#1-2-2国外现状" class="headerlink" title="1.2.2国外现状"></a>1.2.2国外现状</h3><p>与大多数发展国家而言，国外的房屋租赁率较高主要是一种分配制度造成的[3]。德国的首都柏林大约有22.5万套“社会住房”专供低收入者租住[4]；日本东京为了解决高昂的租房金问题政府制定一套完善策可以根据不同的收入缴纳租金[6]。国外的房屋租住政策使得国外的房屋市场发展迅猛。一是通过共享信息平台政策使得国外的房屋市场发展迅猛，或者房屋租赁软件来推广业务；二是通过先进的互联网技术提高数据处理效率，完全替代手工录用方式。[7][8]</p>
+<h1 id="第二章-相关技术"><a href="#第二章-相关技术" class="headerlink" title="第二章 相关技术"></a>第二章 相关技术</h1><h2 id="2-1开发环境"><a href="#2-1开发环境" class="headerlink" title="2.1开发环境"></a>2.1开发环境</h2><p>开发工具：IntelliJ IDEA 2019.1.1</p>
+<p>数据库管理工具：Navicat for MySQL5.5</p>
+<p>开发语言：Vue + JavaEE</p>
+<h2 id="2-2相关技术"><a href="#2-2相关技术" class="headerlink" title="2.2相关技术"></a>2.2相关技术</h2><h3 id="2-2-1-Vue技术"><a href="#2-2-1-Vue技术" class="headerlink" title="2.2.1 Vue技术"></a>2.2.1 Vue技术</h3><p>Vue.js是一套构建用户界面的渐进式框架，他能够更方便的进行页面上数据的处理，并且实现单页面多内容渲染。</p>
+<h3 id="2-2-2-MySQL"><a href="#2-2-2-MySQL" class="headerlink" title="2.2.2 MySQL"></a>2.2.2 MySQL</h3><p>MySQL<br>是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
+<h3 id="2-2-3-SSM"><a href="#2-2-3-SSM" class="headerlink" title="2.2.3 SSM"></a>2.2.3 SSM</h3><p>SSM是SpringMVC + Spring + MyBatis的简称，它是目前比较主流的Java<br>EE企业级的后台框架。使用它能快速搭建起系统的后台功能。</p>
+<h1 id="第三章-系统需求分析"><a href="#第三章-系统需求分析" class="headerlink" title="第三章 系统需求分析"></a>第三章 系统需求分析</h1><h2 id="3-1-系统概述"><a href="#3-1-系统概述" class="headerlink" title="3.1 系统概述"></a>3.1 系统概述</h2><p>本课题网站名称为“嘤嘤租房网”，主要的目的是实现以下功能：用户注册、用户登录、浏览房源、申请看房、申请租房等。</p>
+<h2 id="3-2-系统业务分析"><a href="#3-2-系统业务分析" class="headerlink" title="3.2 系统业务分析"></a>3.2 系统业务分析</h2><p>“嘤嘤租房网”的核心功能为租赁房源，所以本网站的角色一共有三位——分别是租客、房东和管理员。</p>
+<ol>
+<li><h3 id="租客的业务流程分析"><a href="#租客的业务流程分析" class="headerlink" title="租客的业务流程分析"></a>租客的业务流程分析</h3></li>
+</ol>
+<p>在访问“嘤嘤租房网”时，可先浏览网站上已经上架的房源信息，但无法进行后续的操作。租客在登录账号并实名认证通过后，才可以使用网站其余功能，如向房东发起看房预约、租房申请等。本网站租客的操作流程如图3-1所示。</p>
+<p>图3-1 租客的业务流程活动图</p>
+<ol>
+<li><h3 id="房东的业务分析"><a href="#房东的业务分析" class="headerlink" title="房东的业务分析"></a>房东的业务分析</h3></li>
+</ol>
+<p>房东在登录账号，并且实名认证后，房东才可以使用网站其余的功能。房东可以发布自己的房源，处理看房预约，处理租房申请等。本网站房东的操作流程如图3-2所示。</p>
+<p>图3-2 房东的业务流程活动图</p>
+<ol>
+<li> 管理员</li>
+</ol>
+<p>网站的实名信息与房源的信息，都需要通过管理员进行审核。网站管理员的操作流程如图3-3所示。</p>
+<p>图3-3 网站管理员的业务流程活动图</p>
+<h2 id="3-3-功能需求"><a href="#3-3-功能需求" class="headerlink" title="3.3 功能需求"></a>3.3 功能需求</h2><h3 id="3-3-1-网站前端模块"><a href="#3-3-1-网站前端模块" class="headerlink" title="3.3.1 网站前端模块"></a>3.3.1 网站前端模块</h3><p>“嘤嘤租房网”的前端有网站欢迎页、搜索结果页、详情页、登录页、注册页、房东个人中心和租客个人中心，供用户完成以下功能：</p>
+<ol>
+<li> 搜索房源</li>
+</ol>
+<p>不论浏览“嘤嘤租房网”的访问者是否登录，网站都支持房源的检索。访问者可以根据自己需要输入关键字检索特定范围内的房源信息。</p>
+<ol>
+<li> 查看房源详情</li>
+</ol>
+<p>用户可以单击搜索结果页面的某一条信息，在详情页面查看更完整的房源信息。如：浏览地图位置、房源的介绍文案、房源的住后评价等信息。</p>
+<ol>
+<li> 用户注册与登录</li>
+</ol>
+<p>当访问者想要操作网站的更多功能时，需要访问者拥有本网站的账号。访问者可以登录账号再进行操作，或者先注册再进行登录。</p>
+<ol>
+<li> 发起看房预约</li>
+</ol>
+<p>当租客用户想要上门看房，并没有明确要租赁的情况时，可以提交线下上门看房的预约给房东用户。</p>
+<ol>
+<li> 发起租房申请</li>
+</ol>
+<p>当租客用户想要租住房源时，可提交租房申请给房东。</p>
+<ol>
+<li> 合同功能</li>
+</ol>
+<p>租客和房东在双方都意向租赁时，需要依靠合同模块达成租赁关系。租客向房东发起的租房申请，房东可以依据此申请发起租赁合同。合同功能是“嘤嘤租房网”其他功能的依据。</p>
+<ol>
+<li> 评价功能</li>
+</ol>
+<p>租客和房东可以使用此功能为对方评价。“嘤嘤租房网”是基于实名的租房网站，为对方客观地评分对下一次租赁时起到了重要的参考作用。</p>
+<ol>
+<li> 实名功能</li>
+</ol>
+<p>出于租赁的性质，用户使用网站时必须先进行实名再进行租赁。</p>
+<ol>
+<li> 房源功能</li>
+</ol>
+<p>房东可以通过此功能发布和维护自己的房源信息。</p>
+<p>在前台模块中，系统根据登录状态，将用户分为两种角色。各个角色的用例如下所描述。</p>
+<ol>
+<li> 网站租客用例</li>
+</ol>
+<p>租客未登录时仍可访问“嘤嘤租房网”的展示页面，其可以检索房源、查看房源详情。租客也可根据需要使用注册和登录功能，拥有一个属于自己的账号。具体的用例如图3-4所示。</p>
+<p>图3-4 网站租客用例图</p>
+<p>用户发起看房预约功能的详细描述如表3-1所示。</p>
+<p>表3-1 发起看房预约功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US01</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>发起看房预约</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>用户想上门看房</td>
+</tr>
+<tr>
+<td>输入信息：</td>
+<td>填写预约时间；选填给房东的留言</td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>预约提交成功</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>数据库中的上门看房预约表成功存储了该用户预约申请。</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>1）输入预约时间 2）提交预约，点击“预约”按钮</td>
+</tr>
+</tbody></table>
+<p>用户提交租房申请功能的详细描述如表3-2所示。</p>
+<p>表3-2 提交租房申请功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US02</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>发起租房申请</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>用户想申请租赁房源</td>
+</tr>
+<tr>
+<td>输入信息：</td>
+<td>填写租赁的开始日期和结束日期</td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>申请提交成功</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>数据库中的租赁合同表成功存储了该用户租房申请。</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>1）输入租赁时间范围 2）提交预约，点击“提交申请”按钮</td>
+</tr>
+</tbody></table>
+<p>支付账单功能的详细描述如表3-3所示。</p>
+<p>表3-3 支付账单功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US03</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>支付账单</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>租客用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>租客用户想要支付房东用户发起的账单</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>正确跳转到支付宝的支付页面 线下支付的提示框正确显示 订单状态正确更改</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>点击“支付宝线上支付”按钮或点击线下支付按钮</td>
+</tr>
+</tbody></table>
+<p>评价房源和房东的详细描述如表3-4所示。</p>
+<p>表3-4 用户登录功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US04</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>评价房东与房源</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>租客用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>用户在合同结束后评价房源和房东</td>
+</tr>
+<tr>
+<td>输入信息：</td>
+<td>选定评分，输入评价内容</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>数据库的房源评价表成功新增一条评价信息 数据库的用户评价表成功新增一条评价信息</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>点击“我要评价TA”按钮 选择评价星级 点击“提交评价”按钮。</td>
+</tr>
+</tbody></table>
+<ol>
+<li> 网站房东用户用例</li>
+</ol>
+<p>房东角色的用户可以使用租赁流程所需要的功能，如：发起合同、发起账单等。具体的房东角色的用例图如图3-5所示。</p>
+<p>图3-5 网站房东的用例图</p>
+<p>处理看房预约功能的详细描述如表3-5所示。</p>
+<p>表3-5处理看房预约功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US05</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>处理看房预约</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>房东用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>房东用户想处理租客用户发起的看房预约</td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>通过预约/退回预约</td>
+</tr>
+<tr>
+<td></td>
+<td>续表3-5</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>存储在数据库预约表的预约信息的状态成功更改为拒绝状态/预约成功状态</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>选择房东处理选项 点击“提交处理”按钮</td>
+</tr>
+</tbody></table>
+<p>发起账单功能的详细描述如表3-6所示。</p>
+<p>表3-6发起账单功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US06</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>发起租赁账单</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>房东用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>房东用户想对租客发起租赁账单</td>
+</tr>
+<tr>
+<td>结果</td>
+<td>账单成功创建，通知租客</td>
+</tr>
+<tr>
+<td>输入信息：</td>
+<td>选择收租的对象；填写最新房源水表与电表读数；输入调节费用和费用说明</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>数据库中的账单表成功存储该条账单信息</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>点击“发起账单”按钮 选择收租对象，填写租赁产生的费用信息和读数 核对信息并点击“完成发起”按钮</td>
+</tr>
+</tbody></table>
+<p>取消账单功能的详细描述如表3-7所示。</p>
+<p>表3-7取消账单功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US07</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>取消租赁账单</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>房东用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>房东用户想取消账单的收租</td>
+</tr>
+<tr>
+<td>结果</td>
+<td>账单取消成功，租客无法支付</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>数据库中的账单表里对该账单信息的账单状态成功的更改为已取消状态； 数据库的房源表成功回滚到上一次的抄表数据</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>点击“查看”按钮 点击“取消这份账单”按钮 点击确认框的“确认”按钮</td>
+</tr>
+</tbody></table>
+<p>发布房源信息功能的详细描述如表3-8所示。</p>
+<p>表3-8发布房源信息功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US08</td>
+</tr>
+<tr>
+<td></td>
+<td>续表3-8</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>发布房源信息</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>房东用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>房东用户想在网站发布自己的房源信息</td>
+</tr>
+<tr>
+<td>结果</td>
+<td>房源信息成功上传</td>
+</tr>
+<tr>
+<td>输入信息：</td>
+<td>输入房源宣传标题、房源相关属性、租赁价格、宣传图片、介绍内容等。</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>数据库中的房源表里成功存储该房源信息，等待管理员审核</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>点击“新增房源”菜单 输入介绍标题、房源楼层、面积、房屋租赁定价 输入坐落的省市区信息、详细地址、房屋的相关属性 上传房源图片，输入房源介绍内容 点击“提交房源信息新增”按钮</td>
+</tr>
+</tbody></table>
+<p>签约合同功能的详细描述如表3-9所示。</p>
+<p>表3-9 签约合同功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US09</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>签约合同</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>租客用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>用户想租赁房源进行合同签约</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>数据库中的合同表里该申请信息的申请状态改已生效</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>点击“去签约”按钮 浏览并勾选“我同意签约合同”的复选框 点击“提交”按钮</td>
+</tr>
+</tbody></table>
+<p>提交实名信息功能的详细描述如表3-10所示。</p>
+<p>表3-10 提交实名信息功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US10</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>提交实名信息</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>用户</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>用户想要在本网站进行实名认证</td>
+</tr>
+<tr>
+<td>输入信息：</td>
+<td>输入真实姓名、身份证号码；上传身份证国徽面、头像面和手持身份证的照片。</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>数据库的实名信息表成功插入用户数据。</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>输入姓名和身份证号码，上传证件照片 点击“提交”按钮</td>
+</tr>
+</tbody></table>
+<h3 id="3-3-2-网站后端模块"><a href="#3-3-2-网站后端模块" class="headerlink" title="3.3.2 网站后端模块"></a>3.3.2 网站后端模块</h3><p>后端模块基于网站的租赁需求，设立了管理中心，其为网站管理员的管理平台。网站的房源信息、实名信息都需要先经过管理中心审核后，信息才能通过继续下一步的流程。具体的管理员角色的用例图如图3-6所示。</p>
+<p>图3-6 管理员中心的用例图</p>
+<p>审核房源信息功能的详细描述如表3-11所示。</p>
+<p>表3-11 处理看房预约功能用例描述</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>US11</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>审核房源信息</td>
+</tr>
+<tr>
+<td>参与者：</td>
+<td>管理员</td>
+</tr>
+<tr>
+<td>触发因素：</td>
+<td>管理员想审核网站房东用户上传的房源信息</td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>审核通过/审核退回</td>
+</tr>
+<tr>
+<td>后置条件：</td>
+<td>存储在数据库的房源表的信息的审核状态成功更改为审核通过/审核被驳回； 审核通过时，网站前端可以搜索到该房源。</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>点击“查看详情”按钮 选择管理员处理选项 点击“提交处理”按钮</td>
+</tr>
+</tbody></table>
+<h1 id="第四章-系统设计"><a href="#第四章-系统设计" class="headerlink" title="第四章 系统设计"></a>第四章 系统设计</h1><h2 id="4-1系统概要设计"><a href="#4-1系统概要设计" class="headerlink" title="4.1系统概要设计"></a>4.1系统概要设计</h2><p>“嘤嘤租房网”是一个为用户提供在线房源租赁的网站。该网站为房东为用户提供在线发布房源的平台，使得租客用户可以足不出户就可以知晓到房东的房源信息；租客可以在线向房东发起看房预约和申请，也可以与房东在网站上签署合同、支付账单等。本网站具有从看房到合同、账单到评价等基本的租赁流程，使得租客和房东两大核心角色在租赁这件事情不再糟心，把更多的精力投入生活。</p>
+<h2 id="4-2功能模块设计"><a href="#4-2功能模块设计" class="headerlink" title="4.2功能模块设计"></a>4.2功能模块设计</h2><p>“嘤嘤租房网”拥有租赁房源所需要的基本流程。网站的功能结构如图4-1所示。</p>
+<p>图4-1 网站的功能结构图</p>
+<h3 id="4-2-1-公共前端模块"><a href="#4-2-1-公共前端模块" class="headerlink" title="4.2.1 公共前端模块"></a>4.2.1 公共前端模块</h3><p>公共前端模块包括了用户登录、用户注册、浏览信息、提交信息等功能。</p>
+<ol>
+<li> 用户注册功能</li>
+</ol>
+<p>用户点击输入框下方的“登录/注册”按钮后，系统会跳转到登录界面。如果浏览者希望注册一个本网站的账号，可以接着单击“注册”按钮，系统会显示一个注册的表单供访问者填写。访问者需要填写手机号码、访问本网站的密码、登录角色和手机验证码功能。访问者点击注册后，系统会校验表单是否填写完全，校验手机格式，并且校验验证码是否正确。上述校验规则都通过后，系统会提示注册成功，并且自动返回到登录界面。注册流程如图4-2所示。</p>
+<p>图4-2 用户注册活动图</p>
+<ol>
+<li> 发起上门看房预约/发起租房申请</li>
+</ol>
+<p>访问者成为本网站用户后，可以进行租房的其他操作，如看房预约、租房申请等。在前端的房源详情页，如果浏览的房源状态为空闲时，页面会开放预约和租房的按钮供用户使用。用户只有实名通过的情况下可以使用这两个功能，否则无法使用。用户使用前端的功能活动如图4-3所示。</p>
+<p>图4-3 用户发起看房预约和租房申请的活动图</p>
+<h3 id="4-2-2-个人中心模块"><a href="#4-2-2-个人中心模块" class="headerlink" title="4.2.2 个人中心模块"></a>4.2.2 个人中心模块</h3><p>个人中心模块包括了房东个人中心和租客中心两个中心。个人中心包括了实名功能、个人信息编辑功能，不同角色的预约管理功能、租房申请功能、合同功能、账单功能等。</p>
+<ol>
+<li> 修改密码功能</li>
+</ol>
+<p>当用户想要修改自己的登录密码，需要先输入原始的密码，再输入新的密码才能完成更改。修改密码的活动如图4-4所示。</p>
+<p>图4-4 用户修改密码的活动图</p>
+<ol>
+<li> 实名认证功能</li>
+</ol>
+<p>用户需要提交自己的真实姓名、身份证号码、身份证的正反面和手持身份的照片上传到系统。等待系统的管理员审核。审核通过后方可使用网站的其他功能。</p>
+<ol>
+<li> 个人信息编辑功能</li>
+</ol>
+<p>用户可以编辑自己的个人信息，如昵称、性别等。个人信息主要体现在房屋评价里。</p>
+<ol>
+<li> 租赁合同功能</li>
+</ol>
+<p>用户可以在这里浏览有关于自己的合同的信息，所有的合同会以表格的形式展示给用户。根据用户的角色，系统会给出不同的操作按钮。房东可以处理租客发起的申请拉起一份合同发送给用户签约；租客也可以查看并签约拉起的合同。用户操作合同的活动如图4-5所示。</p>
+<p>图4-5 租客与房东签约合同的泳道活动图</p>
+<ol>
+<li> 账单功能</li>
+</ol>
+<p>租客在租赁期间产生的租赁费用，需要房东去向租客发起账单。发起后，租客将收到账单的信息。租客查看账单后可以选择支付方式，向房东支付账单。租客选择线上支付时，租客支付后，账单将变更为已支付状态；租客选择线下支付给房东后，房东需要手动选择房租已入账，账单才能结束。用户操作账单的活动如图4-6所示。</p>
+<p>图4-6 房东与租客账单操作的泳道活动图</p>
+<ol>
+<li> 预约功能</li>
+</ol>
+<p>用户可以在自己的中心里查看与自己有关的预约信息。所有的预约信息会以表格的形式呈现在页面里，并且根据角色和预约的状态提供操作按钮。用户可以对预约进行处理。</p>
+<ol>
+<li> 房源功能</li>
+</ol>
+<p>房源功能主要提供给房东角色使用。房东可以利用房源功能新发布自己的房源信息、维护自己的房源信息。新增或维护后的房源信息。</p>
+<h3 id="4-2-3-管理员模块"><a href="#4-2-3-管理员模块" class="headerlink" title="4.2.3 管理员模块"></a>4.2.3 管理员模块</h3><ol>
+<li> 房源信息审核功能</li>
+</ol>
+<p>房东在上传房源信息，或者维护房源信息后，公共前端页面并不能直接搜索到房源的详情。只有管理员审核通过后，房源才允许被用户搜索并查看、租赁等。</p>
+<ol>
+<li> 实名认证信息审核功能</li>
+</ol>
+<p>本网站的用户需要进行实名认证后才允许使用网站的其他功能。所有的实名信息都会被提交至管理员中心等待管理员审核。管理员审核实名信息的活动如图4-7所示。</p>
+<p>图4-7 管理员审核信息的活动图</p>
+<h2 id="4-3数据库设计"><a href="#4-3数据库设计" class="headerlink" title="4.3数据库设计"></a>4.3数据库设计</h2><h3 id="4-3-1-概要设计"><a href="#4-3-1-概要设计" class="headerlink" title="4.3.1 概要设计"></a>4.3.1 概要设计</h3><p>根据前期的调查与在分析，得出以下数据库的设计概念。ER图来描述本网站的概念结构如下图4-8所示。</p>
+<p>图4-8 网站ER图</p>
+<p>首先是用户实体图，如图4-9所示。它拥有用户手机号、用户登录密码、角色等属性，记载着用户的个人信息。</p>
+<p>图4-9 用户实体图</p>
+<p>其次，是用户的实名认证信息的实体图，如图4-10所示。他记载着用户的真实信息，包括身份证号码与证件照片等。</p>
+<p>图4-10 用户实名信息实体图</p>
+<p>用户在浏览的核心信息，房源的实体图，如图4-11所示。其记载着房源的所有信息。</p>
+<p>图4-11 房源实体图</p>
+<p>用户的租赁产生的费用账单，存储在租赁账单的实体里，如图4-12所示。</p>
+<p>图4-12 租赁账单实体图</p>
+<p>租客和房东签订的合同信息，存储在租赁合同的实体里，如图4-13所示。</p>
+<p>图4-13 租赁合同实体图</p>
+<p>管理员的实体里存储着管理员的登录信息，如图4-14所示。</p>
+<p>图4-14 系统管理员实体图</p>
+<h3 id="4-3-2-物理设计"><a href="#4-3-2-物理设计" class="headerlink" title="4.3.2 物理设计"></a>4.3.2 物理设计</h3><p>根据本课题的需求分析后，归纳并设计出以下数据库表。都有：用户表，管理员表，房源信息表，房源评价表，用户评价表，租赁合同表，看房预约表，租赁账单表，用户实名信息表，中国省市区信息表，房源地图经纬度记录表。</p>
+<ol>
+<li> 用户表</li>
+</ol>
+<p>用户表存放的是用户的信息列表，主要用于记录用户的手机号码、个人信息、登录密码和角色类型。用户表的设计结构图如表4-1所示。</p>
+<p>表4-1 用户表(users)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>字段名</th>
+<th>数据类型</th>
+<th>大小</th>
+<th>说明</th>
+<th>空值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>u_id</td>
+<td>int</td>
+<td></td>
+<td>主键</td>
+<td>否</td>
+<td>用户表的ID</td>
+</tr>
+<tr>
+<td>2</td>
+<td>u_role</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>用户角色</td>
+</tr>
+<tr>
+<td>3</td>
+<td>u_head_image</td>
+<td>varchar</td>
+<td>255</td>
+<td></td>
+<td>是</td>
+<td>用户头像</td>
+</tr>
+<tr>
+<td>4</td>
+<td>u_telephone</td>
+<td>varchar</td>
+<td>11</td>
+<td></td>
+<td>否</td>
+<td>电话</td>
+</tr>
+<tr>
+<td>5</td>
+<td>u_pwd</td>
+<td>varchar</td>
+<td>30</td>
+<td></td>
+<td>否</td>
+<td>密码</td>
+</tr>
+<tr>
+<td>6</td>
+<td>u_name</td>
+<td>varchar</td>
+<td>25</td>
+<td></td>
+<td>否</td>
+<td>昵称</td>
+</tr>
+<tr>
+<td>7</td>
+<td>u_sex</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>是</td>
+<td>性别</td>
+</tr>
+<tr>
+<td>8</td>
+<td>u_state</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>用户状态</td>
+</tr>
+</tbody></table>
+<ol>
+<li> 管理员表</li>
+</ol>
+<p>管理员表存放的是管理人员的信息的数据表，包含了管理员的登录账号和登录密码。表结构如表4-2所示。</p>
+<p>表4-2 管理员表(systemuser)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>字段名</th>
+<th>数据类型</th>
+<th>大小</th>
+<th>说明</th>
+<th>空值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>sysid</td>
+<td>int</td>
+<td></td>
+<td>主键</td>
+<td>否</td>
+<td>管理员表的ID</td>
+</tr>
+<tr>
+<td>2</td>
+<td>sysname</td>
+<td>varchar</td>
+<td>25</td>
+<td></td>
+<td>否</td>
+<td>管理员登录名</td>
+</tr>
+<tr>
+<td></td>
+<td>续表4-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>syspwd</td>
+<td>varchar</td>
+<td>30</td>
+<td></td>
+<td>否</td>
+<td>管理员密码</td>
+</tr>
+</tbody></table>
+<ol>
+<li> 房源信息表</li>
+</ol>
+<p>房源信息表储存了房东发布的房源信息，房源表同时还储存了房源的电表和水表，生成账单时，房源的表读数会同步更新数据。表结构如表4-3所示。</p>
+<p>表4-3 房源信息表(house_infomation)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>字段名</th>
+<th>数据类型</th>
+<th>大小</th>
+<th>说明</th>
+<th>空值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>h_id</td>
+<td>int</td>
+<td></td>
+<td>主键</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>h_name</td>
+<td>varchar</td>
+<td>255</td>
+<td></td>
+<td>是</td>
+<td>房源宣传文案</td>
+</tr>
+<tr>
+<td>3</td>
+<td>h_address_city</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>所属城市</td>
+</tr>
+<tr>
+<td>4</td>
+<td>h_address_detial</td>
+<td>varchar</td>
+<td>50</td>
+<td></td>
+<td>否</td>
+<td>房源地址</td>
+</tr>
+<tr>
+<td>5</td>
+<td>h_house_floor</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房源楼层</td>
+</tr>
+<tr>
+<td>6</td>
+<td>h_houst_information</td>
+<td>varchar</td>
+<td>500</td>
+<td></td>
+<td>否</td>
+<td>房源介绍</td>
+</tr>
+<tr>
+<td>7</td>
+<td>u_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房主ID</td>
+</tr>
+<tr>
+<td>8</td>
+<td>h_rent_price</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房租价格</td>
+</tr>
+<tr>
+<td>9</td>
+<td>h_image</td>
+<td>varchar</td>
+<td>255</td>
+<td></td>
+<td>否</td>
+<td>房屋图片</td>
+</tr>
+<tr>
+<td>10</td>
+<td>h_rent_state</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>出租状态</td>
+</tr>
+<tr>
+<td>11</td>
+<td>h_water_number</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>水表底数</td>
+</tr>
+<tr>
+<td>12</td>
+<td>h_electricity_number</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>电表底数</td>
+</tr>
+<tr>
+<td>13</td>
+<td>h_audit_state</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房源上架审核状态</td>
+</tr>
+<tr>
+<td>14</td>
+<td>h_area_number</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房源面积</td>
+</tr>
+<tr>
+<td>15</td>
+<td>h_room_type</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房屋户型-几室几厅</td>
+</tr>
+<tr>
+<td>16</td>
+<td>h_decorate_situation</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房屋装修情况</td>
+</tr>
+<tr>
+<td>17</td>
+<td>h_post_time</td>
+<td>date</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>发布日期</td>
+</tr>
+<tr>
+<td>18</td>
+<td>h_pay_type</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>意向押付方式</td>
+</tr>
+</tbody></table>
+<ol>
+<li> 房源评价表</li>
+</ol>
+<p>房源评价表是基于合同结束后，租客对房东的房源的一个评价。表的内容包含租客和房东的ID，房源的ID和评价星级等等字段。表结构如表4-4所示。</p>
+<p>表4-4 房源评价表(house_evaluation)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>字段名</th>
+<th>数据类型</th>
+<th>大小</th>
+<th>说明</th>
+<th>空值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>he_id</td>
+<td>int</td>
+<td></td>
+<td>主键</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>u_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>用户ID</td>
+</tr>
+<tr>
+<td>3</td>
+<td>h_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房源ID</td>
+</tr>
+<tr>
+<td></td>
+<td>续表4-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>c_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>合同ID</td>
+</tr>
+<tr>
+<td>5</td>
+<td>he_date</td>
+<td>date</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>评价时间</td>
+</tr>
+<tr>
+<td>6</td>
+<td>he_content</td>
+<td>varchar</td>
+<td>500</td>
+<td></td>
+<td>是</td>
+<td>评价内容</td>
+</tr>
+<tr>
+<td>7</td>
+<td>he_sorce</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>是</td>
+<td>房屋评价星级（1-5）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>he_anonymous</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>是否匿名</td>
+</tr>
+</tbody></table>
+<ol>
+<li> 用户评价表</li>
+</ol>
+<p>租赁结束后，用户对用户的评价会储存在用户评价表里。表的结构如表4-5所示。</p>
+<p>表4-5 用户评价表(user_evaluation)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>字段名</th>
+<th>数据类型</th>
+<th>大小</th>
+<th>说明</th>
+<th>空值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>ue_id</td>
+<td>int</td>
+<td></td>
+<td>主键</td>
+<td>否</td>
+<td>评价ID</td>
+</tr>
+<tr>
+<td>2</td>
+<td>c_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>基于的合同号</td>
+</tr>
+<tr>
+<td>3</td>
+<td>u_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>评价人ID</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ue_date</td>
+<td>date</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>日期</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ue_content</td>
+<td>varchar</td>
+<td>255</td>
+<td></td>
+<td>是</td>
+<td>内容</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ue_sorce</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>评分</td>
+</tr>
+<tr>
+<td>7</td>
+<td>ue_post_u_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>评价对象ID</td>
+</tr>
+</tbody></table>
+<ol>
+<li> 租赁合同表</li>
+</ol>
+<p>租赁合同表是储存了当租客发起租房的申请，房东将合同信息补齐后，双方约定的合同信息。存储的字段可供系统生成完整的合同书，也可以提取大纲供用户查看一目了然。表结构如表4-6所示。</p>
+<p>表4-6 租赁合同表(rent_contract)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>字段名</th>
+<th>数据类型</th>
+<th>大小</th>
+<th>说明</th>
+<th>空值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>c_id</td>
+<td>int</td>
+<td></td>
+<td>主键</td>
+<td>否</td>
+<td>合同ID</td>
+</tr>
+<tr>
+<td>2</td>
+<td>o_create_time</td>
+<td>datetime</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>3</td>
+<td>h_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房源ID</td>
+</tr>
+<tr>
+<td>4</td>
+<td>o_tenants_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>租客id</td>
+</tr>
+<tr>
+<td>5</td>
+<td>o_master_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房东id</td>
+</tr>
+<tr>
+<td>6</td>
+<td>o_rent_money</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房租</td>
+</tr>
+<tr>
+<td>7</td>
+<td>o_rent_type</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>押付类型</td>
+</tr>
+<tr>
+<td>8</td>
+<td>o_house_full_address</td>
+<td>varchar</td>
+<td>255</td>
+<td></td>
+<td>否</td>
+<td>房源完整地址</td>
+</tr>
+<tr>
+<td>9</td>
+<td>o_house_area</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>面积</td>
+</tr>
+<tr>
+<td>10</td>
+<td>o_house_deposit</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>押金</td>
+</tr>
+<tr>
+<td></td>
+<td>续表4-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>o_sign_time</td>
+<td>datetime</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>租客签约时间</td>
+</tr>
+<tr>
+<td>12</td>
+<td>c_perform_start_date</td>
+<td>date</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>合同开始日期</td>
+</tr>
+<tr>
+<td>13</td>
+<td>c_perform_end_date</td>
+<td>date</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>合同结束如期</td>
+</tr>
+<tr>
+<td>14</td>
+<td>c_contract_state</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>合同状态</td>
+</tr>
+</tbody></table>
+<ol>
+<li> 看房预约表</li>
+</ol>
+<p>看房预约表是租客对某一房源感兴趣，想要是实地查看房源时向房东提交申请的数据表。主要的字段为租客ID、房源ID、预约时间、租客留言和房东回复等。表结构如表4-7所示。</p>
+<p>表4-7 预约上门看房表(see_house_application)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>字段名</th>
+<th>数据类型</th>
+<th>大小</th>
+<th>说明</th>
+<th>空值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>sh_id</td>
+<td>int</td>
+<td></td>
+<td>主键</td>
+<td>否</td>
+<td>预约ID</td>
+</tr>
+<tr>
+<td>2</td>
+<td>o_tenants_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>租客ID</td>
+</tr>
+<tr>
+<td>3</td>
+<td>h_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房源ID</td>
+</tr>
+<tr>
+<td>4</td>
+<td>o_master_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房东ID</td>
+</tr>
+<tr>
+<td>5</td>
+<td>sh_see_house_time</td>
+<td>datetime</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>预约时间</td>
+</tr>
+<tr>
+<td>6</td>
+<td>sh_tenants_message</td>
+<td>varchar</td>
+<td>255</td>
+<td></td>
+<td>是</td>
+<td>租客留言</td>
+</tr>
+<tr>
+<td>7</td>
+<td>sh_master_message</td>
+<td>varchar</td>
+<td>255</td>
+<td></td>
+<td>是</td>
+<td>房东回复</td>
+</tr>
+<tr>
+<td>8</td>
+<td>sh_state</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>预约状态</td>
+</tr>
+</tbody></table>
+<ol>
+<li> 租赁账单表</li>
+</ol>
+<p>租赁账单表是用于存储租客在租赁期间产生的租赁费用需要结算的数据表。由于涉及支付，本表格的字段有相关的读表信息、收费单价、租客ID、房东ID、创建时间、支付时间、支付方式、支付状态等。表结构如表4-8所示。</p>
+<p>表4-8 租赁账单表(rent_order)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>字段名</th>
+<th>数据类型</th>
+<th>大小</th>
+<th>说明</th>
+<th>空值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>o_id</td>
+<td>int</td>
+<td></td>
+<td>主键</td>
+<td>否</td>
+<td>账单ID</td>
+</tr>
+<tr>
+<td>2</td>
+<td>o_create_time</td>
+<td>datetime</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>账单创建时间</td>
+</tr>
+<tr>
+<td>3</td>
+<td>c_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>合同ID</td>
+</tr>
+<tr>
+<td>4</td>
+<td>o_tenants_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>租客ID</td>
+</tr>
+<tr>
+<td>5</td>
+<td>o_master_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>房东ID</td>
+</tr>
+<tr>
+<td>6</td>
+<td>o_last_electric_number</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>上一周期电表读数</td>
+</tr>
+<tr>
+<td>7</td>
+<td>o_now_electric_number</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>本期电表读度</td>
+</tr>
+<tr>
+<td>8</td>
+<td>o_last_water_number</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>上一周期水表读数</td>
+</tr>
+<tr>
+<td></td>
+<td>续表4-8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>o_now_water_number</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>本期水表读度</td>
+</tr>
+<tr>
+<td>10</td>
+<td>o_electric_price</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>本期电费单价</td>
+</tr>
+<tr>
+<td>11</td>
+<td>o_water_price</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>本期水费单价</td>
+</tr>
+<tr>
+<td>12</td>
+<td>o_house_rent_price</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>租赁房租</td>
+</tr>
+<tr>
+<td>13</td>
+<td>o_adjust_price</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>调节费</td>
+</tr>
+<tr>
+<td>14</td>
+<td>o_adjust_explain</td>
+<td>varchar</td>
+<td>50</td>
+<td></td>
+<td>是</td>
+<td>调节费备注</td>
+</tr>
+<tr>
+<td>15</td>
+<td>o_order_money</td>
+<td>float</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>账单总金额</td>
+</tr>
+<tr>
+<td>16</td>
+<td>o_pay_method</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>支付方式</td>
+</tr>
+<tr>
+<td>17</td>
+<td>o_pay_state</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>支付状态</td>
+</tr>
+<tr>
+<td>18</td>
+<td>o_pay_dead_line</td>
+<td>date</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>支付截止时间</td>
+</tr>
+<tr>
+<td>19</td>
+<td>o_pay_time</td>
+<td>datetime</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>租客支付时间</td>
+</tr>
+</tbody></table>
+<ol>
+<li> 用户实名信息表</li>
+</ol>
+<p>用户实名信息表顾名思义，存储着用户的实名数据。包括真实姓名，身份证号码等。表结构如表4-9所示。</p>
+<p>表4-9 用户实名表(userverify)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>字段名</th>
+<th>数据类型</th>
+<th>大小</th>
+<th>说明</th>
+<th>空值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>v_id</td>
+<td>int</td>
+<td></td>
+<td>主键</td>
+<td>否</td>
+<td>实名ID</td>
+</tr>
+<tr>
+<td>2</td>
+<td>u_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>用户ID</td>
+</tr>
+<tr>
+<td>3</td>
+<td>v_real_name</td>
+<td>varchar</td>
+<td>5</td>
+<td></td>
+<td>否</td>
+<td>用户真实姓名</td>
+</tr>
+<tr>
+<td>4</td>
+<td>v_id_card_number</td>
+<td>varchar</td>
+<td>18</td>
+<td></td>
+<td>否</td>
+<td>用户身份证号码</td>
+</tr>
+<tr>
+<td>5</td>
+<td>v_real_id_card_image1</td>
+<td>varchar</td>
+<td>55</td>
+<td></td>
+<td>否</td>
+<td>身份证头像面图片地址</td>
+</tr>
+<tr>
+<td>6</td>
+<td>v_real_Id_card_image_2</td>
+<td>varchar</td>
+<td>55</td>
+<td></td>
+<td>否</td>
+<td>身份证国标面图片地址</td>
+</tr>
+<tr>
+<td>7</td>
+<td>v_real_Id_card_image_with_person</td>
+<td>varchar</td>
+<td>55</td>
+<td></td>
+<td>否</td>
+<td>人手持身份证图片地址</td>
+</tr>
+<tr>
+<td>8</td>
+<td>v_upload_time</td>
+<td>datetime</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>用户上传更新时间</td>
+</tr>
+<tr>
+<td>9</td>
+<td>v_audit_time</td>
+<td>datetime</td>
+<td></td>
+<td></td>
+<td>是</td>
+<td>管理员审核时间</td>
+</tr>
+<tr>
+<td>10</td>
+<td>v_verify_state</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>否</td>
+<td>实名信息审核状态</td>
+</tr>
+</tbody></table>
+<h1 id="第五章-系统实现"><a href="#第五章-系统实现" class="headerlink" title="第五章 系统实现"></a>第五章 系统实现</h1><h2 id="5-1公共前台模块"><a href="#5-1公共前台模块" class="headerlink" title="5.1公共前台模块"></a>5.1公共前台模块</h2><h3 id="5-1-1-欢迎页面"><a href="#5-1-1-欢迎页面" class="headerlink" title="5.1.1 欢迎页面"></a>5.1.1 欢迎页面</h3><p>网站的前台模块默认从欢迎页开始显示，该页面提供了登录注册的入口和搜寻房源信息的输入框。输入搜寻内容点击按钮后，页面则会罗列出相关的房源信息。网站的欢迎页面如图5-1所示。</p>
+<p>图5-1 “嘤嘤租房网”欢迎页</p>
+<h3 id="5-1-2-用户注册页"><a href="#5-1-2-用户注册页" class="headerlink" title="5.1.2 用户注册页"></a>5.1.2 用户注册页</h3><p>用户在使用“嘤嘤租房网”时，需要注册一个自己的账号。本网站以手机号码作为登录账号。注册表单在提供用户输入信息的同时加入了校验规则。如：手机号码一定要为中国大陆手机的11位格式、密码和确认密码需要保持一致等。用户注册页面如图5-2所示。</p>
+<p>图5-2 用户注册页面</p>
+<p>注册的代码如下：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">RegisterFromUser(regform).then(<span class="function"><span class="params">res</span> =&gt;</span> {</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (res.data.success == <span class="literal">true</span>) {</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.$notify.success({</span><br><span class="line"></span><br><span class="line"><span class="attr">title</span>: <span class="string">"注册成功"</span>,</span><br><span class="line"></span><br><span class="line"><span class="attr">message</span>: <span class="string">"账号已注册成功！请牢记您的密码！"</span></span><br><span class="line"></span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.$notify.error({</span><br><span class="line"></span><br><span class="line"><span class="attr">title</span>: <span class="string">"登录失败"</span>,</span><br><span class="line"></span><br><span class="line"><span class="attr">message</span>: <span class="string">"用户账号或密码输入错误！"</span></span><br><span class="line"></span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.loicon = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="5-1-3-用户登录页"><a href="#5-1-3-用户登录页" class="headerlink" title="5.1.3 用户登录页"></a>5.1.3 用户登录页</h3><p>用户需要输入自己的手机号码和登录密码进行登录。当登陆成功后，系统会识别用户的角色类型，跳转到对应的个人中心页面。登录页面如图5-3所示。</p>
+<p>图5-3 用户登录页面</p>
+<h3 id="5-1-4-搜索结果页"><a href="#5-1-4-搜索结果页" class="headerlink" title="5.1.4 搜索结果页"></a>5.1.4 搜索结果页</h3><p>当用户在欢迎页输入关键字搜索、或者查看全部房源信息，系统会将相应的房源信息检索出来罗列在搜索结果页面里。该页面会显示房源的图片、房源宣传标题、房源的信息、租赁的价格和所在的省市区信息，供用户进行简易的查看。搜索结果页面如图5-4所示。</p>
+<p>图5-4 搜索结果页面</p>
+<p>搜索的主要代码如下：</p>
+<p>this.isLoad = true;</p>
+<p>getHouseBySearchKey({// 获取房源所在的区级ID</p>
+<p>key: this.searchKey,</p>
+<p>pageSize:this.pageSize</p>
+<p>}).then(res =&gt; {//获取模糊查询结果集</p>
+<p>this.TEMPsearchHouseInfo = res.data.data;</p>
+<p>for (let i = 0; i &lt; this.TEMPsearchHouseInfo.length; i++) {</p>
+<p>getFullCityAdd({//根据城市代码拼凑成完整的省市区字符</p>
+<p>cbId: this.TEMPsearchHouseInfo[i].hAddressCity</p>
+<p>}).then(res =&gt; {</p>
+<p>let citytext = res.data.data[2] + “省-“ + res.data.data[1] + “市” +<br>res.data.data[0] + “区”;</p>
+<p>this.searchHouseInfo.push(</p>
+<p>Object.assign(this.TEMPsearchHouseInfo[i], { cityinfo: citytext })</p>
+<p>) });}</p>
+<p>});</p>
+<h3 id="5-1-5-房源详情页"><a href="#5-1-5-房源详情页" class="headerlink" title="5.1.5 房源详情页"></a>5.1.5 房源详情页</h3><p>当用户对其中某一条的房源信息有兴趣，可点击该条标题，系统会跳出新的页面，为租客展示房源的详情信息。页面主要分成房源信息、房源说明、房源评价三个部分。</p>
+<p>第一部分为房源的信息介绍。内容包括房源的宣传标题、发布时间、房源的各类属性等。单击左边的图片，会全屏显示该房源的图片。此外，这个部分还有两个操作按钮，分别是预约上门看房和发起租房申请。详情页第一部分界面如图5-5所示。</p>
+<p>图5-5 房源详情页第一部分界面</p>
+<p>这两个功能使用的前提为用户已经登录，且已经通过实名认证。如果实名认证未提交、审核中或者被退回，均属于未实名状态，使用这两个功能时会被拦截，并给出相应的提示。其中，实名信息审核中的拦截通知如图5-6所示。</p>
+<p>图5-6 使用功能被拦截的通知界面</p>
+<p>使用功能的代码如下：</p>
+<p>checkIsUserAuth() {</p>
+<p>checkIsAuth(sessionStorage.getItem(“userid”)).then(res =&gt; {</p>
+<p>if (res.data.success == false) {</p>
+<p>this.$alert(“原因：” + res.data.data, “抱歉，您无法使用此功能”);</p>
+<p>return false;</p>
+<p>}</p>
+<p>});return true;</p>
+<p>}</p>
+<p>用户想要上门看房，点击预约上门看房按钮后，系统会显示一个表单给用户选择期望上门看房的时间和想对房东说的留言。输入完信息后点击确定后，该预约申请会发送到房东。发起看房预约的表单如图5-7所示。</p>
+<p>图5-7 发起看房预约的表单界面</p>
+<p>用户有意向租赁房源，点击发起租房申请按钮后，系统会显示申请的表单给用户填写期望入住的时间范围。对于时间范围提供了三个快捷选项。如果用户想租赁其他范围的时间，也可以自己选择租赁区间，且用户只能被允许选择未来时间。提交后，系统会将租房申请提交给房东。发起租房申请的表单如图5-8所示。</p>
+<p>图5-8 发起租房申请的表单界面</p>
+<p>房源详情页的第二部分主要有房源的介绍和房源的位置两个信息。房源介绍为房东录入的介绍信息，地图使用高德地图的接口，可以通过拖动、缩放等方式知晓房源周围的地理交通。详情页的第二部分的界面如图5-9所示。</p>
+<p>租客发起租房申请的代码如下：</p>
+<p>@PostMapping(“insertOneApplicationForContract”)</p>
+<p>public Result PostRentHouseApplication(@RequestBody RentContractDO applicate){</p>
+<p>int i = rentImpl.PostRentHouseApplication(applicate);</p>
+<p>if(i&gt;0){</p>
+<p>return Result.create(true,i);</p>
+<p>}</p>
+<p>return Result.create(false,i);</p>
+<p>}</p>
+<p>图5-9 房源详情页第二部分界面</p>
+<p>第三部分为房源的评价部分。当租客结束租房后，系统会提供评价功能让租客去评价这个房源。评价的评价人昵称、分数和内容都会公开在这里。因为评价功能只对已经租赁过该房源、并且租赁已结束的租客开放，真实性相比较会提高很多，可以作为租客租赁房源的一大权衡依据。第三部分的界面如图5-10所示。</p>
+<p>图5-10 房源详情页的第三部分界面</p>
+<h2 id="5-2-租客中心模块"><a href="#5-2-租客中心模块" class="headerlink" title="5.2 租客中心模块"></a>5.2 租客中心模块</h2><h3 id="5-2-1-租客中心的欢迎页"><a href="#5-2-1-租客中心的欢迎页" class="headerlink" title="5.2.1 租客中心的欢迎页"></a>5.2.1 租客中心的欢迎页</h3><p>当租客登录成功后，系统会识别角色并跳转到租客中心。租客中心的界面为侧栏和主栏的布局。在没有使用租客中心的任何功能时，主栏为欢迎状态。租客可以通过侧栏选择需要使用的功能。租客中心提供的功能主要有：实名认证、修改密码、修改个人信息、查看合同、查看账单、查看预约等。<br>租客中心的欢迎页如图5-11所示。</p>
+<p>图5-11 租客中心的欢迎页</p>
+<h3 id="5-2-2-租客中心的实名认证功能"><a href="#5-2-2-租客中心的实名认证功能" class="headerlink" title="5.2.2 租客中心的实名认证功能"></a>5.2.2 租客中心的实名认证功能</h3><p>用户使用点击实名认证后，主栏会显示实名认证的表单。如果用户没有实名信息，或者实名信息被退回，表单会提示用户重新输入相关的实名信息。表单也会显示用户提交的时间和管理员审核的时间，如果有提交实名信息记录，实名信息审核的状态会显示在表单的左上角以章戳的形式标注。用户实名认证的界面如图5-12所示。</p>
+<p>图5-12 租客中心的欢迎页</p>
+<p>用户提交实名信息的代码如下：</p>
+<p>@PostMapping(“postUserAuthInfo”)</p>
+<p>public Result insertUserAuthInfomation(@RequestBody UserVerifyDO userAuthInfo){</p>
+<p>System.out.println(“用户提交了身份认证请求：”);</p>
+<p>System.out.println(userAuthInfo.toString());</p>
+<p>userAuthInfo.setvUploadTime(new Date());</p>
+<p>System.out.println(userAuthInfo.getvUploadTime());</p>
+<p>int i = userVerifyImpl.insertUserAuthInfo(userAuthInfo);</p>
+<p>return Result.create(i);</p>
+<p>}</p>
+<h3 id="5-2-3-租客中心的密码修改功能"><a href="#5-2-3-租客中心的密码修改功能" class="headerlink" title="5.2.3 租客中心的密码修改功能"></a>5.2.3 租客中心的密码修改功能</h3><p>用户点击修改密码功能后，主栏会显示相应的表单。该表单拥有基础的校验规则，在校验通过后，新的密码会以MD5加密后更新至数据库当中。修改密码的界面如图5-13所示。</p>
+<p>图5-13 租客中心的密码修改界面</p>
+<p>修改密码的主要代码如下：</p>
+<p>@PutMapping(“updateUserPwd”)</p>
+<p>public Boolean setUserNewPwd(@RequestBody UsersDO user){</p>
+<p>int i = userImpl.updateUserNewPwd(user);</p>
+<p>if(i==0)return false;</p>
+<p>return true;</p>
+<p>}</p>
+<h3 id="5-2-4-租客中心的个人信息编辑功能"><a href="#5-2-4-租客中心的个人信息编辑功能" class="headerlink" title="5.2.4 租客中心的个人信息编辑功能"></a>5.2.4 租客中心的个人信息编辑功能</h3><p>用户想要编辑自己的个人信息时，可以使用此功能。表单可以及时更换头像、昵称、性别等字段。该信息主要用于显示在评论部分。个人信息编辑的界面如图5-14所示。</p>
+<p>图5-14 租客中心的个人信息编辑界面</p>
+<p>上传更新自己头像的主要代码如下：</p>
+<p>@PostMapping(“addUserHeadPortrait”)</p>
+<p>public Result uploadUserHeadImage(MultipartFile file) throws IOException {</p>
+<p>String picPath = “E:\\vue-test\\src\\img\\userHead\\“;//本地路径</p>
+<p>String fileName=file.getOriginalFilename();</p>
+<p>String suffix = fileName.substring(fileName.lastIndexOf(“.”));</p>
+<p>String uuid = UUID.randomUUID().toString().replace(“-“,”_”);</p>
+<p>String newFileName= “pic”+uuid+suffix;</p>
+<p>file.transferTo(new File(picPath,newFileName));</p>
+<p>return Result.create(newFileName);</p>
+<p>}</p>
+<h3 id="5-2-5-我的合同功能"><a href="#5-2-5-我的合同功能" class="headerlink" title="5.2.5 我的合同功能"></a>5.2.5 我的合同功能</h3><p>当租客想要查看自己签约的和待签约的合同时，可以在这里预览。如果租客拥有待签约的合同，则可以点击操作列的签约按钮；如果租客想回顾查看自己的合同信息时，也可以点击详情操作进行预览。合同功能的界面如图5-15所示。</p>
+<p>图5-15 租客中心的合同列表界面</p>
+<p>租客点击详情后，系统会显示用于展示合同的主要信息的模态框。租客同样可以点击按钮查看合同详情。合同详情的界面如图5-16所示。</p>
+<p>图5-16 合同详情的模态框界面</p>
+<p>当租客想要提前退房，需要在合同的模态框里，点击退房的按钮。因为提前结束合同属于违约的操作，所以系统会提示租客该操作的后果。违约提示框如图5-16所示。</p>
+<p>图5-16 租客违约退房的确认框</p>
+<p>租客退房（违约）的主要代码如下：</p>
+<p>let formdata = {</p>
+<p>cId: this.contractInfo.cId,</p>
+<p>cContractState: 6</p>
+<p>};</p>
+<p>tenantsCancelContractApplication(formdata).then(res =&gt; {</p>
+<p>if (res.data.success == true) {</p>
+<p>Bus.$emit(“tenantsCancelRCApp”);</p>
+<p>this.$message({</p>
+<p>type: “warning”,</p>
+<p>message: “您的请求已经发送给房东，该合同已被冻结!”</p>
+<p>});</p>
+<p>} else {</p>
+<p>this.$message({</p>
+<p>type: “info”,</p>
+<p>message: “退房申请异常。”</p>
+<p>});}});</p>
+<h3 id="5-2-6-我的账单功能"><a href="#5-2-6-我的账单功能" class="headerlink" title="5.2.6 我的账单功能"></a>5.2.6 我的账单功能</h3><p>租客查看自己的账单信息时，点击按钮后主栏会展示租客的所有账单信息。租客可以单击“详情”按钮查看账单的所有信息。我的账单界面如图5-17所示。</p>
+<p>图5-17 租客账单列表界面</p>
+<p>租客点击详情按钮后，系统会显示该条账单的所有信息。“嘤嘤租房网”已对接支付宝支付，如果该账单属于未支付状态的账单，系统会开放支付按钮供租客支付。账单详情的界面如图5-18所示。</p>
+<p>图5-18 账单详情的界面</p>
+<p>用户使用支付宝付款，发起页面的主要代码如下：</p>
+<p>@GetMapping(“launchToAlipay”)</p>
+<p>public String luanchOrderToALiPay(@RequestParam(value = “oId”) Integer oId,</p>
+<p>@RequestParam(value = “oOrderMoney”) Float oOrderMoney,</p>
+<p>@RequestParam(value = “info”) String info)</p>
+<blockquote>
+<p>  throws AlipayApiException {</p>
+</blockquote>
+<p>String subject=””;</p>
+<p>try {</p>
+<p>subject =new String(info.getBytes(“ISO-8859-1”), “UTF-8”);</p>
+<p>}catch (UnsupportedEncodingException e){</p>
+<p>e.printStackTrace();</p>
+<p>}</p>
+<p>return orderImpl.alipay( new ALiPayDO()</p>
+<p>.setOut_trade_no(oId.toString())</p>
+<p>.setTotal_amount(new StringBuffer().append(oOrderMoney))</p>
+<p>.setSubject(subject));</p>
+<p>}</p>
+<h3 id="5-2-7-我的看房预约功能"><a href="#5-2-7-我的看房预约功能" class="headerlink" title="5.2.7 我的看房预约功能"></a>5.2.7 我的看房预约功能</h3><p>当租客想要查看自己预约申请，或者想要查看房东的回复时，需要在“我的看房预约”界面查看，界面如图5-19所示。</p>
+<p>图5-19 看房预约列表界面</p>
+<p>如果租客发起的看房预约未被房东处理，租客可以取消自己发起的预约；对于已经处理过的预约申请，系统仍然为租客保留查看的功能。界面如图5-20所示。</p>
+<p>图5-20 预约详情的界面</p>
+<h2 id="5-3-房东中心模块"><a href="#5-3-房东中心模块" class="headerlink" title="5.3 房东中心模块"></a>5.3 房东中心模块</h2><h3 id="5-3-1-房东中心的欢迎页"><a href="#5-3-1-房东中心的欢迎页" class="headerlink" title="5.3.1 房东中心的欢迎页"></a>5.3.1 房东中心的欢迎页</h3><p>当房东角色的用户登录成功后，系统会跳转到房东的个人中心页面，等待房东的下一步操作。</p>
+<h3 id="5-3-2-新增房源功能"><a href="#5-3-2-新增房源功能" class="headerlink" title="5.3.2 新增房源功能"></a>5.3.2 新增房源功能</h3><p>房东在实名通过后，可以根据自己的需要发布自己拥有的房源。在表单里，需要房东录入介绍标题、房源图片和租赁价格等租赁房源需要的相关信息。房东填写完点击提交按钮，表单对输入的信息校验通过后，则会把房源的信息上传至系统，等待管理员审核。新增房源信息的界面如图5-22所示。</p>
+<p>图5-22 新增房源信息的界面</p>
+<p>房东新增房源的主要代码如下：</p>
+<p>@PostMapping(“addHouseInfo”)</p>
+<p>public Result insertHouseInfomation(@RequestBody HouseInfomationDO house){</p>
+<p>house.sethPostTime((new Date()));</p>
+<p>int i = houseimpl.insertHouseInfo(house);</p>
+<p>if(i&gt;0)</p>
+<p>return Result.create(true,i);</p>
+<p>return Result.create(false,i);</p>
+<p>}</p>
+<h3 id="5-3-3-房源列表功能"><a href="#5-3-3-房源列表功能" class="headerlink" title="5.3.3 房源列表功能"></a>5.3.3 房源列表功能</h3><p>房东想查看自己房源的信息或者更新自己的房源信息时，房东需要点击房源列表，主栏会显示自己拥有的房源信息的列表。列表界面的布局主要为表格和按钮。列表展示房东的房源信息，按钮为刷新数据按钮，如果数据没有更新至最新，房东可以手动更新。房东的房源列表的界面如图5-23所示。</p>
+<p>图5-23房源列表界面</p>
+<p>展示属于房东的房源列表的主要代码如下：</p>
+<p>@GetMapping(“getMastersHouse”)</p>
+<p>public Result getMasterAllHouse(Integer uid){</p>
+<p>List&lt;HouseInfomationDO&gt; houselist = houseimpl.getMasterAllHouse(uid);</p>
+<p>return Result.create(houselist);</p>
+<p>}</p>
+<p>房东查看某一条房源信息的详情编辑按钮，系统会弹出一个模态框，模态框将会展示该条房源的详细信息。房东可以对这条房源进行信息的维护更新；如果房源处于出租状态，房源信息无法更新，需要等房源租赁结束，状态为空闲时，房东才被允许维护房源信息。房源详情编辑“辅助介绍”步骤的界面如图5-24所示。</p>
+<p>图5-24 房源编辑详情的模态框界面</p>
+<h3 id="5-3-4-看房预约管理功能"><a href="#5-3-4-看房预约管理功能" class="headerlink" title="5.3.4 看房预约管理功能"></a>5.3.4 看房预约管理功能</h3><p>租客发起的看房预约都会被归纳到看房预约管理列表里。房东在侧栏单击预约管理按钮时，主栏会显示预约的信息列表。上门看房预约管理的界面如图5-25所示。</p>
+<p>图5-25 上门看房预约管理列表的界面</p>
+<p>系统会对不同状态的预约，开放相应的操作按钮。看房预约的处理的界面如图5-26所示。</p>
+<p>图5-26预约详情的处理模态框界面</p>
+<h3 id="5-3-5-合同管理功能"><a href="#5-3-5-合同管理功能" class="headerlink" title="5.3.5 合同管理功能"></a>5.3.5 合同管理功能</h3><p>租客在网站向自己的房源发起的所有租房申请都会被归纳到房东中心的合同列表里。房东可以对合同进行进一步的处理。如，发起合同、查看合同。合同管理的界面如图5-27所示。</p>
+<p>图5-27 房东中心的合同管理列表界面</p>
+<p>房东可以对租客发起的申请进行处理。单击“发起合同”按钮后，系统将会显示租客的信息和房源的信息供房东进行二次确认，并提供本次合同的相关数据。房东也可以点击“拒绝发起签约”拒绝该申请。房东发起合同的模态框界面如图5-28所示。</p>
+<p>图5-28 房东发起合同的模态框界面</p>
+<p>房东发起合同的主要代码如下：</p>
+<p>MasterUpdateContract(){</p>
+<p>masterPutContractInfo(updateformdata).then( res =&gt; {</p>
+<p>if(res.data.success == true){</p>
+<p>this.$message.success(“合同创建完成！等待租客阅读并同意签约合同！”);</p>
+<p>Bus.$emit(“launchNewContract”,”success”)</p>
+<p>}else{</p>
+<p>this.$message(“合同创建出现了问题”);</p>
+<p>}</p>
+<p>this.isContractFormShow = false;</p>
+<p>})</p>
+<p>}</p>
+<h3 id="5-3-6-收租功能"><a href="#5-3-6-收租功能" class="headerlink" title="5.3.6 收租功能"></a>5.3.6 收租功能</h3><p>房东点击我的收租按钮后，主栏会显示收租的列表。列表会显示已经收租的账单数据。对于未支付的账单，房东可以对其进行处理；对于已支付或者已取消的账单，房东也可以对账单进行再次的查看。房东也可点击“发起收租账单”按钮向租客发起账单。收租管理的界面如图5-29所示。</p>
+<p>图5-29 房东的收租管理功能</p>
+<p>房东点击“发起收租账单”按钮后，系统会拉出一个收租抽屉界面。该界面把收租的流程分为4步。在第一步时，需要房东选择收租的对象。收租的对象为签约并正在执行期内合同的所有租客；如果某一租客还存在未入账的账单，则无法对该租客进行重复收租。选择收租对象后，系统会读取相关的数据显示在界面上。在后续的步骤里，需要房东填入租客在这一周期使用的电度、水度和选填的额外的调节费用。系统会计算出相应的房租。房东选择收租截止日期、点击提交账单后，系统会将新的抄表信息更新到房源信息数据里，并且会把账单信息发送至租客的手机号上提醒租客及时缴交。收租抽屉界面如图5-30所示。</p>
+<p>图5-30 发起收租账单的操作界面</p>
+<p>房东发起账单的主要代码如下：</p>
+<p>toNextStep() {</p>
+<p>if (this.cId == “”) {</p>
+<p>this.$message.warning(“请先选择收租的对象哦”);</p>
+<p>return false;</p>
+<p>}</p>
+<p>if (this.launchBillStep == 3) {</p>
+<p>launchOrderInfo(this.billform).then(res =&gt; {</p>
+<p>if (res.data.data &gt; 0) {</p>
+<p>this.launchSMSInfo();//发送短信</p>
+<p>this.updateHouseInfomation(); //更新房屋水电信息</p>
+<p>} else {</p>
+<p>this.$message(“发起账单可能出现了问题，发起失败！”);</p>
+<p>}</p>
+<p>return false;</p>
+<p>}</p>
+<p>this.isPreBtnDisabled = false;</p>
+<p>if (++this.launchBillStep == 3) {</p>
+<p>this.btnLaunchName = “发起账单给租客”;</p>
+<p>//计算账单,(本次抄表-上次抄表)*单价+其他费用</p>
+<p>oOrderMoney = ((oNowElectricNumber - oLastElectricNumber) * oElectricPrice )+<br>((oNowWaterNumber -oLastWaterNumber) * oWaterPrice) + oHouseRentPrice +<br>this.billform.oAdjustFee;</p>
+<p>} else {</p>
+<p>this.btnLaunchName = “下一步”;</p>
+<p>}</p>
+<p>},</p>
+<p>房东除了发起收租外，也可以查看其他向自己入账的账单信息。对于已支付或者已关闭状态的账单，房东可以查看；对于未支付状态的账单，房东可以选择取消这份账单。取消账单并确认取消后，系统会还原之前的水表和电表的读数，并且该账单会拦截，不让租客支付。如果租客以线下其他方式向房东缴租，房东可以选择线下收到房租。其界面如图5-31所示。</p>
+<p>图5-31 租客中心的个人信息编辑界面</p>
+<h3 id="5-3-7-房东中心的实名认证功能"><a href="#5-3-7-房东中心的实名认证功能" class="headerlink" title="5.3.7 房东中心的实名认证功能"></a>5.3.7 房东中心的实名认证功能</h3><p>房东在注册完账号进入自己的个人中心后，需要进行实名认证。实名认证的操作流程与租客的操作流程一致。</p>
+<h3 id="5-3-8-房东中心的个人信息编辑功能"><a href="#5-3-8-房东中心的个人信息编辑功能" class="headerlink" title="5.3.8 房东中心的个人信息编辑功能"></a>5.3.8 房东中心的个人信息编辑功能</h3><p>房东可以在此页面修改自己的个人信息和头像。操作流程与租客的个人信息编辑功能一致。</p>
+<h3 id="5-3-9-房东中心的密码修改功能"><a href="#5-3-9-房东中心的密码修改功能" class="headerlink" title="5.3.9 房东中心的密码修改功能"></a>5.3.9 房东中心的密码修改功能</h3><p>房东可以根据需要在此模块修改自己的登录密码。房东修改密码的流程与租客的密码修改流程一致。</p>
+<h2 id="5-4-管理员模块"><a href="#5-4-管理员模块" class="headerlink" title="5.4 管理员模块"></a>5.4 管理员模块</h2><p>管理员从管理员登录页面输入账号，登录成功后会跳转到后台管理中心。</p>
+<h3 id="5-4-1-用户实名信息审核"><a href="#5-4-1-用户实名信息审核" class="headerlink" title="5.4.1 用户实名信息审核"></a>5.4.1 用户实名信息审核</h3><p>网站的用户在自己的个人中心提交的实名信息，都会归纳到管理中心等待管理员审核。显示管理员审核实名信息的界面如图5-32所示。</p>
+<p>图5-32 实名审核信息列表界面</p>
+<p>管理员可以审核并无限查看某条实名信息。管理员可以点击图片全屏查看证件信息。对于需要审核的信息，模态框会开放处理选项。管理员需要选择结果后提交处理。实名信息审核方算完成审核。展示实名信息详情的界面如图5-33所示。</p>
+<p>图5-33 审核实名信息的详情界面</p>
+<h3 id="5-4-2-房源信息审核"><a href="#5-4-2-房源信息审核" class="headerlink" title="5.4.2 房源信息审核"></a>5.4.2 房源信息审核</h3><p>管理员需要审核用户发布的房源信息。通过审核的房源信息才可以在网站前端被用户搜索到。管理员的房源审核列表如图5-34所示。</p>
+<p>图5-34 房源审核列表的界面</p>
+<p>管理员点击房源详情时，会显示一个写着房源详情信息的模态框。如果是待审核的房源，模态框会开放处理选项供管理员处理。其如图5-35所示。</p>
+<p>图5-35 管理员查看房源详情的界面</p>
+<p>管理员审核房源信息的主要代码如下：</p>
+<p>@PutMapping(“adminProcessHouseAuditState”)</p>
+<p>public Result adminProcessHouseAuditState(@RequestBody HouseInfomationDO<br>record){</p>
+<p>int i = houseimpl.updateHouseInfo(record);</p>
+<p>return Result.create(i);</p>
+<p>}</p>
+<h1 id="第六章-系统测试"><a href="#第六章-系统测试" class="headerlink" title="第六章 系统测试"></a>第六章 系统测试</h1><h2 id="6-1-系统用例测试"><a href="#6-1-系统用例测试" class="headerlink" title="6.1 系统用例测试"></a>6.1 系统用例测试</h2><p>系统测试主要是功能测试，检测各功能模块是否能够正常运行，系统整体功能是否完善，运行过程是否顺利，界面是否整洁美观。</p>
+<p>重置密码测试用例如表6-1所示。</p>
+<p>表6-1 修改密码测试用例</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>CS01</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>用户修改密码</td>
+</tr>
+<tr>
+<td>输入信息：</td>
+<td>原密码、新密码、确认新密码</td>
+</tr>
+<tr>
+<td>输出信息：</td>
+<td>密码成功修改后，提示用户修改结果</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>1）用户进入自己的个人中心界面，点击修改密码。 2）用户输入原密码一次，输入新密码两次。 3）点击“保存修改”按钮修改密码，成功后提示用户修改结果，并清空输入框。</td>
+</tr>
+</tbody></table>
+<p>房东用户发起账单用例如表6-2所示。</p>
+<p>表6-2 房东发起新账单测试用例</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>CS02</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>房东发起新账单</td>
+</tr>
+<tr>
+<td>输入信息：</td>
+<td>输入标题、介绍、房源属性、价格、押付类型、上传图片。</td>
+</tr>
+<tr>
+<td>输出信息：</td>
+<td>上传成功后，提示用户上传结果。</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>1）进入房东中心，点击“发布房源”按钮 2）输入标题、介绍、房源属性、价格、押付类型 3）上传图片 4）点击“保存”按钮，成功后返回上传结果。</td>
+</tr>
+</tbody></table>
+<p>用户发表文章评论测试用例如表6-3所示。</p>
+<p>表6-3 租客评价房东测试用例</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号：</td>
+<td>CS03</td>
+</tr>
+<tr>
+<td></td>
+<td>续表6-3</td>
+</tr>
+<tr>
+<td>用例名：</td>
+<td>租客评价房东</td>
+</tr>
+<tr>
+<td>输入信息：</td>
+<td>输入评价内容，选择评价分</td>
+</tr>
+<tr>
+<td>输出信息：</td>
+<td>评价成功，可以在合同查看评价信息</td>
+</tr>
+<tr>
+<td>过程：</td>
+<td>1）合同结束后，点击“合同详情”，再点击“评价TAA”按钮 2）输入评价的内容，选择评价的分数 3）点击“提交评价”按钮，进行评价。</td>
+</tr>
+</tbody></table>
+<h2 id="6-2-测试结果"><a href="#6-2-测试结果" class="headerlink" title="6.2 测试结果"></a>6.2 测试结果</h2><p>“嘤嘤租房网”的所有功能的测试结果如下：</p>
+<p>（1）前台。前台的用户登录、注册功能、搜索房源、提交申请与预约请求、实名认证、合同管理、预约管理、账单管理、租客、房源与房东评价、房源管理等模块均通过了测试。</p>
+<p>（2）网站的管理员登录后台后，可以实现对房源的审核、实名信息的审核。以上模块均通过了测试。</p>
+<h1 id="总-结"><a href="#总-结" class="headerlink" title="总 结"></a>总 结</h1><p>这一次毕业设计，是第三次自己规划并开发一个较为完整的网站。在开发“嘤嘤租房网”网站时，遇到了几个比较关键的问题。首先的是使用的技术。原本在构思课题时只考虑使用SSM框架，并以jsp页面进行内容的呈现；但在网络上搜集资料时，我逐渐发现前后端分离开发更加贴合现在主流的开发方式。在寻找前端时，发现了基于Vue技术的Element<br>UI框架。此框架简洁干净，也贴合租房这一商业性质网站的风格。综上所述，本课题的网站框架采用Vue与SSM，奠定了网站后续的开发方向。</p>
+<p>有句话叫“万事开头难”。在网站的开发初期，没有接触过前后端分离开发的我遇到了瓶颈。比如：Vue里如何做到数据对接、数据没有及时到达页面造成排版异常等等。有些问题的原因单一，也有的问题原因多种多样；我无从下手，不知如何解决。在同学的指导下，我学会通过报错日志与浏览器控制台的报错信息来定位问题，从而寻找解决办法。</p>
+<p>在后续的开发过程中，理所当然却也无可奈何地遇到了各式各样的问题。在解决这些问题时，最初只能求助网络，寻找类似问题的先例并在自己项目上逐步进行实践以解决当下的错误。长此以往，我发现，当相似的问题遇到一定量后，大脑内会形成一定的解决思路。这令我在往后遇到问题时能更有效率地去解决，我相信，这些经验在以后的工作实战里有着不小的帮助。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
+<li><p> 王飞.论房屋租赁信息系统的设计与实现[J].电脑迷,2017(07):194-195.</p>
+</li>
+<li><p> 罗树立.加入WTO给中国房地产业带来的挑战及应对措施[J].中共成都市委党校学报,2002(6):35~36.</p>
+</li>
+<li><p> 巴民.国外的住房市场[J].重庆国土资源,2005(5):39~40.</p>
+</li>
+<li><p> 吴浪,高际家.房屋租赁市场的中美比较分析[J].青年科学,2010(2):197~198.</p>
+</li>
+<li><p> 沈克明.纽约政府如何补贴穷人住房[J].新财经,2006(8):80~81.</p>
+</li>
+<li><p> 冯博.中国廉租房制度与日本公营住房政策的比较研究[D].山西财经大学,2010.</p>
+</li>
+<li><p> 刘海洋,陈海.廉租房在国外[J].中州建设,2011(6):74~75.</p>
+</li>
+<li><p> 隋琛琛.廉租房制度国内外比较与借鉴[J].上海房地,2009,14(7):22~25.</p>
+</li>
+<li><p> 房屋租售管理系统的设计与实现[J].尹凌.计算机光盘软件与应用.2012(22)</p>
+</li>
+<li><p> 武海龙,李国平.基于SpringBoot的房屋租赁系统设计[J].电脑与信息术,2019,27(03):76-78.</p>
+</li>
+<li><p> 战松,郎妲妮.长租公寓现存问题分析及解决对策[J].辽宁经济,2019(11):70-71.</p>
+</li>
+<li><p>Márcio Moraes Valença. Social rental housing in HK and the UK: Neoliberal<br> policy divergence or the market in the making?[J]. Habitat<br> International,2015,49.</p>
+</li>
+<li><p>Barton, Barbara. Earning Extra Income With Rent Houses[J]. Ranch and Rural<br> Living,2011,92(5).</p>
+</li>
+</ol>
+<h1 id="致-谢"><a href="#致-谢" class="headerlink" title="致 谢"></a>致 谢</h1><p>本篇论文到了致谢部分，说明在自己的努力和大家的帮助下，我完成了论文的大部分内容。首先，我想感谢我的导师杨财英老师。毕业设计是第一次一个人独立完成一个较为完整的网站，从选题、设计数据库到开发，每一步都需要先慎重思考以避免无效努力。感谢她的指导，我才能更顺利地完成选题方面、逻辑方面等许多环节的任务；也感谢老师的督促，老师的负责也是我能按期完成网站不可少的要素。</p>
+<p>接着，我想感谢我周围的同学与老师，感谢他们能在我碰到技术性的问题无法解决时，帮助我一起解决；也感谢我的朋友们能以使用者的角度给我提出使用的感想，让我能修改出目前最贴合生产环境里的操作界面与交互效果。也感谢他们在我碰到瓶颈时，能给我信心。在大学这段时间里，校园的视野让我能更投入地去学习自己的专业知识。感谢老师们这几年的教学，让我打下了一定的基础；在遇到问题时对比以往让我用不同的角度去看待并解决。</p>
+<p>再次感谢大家的帮助与教诲。学无止境，今后走出象牙之塔，我仍会保持谦逊的态度，努力学习，提升自己，认真完成每一件事情！</p>
+
+            </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://chenlx.top/2021/05/27/bysj/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://chenlx.top/2021/05/27/bysj/";
+            const title         = "「毕业设计论文：基于javaEE的房屋租赁管理系统的设计与实现」";
+            const excerpt       = `毕业设计（论文）
+
+
+
+题目：
+基于javaEE的房屋租赁管理系统的设计与实现
+
+
+
+学生：
+陈立祥
+
+
+指导老师：
+杨财英 讲师
+
+
+院别：
+软件学院
+
+
+专业：
+软件工程
+
+
+班级：
+1601
+
+
+学号：
+3168115101
+
+...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/JavaEE/" rel="tag">JavaEE</a>, <a class="tag-none-link" href="/tags/Vue/" rel="tag">Vue</a>, <a class="tag-none-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a>, <a class="tag-none-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2021-05-27</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" React学习笔记" href="/2021/05/26/React学习笔记/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+            <div id="v-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Valine({
+                el: '#v-comments',
+                appId: 'jbLdG9Wm4fUslNXKHRkiHBX1-gzGzoHsz',
+                appKey: 'XRedUk8PBsDbjjc11hIToxm5',
+                visitor: true,
+                enableQQ: true,
+                path: '/2021/05/27/bysj/'
+            });
+        }
+        if (typeof Valine == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+
+        
+    </article>
+</section>
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.jpg" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"><b>chenlx</b></p>
+        <ul>
+            <li>国家一级退堂鼓演奏家</li>
+        <li>《感动中国》2008年度人物 特别奖获得者</li>
+        <li>美国《时代周刊》2006年度风云人物获得者</li>
+        </ul>
+       
+        <p ></p>
+    </div>
+</aside>
+            
+                
+  <style>
+    .widget li {
+      list-style-type: none;
+    }
+
+    .widget .jian::before {
+      content: '荐';
+      background-color: rgb(139, 177, 235);
+      color: white;
+      margin: 0 3px;
+      padding: 1px;
+      border-radius: 4px;
+    }
+
+    .widget .hot::before {
+      content: '新';
+      background-color: rgb(255, 106, 106);
+      color: white;
+      margin: 0 3px;
+      padding: 1px;
+      border-radius: 4px;
+    }
+  </style>
+  <div class="kratos-hentry kratos-entry-border-new clearfix">
+    <div class="widget-wrap">
+      <h3 class="widget-title">小天地站内导航</h3>
+      <div class="widget">
+        <ul>
+          <li class="hot"><a href="/milktea">奶茶热量查询</a></li>
+          <li class="jian"><a href="/graduate">教师节的彩蛋</a></li>
+          <li class="jian"><a href="/graduate">软工班毕业专题</a></li>
+          <li class="jian"><a href="/htys">《荷塘月色》五百遍作业</a></li>
+          <li class="jian"><a target="_blank" rel="noopener" href="https://space.bilibili.com/7044171">lx的哔哩哔哩</a></li>
+          <li class="jian"><a target="_blank" rel="noopener" href="https://www.sbsub.com">银色子弹官网</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  
+            
+                
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/JavaEE/" style="font-size: 0.6em;">JavaEE</a> <a href="/tags/React/" style="font-size: 0.6em;">React</a> <a href="/tags/SpringBoot/" style="font-size: 0.6em;">SpringBoot</a> <a href="/tags/Vue/" style="font-size: 0.6em;">Vue</a> <a href="/tags/%E4%BC%9A%E8%AE%AE%E8%AE%B0%E5%BD%95/" style="font-size: 0.6em;">会议记录</a> <a href="/tags/%E4%BD%9C%E6%96%87/" style="font-size: 0.6em;">作文</a> <a href="/tags/%E5%87%8F%E8%82%A5/" style="font-size: 0.6em;">减肥</a> <a href="/tags/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81/" style="font-size: 0.6em;">教师资格证</a> <a href="/tags/%E6%96%87%E7%AB%A0/" style="font-size: 0.6em;">文章</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">毕业设计</a> <a href="/tags/%E7%9F%A5%E8%AF%86/" style="font-size: 0.6em;">知识</a> <a href="/tags/%E7%A7%91%E7%9B%AE%E4%B8%80/" style="font-size: 0.6em;">科目一</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 0.6em;">笔记</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 0.6em;">论文</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/05/27/bysj/"><i class="fa  fa-book"></i> 毕业设计论文：基于javaEE的房屋租赁管理系统的设计与实现</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/05/26/React%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa  fa-book"></i> React学习笔记</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/05/26/zgsjcbp/"><i class="fa  fa-book"></i> 这个时间吃不胖</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/05/22/%E8%BF%99%E6%98%AF%E7%AC%AC8033%E5%A4%A9%E7%9A%84%E6%89%93%E5%8D%A1/"><i class="fa  fa-book"></i> 这是第8033天的打卡</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/05/22/hello-world/"><i class="fa  fa-book"></i> Hello World</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%8F%E5%BB%BA%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%EF%BC%88%E8%AE%BA%E6%96%87%EF%BC%89%E4%BD%9C%E8%80%85%E6%89%BF%E8%AF%BA%E4%BF%9D%E8%AF%81%E4%B9%A6"><span class="toc-text">福建工程学院本科毕业设计（论文）作者承诺保证书</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%8F%E5%BB%BA%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%EF%BC%88%E8%AE%BA%E6%96%87%EF%BC%89%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%E6%89%BF%E8%AF%BA%E4%BF%9D%E8%AF%81%E4%B9%A6"><span class="toc-text">福建工程学院本科毕业设计（论文）指导教师承诺保证书</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE-%E5%BD%95"><span class="toc-text">目 录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%98-%E8%A6%81"><span class="toc-text">摘 要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%BF%B0"><span class="toc-text">第一章 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E8%AF%BE%E9%A2%98%E8%83%8C%E6%99%AF%E5%8F%8A%E6%84%8F%E4%B9%89"><span class="toc-text">1.1 课题背景及意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%9B%BD%E5%86%85%E5%A4%96%E7%8E%B0%E7%8A%B6"><span class="toc-text">1.2 国内外现状</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1%E5%9B%BD%E5%86%85%E7%8E%B0%E7%8A%B6"><span class="toc-text">1.2.1国内现状</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2%E5%9B%BD%E5%A4%96%E7%8E%B0%E7%8A%B6"><span class="toc-text">1.2.2国外现状</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF"><span class="toc-text">第二章 相关技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text">2.1开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF"><span class="toc-text">2.2相关技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-Vue%E6%8A%80%E6%9C%AF"><span class="toc-text">2.2.1 Vue技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-MySQL"><span class="toc-text">2.2.2 MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-SSM"><span class="toc-text">2.2.3 SSM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-text">第三章 系统需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-text">3.1 系统概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%B3%BB%E7%BB%9F%E4%B8%9A%E5%8A%A1%E5%88%86%E6%9E%90"><span class="toc-text">3.2 系统业务分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%9F%E5%AE%A2%E7%9A%84%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="toc-text">租客的业务流程分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%BF%E4%B8%9C%E7%9A%84%E4%B8%9A%E5%8A%A1%E5%88%86%E6%9E%90"><span class="toc-text">房东的业务分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82"><span class="toc-text">3.3 功能需求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E7%BD%91%E7%AB%99%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97"><span class="toc-text">3.3.1 网站前端模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E7%BD%91%E7%AB%99%E5%90%8E%E7%AB%AF%E6%A8%A1%E5%9D%97"><span class="toc-text">3.3.2 网站后端模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="toc-text">第四章 系统设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.1系统概要设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.2功能模块设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E5%85%AC%E5%85%B1%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97"><span class="toc-text">4.2.1 公共前端模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%E6%A8%A1%E5%9D%97"><span class="toc-text">4.2.2 个人中心模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-%E7%AE%A1%E7%90%86%E5%91%98%E6%A8%A1%E5%9D%97"><span class="toc-text">4.2.3 管理员模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.3数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.3.1 概要设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E7%89%A9%E7%90%86%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.3.2 物理设计</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0"><span class="toc-text">第五章 系统实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1%E5%85%AC%E5%85%B1%E5%89%8D%E5%8F%B0%E6%A8%A1%E5%9D%97"><span class="toc-text">5.1公共前台模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-1-%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2"><span class="toc-text">5.1.1 欢迎页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-2-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E9%A1%B5"><span class="toc-text">5.1.2 用户注册页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-3-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E9%A1%B5"><span class="toc-text">5.1.3 用户登录页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-4-%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E9%A1%B5"><span class="toc-text">5.1.4 搜索结果页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-5-%E6%88%BF%E6%BA%90%E8%AF%A6%E6%83%85%E9%A1%B5"><span class="toc-text">5.1.5 房源详情页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E6%A8%A1%E5%9D%97"><span class="toc-text">5.2 租客中心模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E7%9A%84%E6%AC%A2%E8%BF%8E%E9%A1%B5"><span class="toc-text">5.2.1 租客中心的欢迎页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E7%9A%84%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81%E5%8A%9F%E8%83%BD"><span class="toc-text">5.2.2 租客中心的实名认证功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-3-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E7%9A%84%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9%E5%8A%9F%E8%83%BD"><span class="toc-text">5.2.3 租客中心的密码修改功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-4-%E7%A7%9F%E5%AE%A2%E4%B8%AD%E5%BF%83%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD"><span class="toc-text">5.2.4 租客中心的个人信息编辑功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-5-%E6%88%91%E7%9A%84%E5%90%88%E5%90%8C%E5%8A%9F%E8%83%BD"><span class="toc-text">5.2.5 我的合同功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-6-%E6%88%91%E7%9A%84%E8%B4%A6%E5%8D%95%E5%8A%9F%E8%83%BD"><span class="toc-text">5.2.6 我的账单功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-7-%E6%88%91%E7%9A%84%E7%9C%8B%E6%88%BF%E9%A2%84%E7%BA%A6%E5%8A%9F%E8%83%BD"><span class="toc-text">5.2.7 我的看房预约功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E6%A8%A1%E5%9D%97"><span class="toc-text">5.3 房东中心模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-1-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E7%9A%84%E6%AC%A2%E8%BF%8E%E9%A1%B5"><span class="toc-text">5.3.1 房东中心的欢迎页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-2-%E6%96%B0%E5%A2%9E%E6%88%BF%E6%BA%90%E5%8A%9F%E8%83%BD"><span class="toc-text">5.3.2 新增房源功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-3-%E6%88%BF%E6%BA%90%E5%88%97%E8%A1%A8%E5%8A%9F%E8%83%BD"><span class="toc-text">5.3.3 房源列表功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-4-%E7%9C%8B%E6%88%BF%E9%A2%84%E7%BA%A6%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD"><span class="toc-text">5.3.4 看房预约管理功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-5-%E5%90%88%E5%90%8C%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD"><span class="toc-text">5.3.5 合同管理功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-6-%E6%94%B6%E7%A7%9F%E5%8A%9F%E8%83%BD"><span class="toc-text">5.3.6 收租功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-7-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E7%9A%84%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81%E5%8A%9F%E8%83%BD"><span class="toc-text">5.3.7 房东中心的实名认证功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-8-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD"><span class="toc-text">5.3.8 房东中心的个人信息编辑功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-9-%E6%88%BF%E4%B8%9C%E4%B8%AD%E5%BF%83%E7%9A%84%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9%E5%8A%9F%E8%83%BD"><span class="toc-text">5.3.9 房东中心的密码修改功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E7%AE%A1%E7%90%86%E5%91%98%E6%A8%A1%E5%9D%97"><span class="toc-text">5.4 管理员模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-1-%E7%94%A8%E6%88%B7%E5%AE%9E%E5%90%8D%E4%BF%A1%E6%81%AF%E5%AE%A1%E6%A0%B8"><span class="toc-text">5.4.1 用户实名信息审核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-2-%E6%88%BF%E6%BA%90%E4%BF%A1%E6%81%AF%E5%AE%A1%E6%A0%B8"><span class="toc-text">5.4.2 房源信息审核</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95"><span class="toc-text">第六章 系统测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E7%B3%BB%E7%BB%9F%E7%94%A8%E4%BE%8B%E6%B5%8B%E8%AF%95"><span class="toc-text">6.1 系统用例测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-text">6.2 测试结果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB-%E7%BB%93"><span class="toc-text">总 结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%B4-%E8%B0%A2"><span class="toc-text">致 谢</span></a></li></ol>
+    </div>
+</aside>
+                
+                    <div class="sticky-area">
+                
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:me@chenlx.top"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/xmchenlx"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2021 lx新博客 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by chenlx.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">闽ICP备18027684号-1</a></li>
+                            <li><a href="http://www.beian.gov.cn" rel="external nofollow" target="_blank"><img src="/images/psr.webp" width="12" height="12">闽公网安备 35020602001332号</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3050347758"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
