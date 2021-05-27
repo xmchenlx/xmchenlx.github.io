@@ -22,11 +22,18 @@
 <div id="app" v-cloak>
     <br><br>
     <p class="desc_p" style="font-size: 0.5rem;">数据更新：{{allJsonData.version_date}}（v.{{allJsonData.version}}） |
-        <el-button type="text" style="font-size: 0.5rem;" @click="webDescShow=!twebDescShow">关于本网站</el-button>
+        <el-button type="text" style="font-size: 0.5rem;" @click="webDescShow=!webDescShow">关于本网站</el-button>
     </p>
+    <!-- <div id="ppSelBox">
+        <ul>
+            <li v-for="(obj,index) in pplist" :key="index">
+                <img :src="processImgPath(obj)" class="ppSelImg"/>
+            </li>
+        </ul>
+    </div> -->
     <el-form inline @submit.native.prevent>
-        <el-form-item label="搜索">
-            <el-input v-model="search" size="mini" placeholder="输入搜索名称，按回车查询"  @keyup.enter.native="searchMk()"> 
+        <el-form-item label="">
+            <el-input clearable v-model="search" size="mini" placeholder="输入搜索名称，按回车查询"  @keyup.enter.native="searchMk()"> 
                 <i slot="prefix" class="el-input__icon el-icon-search"></i>
             </el-input>
         </el-form-item>
@@ -68,7 +75,7 @@
        <div id="milk-tea-detial" style="height:95vh;overflow-y: scroll;">
         <el-form ref="detailMilkTea" label-position="right" :disabled="isDis" label-width="100px" :model="detailMilkTea" size="mini">
             <el-form-item label="奶茶名">
-                <h3>{{detailMilkTea.pp}}·{{detailMilkTea.ypm}}</h3>
+                <h3><img class="ppImg" :src="processImgPath(detailMilkTea.pp)"/>·{{detailMilkTea.ypm}}</h3>
             </el-form-item>
             <el-form-item label="价格">
                 <h3>{{((detailMilkTea.pri==='0'?'信息未搜集或免费':detailMilkTea.pri))}}</h3>
@@ -140,6 +147,9 @@
                     <div class="desc_div">
                         本网站设计的初衷在于对市面上的奶茶有更进一步的了解。但由于品牌与产品繁多，且新品不断更迭，数据将尽量跟进市场。本网站仅用于学习与研究，不用于任何商业用途。网站内的数据仅供参考，请勿将数据作为重要依据。
                     </div>
+                    <div class="desc_div">
+                        网站友情支持：蓝毒Blue Poison
+                    </div>
                 </el-collapse-item>
                 <el-collapse-item title="数据来源 Data sources" name="2">
                     <div class="desc_div">
@@ -163,9 +173,26 @@
                         <p>④、小料。小料为了口感，会与果糖一同搅拌后等待使用。所以小料本身就相当于糖。除了果糖，小料的成分也包含淀粉。减肥人士在减肥期间应当尽量少碰或者不碰。</p>
                     </div>
                 </el-collapse-item>
-                <el-collapse-item title="网站未来维护 The Plan in Future" name="4">
+                <el-collapse-item title="更新日志 The Log Of Dev" name="4">
                     <div class="desc_div">
-                        /
+                        <el-timeline>
+                            <el-timeline-item v-for="(log,index) in devLog" :key="index" :timestamp="log.date" placement="top">
+                              <el-card>
+                                    <p v-if="log.content.check !==''">
+                                        <span class="icon gre">校正</span>
+                                        {{log.content.check}}
+                                    </p>
+                                    <p v-if="log.content.new !==''">
+                                        <span class="icon new">新增</span>
+                                        {{log.content.new}}
+                                    </p>
+                                    <p v-if="log.content.fix !==''">
+                                        <span class="icon fix">修复</span>
+                                        {{log.content.fix}}
+                                    </p>
+                            </el-card>
+                                  </el-timeline-item>
+                                  </el-timeline>
                     </div>
                 </el-collapse-item>
             </el-collapse>
@@ -222,6 +249,7 @@
             el: '#app',
             data: {
                 title: '奶茶热量查询',
+                devLog:[],
                 tableData: [
                     {
                         id: 0,
@@ -231,6 +259,7 @@
                         rl: '530'
                     }
                 ],
+                originTableData:[],
                 detailMilkTea: {
                     cup: 1,
                     sugar: 0,
@@ -275,7 +304,11 @@
                     '奈雪',
                     '乐乐茶',
                     '伏见',
-                    '厝内小眷村'
+                    '厝内小眷村',
+                    '乐乐茶',
+                    '茶百道',
+                    '茶卜道',
+                    '萃春疯'
 
                 ],
                 filterPPList: []
@@ -284,22 +317,30 @@
                 this.loadJson()
             },
             methods: {
+                processImgPath(name){
+                    return './images/logo/'+name+'.png'
+                },
                 searchMk(){
-                    if(this.search === ''){
+                    // if(this.search === ''){
                         this.loadJson()
-                        return false
-                    }
+                        // return false
+                    // }
                     let searchLen = this.search.length
                     let searchList =[]
                     this.tableData.forEach(obj=>{
-                        // console.log(obj)
-                        for(let i=0;i<obj.ypm.length;i++){
-                            // console.log(obj.ypm.substring(i,searchLen),',', this.search)
-                            if(obj.ypm.substring(i,searchLen) === this.search){
-                                searchList.push(obj)
-                                break;
-                            }
+                        let reg = new RegExp(this.search)
+                        if(obj.ypm.match(reg)){
+                            searchList.push(obj)
                         }
+                        // console.log(obj)
+                        // for(let i=0;i<obj.ypm.length;i++){
+                        //     // console.log(obj.ypm.substring(i,searchLen),',', this.search)
+                        //     if(obj.ypm.indexOf(this.search) !==-1){
+                        //     // if(obj.ypm.substring(i,searchLen) === this.search){
+                        //         searchList.push(obj)
+                        //         break;
+                        //     }
+                        // }
                     })
                     this.tableData = searchList
                 },
@@ -397,6 +438,10 @@
                 },
                 loadJson() {
                     let _this = this
+                    if(this.originTableData.length!=0){
+                        this.tableData=this.originTableData
+                        return false
+                    }
                     try {
                         axios.get('./resources/jso.json').then(response => {
                             //succces callback
@@ -406,6 +451,8 @@
                             // console.log('this.allJsonData.data')
                             // console.log(this.allJsonData.data)
                             this.tableData = this.allJsonData.data.milktea
+                            this.originTableData = this.tableData
+                            this.devLog = this.allJsonData.devLog
                             this.ingData = this.allJsonData.data.ingredients
                             // 原本用于小料的排版，现在用flex自动布局，所以无用
                             // let numsOfRow = 1
@@ -438,6 +485,7 @@
                                 value: obj
                             })
                         });
+                        sessionStorage.setItem('isLoad',true)
                         this.$nextTick(() => {
                             this.filterPPList = this.filterPPList
                         })

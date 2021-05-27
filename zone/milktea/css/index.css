@@ -87,3 +87,47 @@ html{
   display: none;
 }
 
+
+
+.ppImg{
+  width:15vw;
+  vertical-align: middle;
+}
+
+.ppSelImg{
+  height: 10vh;
+  vertical-align: middle;
+}
+
+#ppSelBox{
+  width: 100%;
+  display: inline-block;
+  border: 1px solid red;
+  overflow: hidden;
+}
+#ppSelBox ul{
+  width: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  
+}
+#ppSelBox ul li{
+  display: inline-block;
+}
+
+.icon{
+  padding: 1px 4px;
+  color:white;
+
+}
+.gre{
+  background-color: rgb(60, 155, 76);
+}
+.new{
+  background-color: rgb(42, 83, 172);
+
+}
+.fix{
+  background-color: rgb(177, 62, 62);
+
+}
