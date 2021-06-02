@@ -9,25 +9,12 @@ abbrlink: e655
 toc: true
 date: 2021-05-27 15:54:15
 ---
-毕业设计（论文）
-
-| 题目：     | 基于javaEE的房屋租赁管理系统的设计与实现 |
-| ---------- | ---------------------------------------- |
-| 学生：     | 陈立祥                                   |
-| 指导老师： | 杨财英 讲师                              |
-| 院别：     | 软件学院                                 |
-| 专业：     | 软件工程                                 |
-| 班级：     | 1601                                     |
-| 学号：     | 3168115101                               |
-
-2020年1月
 
 # 福建工程学院本科毕业设计（论文）作者承诺保证书
 
 本人郑重承诺：本篇毕业设计（论文）的内容真实、可靠。如果存在弄虚作假、抄袭的情况，本人愿承担全部责任。
 
 学生签名：
-
 2020 年 1 月 日
 
 # 福建工程学院本科毕业设计（论文）指导教师承诺保证书
@@ -35,171 +22,23 @@ date: 2021-05-27 15:54:15
 本人郑重承诺：我已按有关规定对本篇毕业设计(论文)的选题与内容进行了指导和审核，且提交的毕业设计（论文）终稿与上传至“大学生论文管理系统”检测的电子文档相吻合，未发现弄虚作假、抄袭的现象，本人愿承担指导教师的相关责任。
 
 指导教师签名：
-
 2020 年 月 日
 
 # 目 录
-
-[摘  要	I](#_Toc29371863)
-
-[Abstract	II](#_Toc29371864)
-
-[第一章 概述	1](#_Toc29371865)
-
->   [1.1 课题背景及意义	1](#_Toc29371866)
-
->   [1.2 国内外现状	1](#_Toc29371867)
-
->   [1.2.1国内现状	1](#_Toc29371868)
-
->   [1.2.2国外现状	1](#_Toc29371869)
-
-[第二章 相关技术	2](#_Toc29371870)
-
->   [2.1开发环境	2](#_Toc29371871)
-
->   [2.2相关技术	2](#_Toc29371872)
-
->   [2.2.1 Vue技术	2](#_Toc29371873)
-
->   [2.2.2 MySQL	2](#_Toc29371874)
-
->   [2.2.3 SSM	2](#_Toc29371875)
-
-[第三章 系统需求分析	3](#_Toc29371876)
-
->   [3.1 系统概述	3](#_Toc29371877)
-
->   [3.2 系统业务分析	3](#_Toc29371878)
-
->   [3.3 功能需求	5](#_Toc29371879)
-
->   [3.3.1 网站前端模块	5](#_Toc29371880)
-
->   [3.3.2 网站后端模块	11](#_Toc29371881)
-
-[第四章 系统设计	12](#_Toc29371882)
-
->   [4.1系统概要设计	12](#_Toc29371883)
-
->   [4.2功能模块设计	12](#_Toc29371884)
-
->   [4.2.1 公共前端模块	12](#_Toc29371885)
-
->   [4.2.2 个人中心模块	14](#_Toc29371886)
-
->   [4.2.3 管理员模块	18](#_Toc29371887)
-
->   [4.3数据库设计	18](#_Toc29371888)
-
->   [4.3.1 概要设计	18](#_Toc29371889)
-
->   [4.3.2 物理设计	22](#_Toc29371890)
-
-[第五章 系统实现	27](#_Toc29371891)
-
->   [5.1公共前台模块	27](#_Toc29371892)
-
->   [5.1.1 欢迎页面	27](#_Toc29371893)
-
->   [5.1.2 用户注册页	27](#_Toc29371894)
-
->   [5.1.3 用户登录页	28](#_Toc29371895)
-
->   [5.1.4 搜索结果页	29](#_Toc29371896)
-
->   [5.1.5 房源详情页	30](#_Toc29371897)
-
->   [5.2 租客中心模块	34](#_Toc29371898)
-
->   [5.2.1 租客中心的欢迎页	34](#_Toc29371899)
-
->   [5.2.2 租客中心的实名认证功能	34](#_Toc29371900)
-
->   [5.2.3 租客中心的密码修改功能	35](#_Toc29371901)
-
->   [5.2.4 租客中心的个人信息编辑功能	36](#_Toc29371902)
-
->   [5.2.5 我的合同功能	37](#_Toc29371903)
-
->   [5.2.6 我的账单功能	39](#_Toc29371904)
-
->   [5.2.7 我的看房预约功能	41](#_Toc29371905)
-
->   [5.3 房东中心模块	42](#_Toc29371906)
-
->   [5.3.1 房东中心的欢迎页	42](#_Toc29371907)
-
->   [5.3.2 新增房源功能	42](#_Toc29371908)
-
->   [5.3.3 房源列表功能	43](#_Toc29371909)
-
->   [5.3.4 看房预约管理功能	44](#_Toc29371910)
-
->   [5.3.5 合同管理功能	45](#_Toc29371911)
-
->   [5.3.6 收租功能	46](#_Toc29371912)
-
->   [5.3.7 房东中心的实名认证功能	48](#_Toc29371913)
-
->   [5.3.8 房东中心的个人信息编辑功能	48](#_Toc29371914)
-
->   [5.3.9 房东中心的密码修改功能	49](#_Toc29371915)
-
->   [5.4 管理员模块	49](#_Toc29371916)
-
->   [5.4.1 用户实名信息审核	49](#_Toc29371917)
-
->   [5.4.2 房源信息审核	50](#_Toc29371918)
-
-[第六章 系统测试	52](#_Toc29371919)
-
->   [6.1 系统用例测试	52](#_Toc29371920)
-
->   [6.2 测试结果	53](#_Toc29371921)
-
-[总 结	54](#_Toc29371922)
-
-[参考文献	55](#_Toc29371923)
-
-[致 谢	56](#_Toc29371924)
+Md文件中忽略
 
 基于javaEE的房屋租赁管理系统的设计与实现
 
 # 摘 要
-
 在如今的互联网时代，传统繁琐的租赁流程已不太适用于当下忙碌而又快节奏的生活。租客想在工作的城市借居却很难即时发现自己最为心仪的房源；流动租客过多时也导致房东难以进行管理。因此，本课题借由这一社会现象设计并实现了一套房屋租赁管理系统。该课题的开发语言选择Vue与JavaEE，采用Element
 UI、SSM等技术框架；使用Tomcat搭建服务器，以及使用MySQL数据库进行数据存储。系统拥有搜索房源、租赁房源、签订合同、支付账单等功能。通过本系统，租客可以直接在网页搜索查询自己想要的房屋信息；通过查阅房源的评分，租客能对房源的客观状态一目了然，同时，也支持租客在网站内完成预约上门看房、申请租房、签约合同、支付房租等功能；房东也可以在网站上直接对合同、账单、租客预约等进行便捷的处理。在处理租客的租房申请时，房东也能根据租客的评分来决定是否向租客出租以避免糟心的问题。系统可以简化租赁流程，直接在一个网站上存储相应的租赁内容并提供随时查阅。不论是租客还是房东，在租赁结束后都能为对方进行评价，形成一套简单的用户评价体系。系统完成后的测试结果表明，该系统运行状态良好，对各个功能进行了不同环境的测试，基本符合用户的良好体验。
 
 关键字：房屋，租赁，Vue，J2EE
-
 Design and Implementation of a House Rental Management System Based on JavaEE
 
 # Abstract
 
-In today's Internet age, the traditional tedious rental process is no longer
-suitable for today's busy and fast-paced life. Tenants want to live in the city
-where they work, but it ’s difficult to find their favorite property instantly;
-too many mobile tenants also make it difficult for landlords to manage.
-Therefore, the subject designs and implements a house rental management system
-based on this social phenomenon. Vue, SSM and other technologies were selected
-as the development language used in this system. Using Tomcat to build the
-server, and select MySQL database for data storage. The system has functions
-such as searching for listings, renting listings, contracts, and paying bills.
-Through this system, tenants can search for the desired housing information
-directly on the webpage. By checking the ratings of the listing and the
-landlord, the objective status of the listing or the landlord can be seen at a
-glance. Apply for rent online, read and sign the contract, pay rent bill. The
-landlord can also conveniently handle the contracts, the bills, the appointments
-and the bill directly on the website. When processing a housing application, you
-can decide whether to rent based on the tenant's evaluation. Avoid bad
-experiences. The system can make most of the leasing process paperless, store
-the corresponding content directly on a website and can check it at any time.
-Both the tenant and the landlord can evaluate the other party after the lease
-ends, forming a simple user evaluation system. The test results after the
-completion of the system show that the system is running well, and various
-functions have been tested in different environments, which basically meets the
-user's good experience.
+In today's Internet age, the traditional tedious rental process is no longer suitable for today's busy and fast-paced life. Tenants want to live in the city  where they work, but it ’s difficult to find their favorite property instantly;  too many mobile tenants also make it difficult for landlords to manage.  Therefore, the subject designs and implements a house rental management system  based on this social phenomenon. Vue, SSM and other technologies were selected  as the development language used in this system. Using Tomcat to build the  server, and select MySQL database for data storage. The system has functions  such as searching for listings, renting listings, contracts, and paying bills.  Through this system, tenants can search for the desired housing information  directly on the webpage. By checking the ratings of the listing and the  landlord, the objective status of the listing or the landlord can be seen at a  glance. Apply for rent online, read and sign the contract, pay rent bill. The  landlord can also conveniently handle the contracts, the bills, the appointments  and the bill directly on the website. When processing a housing application, you  can decide whether to rent based on the tenant's evaluation. Avoid bad  experiences. The system can make most of the leasing process paperless, store  the corresponding content directly on a website and can check it at any time.  Both the tenant and the landlord can evaluate the other party after the lease  ends, forming a simple user evaluation system. The test results after the  completion of the system show that the system is running well, and various  functions have been tested in different environments, which basically meets the  user's good experience.
 
 Keywords: House, Rent, Vue, J2EE
 
@@ -256,20 +95,21 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 ## 3.2 系统业务分析
 
 “嘤嘤租房网”的核心功能为租赁房源，所以本网站的角色一共有三位——分别是租客、房东和管理员。
-
-1. ### 租客的业务流程分析
+### 租客的业务流程分析
 
 在访问“嘤嘤租房网”时，可先浏览网站上已经上架的房源信息，但无法进行后续的操作。租客在登录账号并实名认证通过后，才可以使用网站其余功能，如向房东发起看房预约、租房申请等。本网站租客的操作流程如图3-1所示。
 
 图3-1 租客的业务流程活动图
 
-1. ### 房东的业务分析
+### 房东的业务分析
+
+- 房东
 
 房东在登录账号，并且实名认证后，房东才可以使用网站其余的功能。房东可以发布自己的房源，处理看房预约，处理租房申请等。本网站房东的操作流程如图3-2所示。
 
 图3-2 房东的业务流程活动图
 
-1.  管理员
+ - 管理员
 
 网站的实名信息与房源的信息，都需要通过管理员进行审核。网站管理员的操作流程如图3-3所示。
 
@@ -281,45 +121,45 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 
 “嘤嘤租房网”的前端有网站欢迎页、搜索结果页、详情页、登录页、注册页、房东个人中心和租客个人中心，供用户完成以下功能：
 
-1.  搜索房源
+ - 搜索房源
 
 不论浏览“嘤嘤租房网”的访问者是否登录，网站都支持房源的检索。访问者可以根据自己需要输入关键字检索特定范围内的房源信息。
 
-1.  查看房源详情
+ - 查看房源详情
 
 用户可以单击搜索结果页面的某一条信息，在详情页面查看更完整的房源信息。如：浏览地图位置、房源的介绍文案、房源的住后评价等信息。
 
-1.  用户注册与登录
+ - 用户注册与登录
 
 当访问者想要操作网站的更多功能时，需要访问者拥有本网站的账号。访问者可以登录账号再进行操作，或者先注册再进行登录。
 
-1.  发起看房预约
+ - 发起看房预约
 
 当租客用户想要上门看房，并没有明确要租赁的情况时，可以提交线下上门看房的预约给房东用户。
 
-1.  发起租房申请
+ - 发起租房申请
 
 当租客用户想要租住房源时，可提交租房申请给房东。
 
-1.  合同功能
+ - 合同功能
 
 租客和房东在双方都意向租赁时，需要依靠合同模块达成租赁关系。租客向房东发起的租房申请，房东可以依据此申请发起租赁合同。合同功能是“嘤嘤租房网”其他功能的依据。
 
-1.  评价功能
+ - 评价功能
 
 租客和房东可以使用此功能为对方评价。“嘤嘤租房网”是基于实名的租房网站，为对方客观地评分对下一次租赁时起到了重要的参考作用。
 
-1.  实名功能
+ - 实名功能
 
 出于租赁的性质，用户使用网站时必须先进行实名再进行租赁。
 
-1.  房源功能
+ - 房源功能
 
 房东可以通过此功能发布和维护自己的房源信息。
 
 在前台模块中，系统根据登录状态，将用户分为两种角色。各个角色的用例如下所描述。
 
-1.  网站租客用例
+ - 网站租客用例
 
 租客未登录时仍可访问“嘤嘤租房网”的展示页面，其可以检索房源、查看房源详情。租客也可根据需要使用注册和登录功能，拥有一个属于自己的账号。具体的用例如图3-4所示。
 
@@ -329,7 +169,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 
 表3-1 发起看房预约功能用例描述
 
-| 名称       | 内容                                               |
+| 名称                 | 内容                                               |
 | ---------- | -------------------------------------------------- |
 | 用例编号： | US01                                               |
 | 用例名：   | 发起看房预约                                       |
@@ -382,7 +222,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 | 后置条件： | 数据库的房源评价表成功新增一条评价信息 数据库的用户评价表成功新增一条评价信息 |
 | 过程：     | 点击“我要评价TA”按钮 选择评价星级 点击“提交评价”按钮。       |
 
-1.  网站房东用户用例
+ - 网站房东用户用例
 
 房东角色的用户可以使用租赁流程所需要的功能，如：发起合同、发起账单等。具体的房东角色的用例图如图3-5所示。
 
@@ -511,13 +351,13 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 
 公共前端模块包括了用户登录、用户注册、浏览信息、提交信息等功能。
 
-1.  用户注册功能
+ - 用户注册功能
 
 用户点击输入框下方的“登录/注册”按钮后，系统会跳转到登录界面。如果浏览者希望注册一个本网站的账号，可以接着单击“注册”按钮，系统会显示一个注册的表单供访问者填写。访问者需要填写手机号码、访问本网站的密码、登录角色和手机验证码功能。访问者点击注册后，系统会校验表单是否填写完全，校验手机格式，并且校验验证码是否正确。上述校验规则都通过后，系统会提示注册成功，并且自动返回到登录界面。注册流程如图4-2所示。
 
 图4-2 用户注册活动图
 
-1.  发起上门看房预约/发起租房申请
+ - 发起上门看房预约/发起租房申请
 
 访问者成为本网站用户后，可以进行租房的其他操作，如看房预约、租房申请等。在前端的房源详情页，如果浏览的房源状态为空闲时，页面会开放预约和租房的按钮供用户使用。用户只有实名通过的情况下可以使用这两个功能，否则无法使用。用户使用前端的功能活动如图4-3所示。
 
@@ -527,47 +367,47 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 
 个人中心模块包括了房东个人中心和租客中心两个中心。个人中心包括了实名功能、个人信息编辑功能，不同角色的预约管理功能、租房申请功能、合同功能、账单功能等。
 
-1.  修改密码功能
+ - 修改密码功能
 
 当用户想要修改自己的登录密码，需要先输入原始的密码，再输入新的密码才能完成更改。修改密码的活动如图4-4所示。
 
 图4-4 用户修改密码的活动图
 
-1.  实名认证功能
+ - 实名认证功能
 
 用户需要提交自己的真实姓名、身份证号码、身份证的正反面和手持身份的照片上传到系统。等待系统的管理员审核。审核通过后方可使用网站的其他功能。
 
-1.  个人信息编辑功能
+ - 个人信息编辑功能
 
 用户可以编辑自己的个人信息，如昵称、性别等。个人信息主要体现在房屋评价里。
 
-1.  租赁合同功能
+ - 租赁合同功能
 
 用户可以在这里浏览有关于自己的合同的信息，所有的合同会以表格的形式展示给用户。根据用户的角色，系统会给出不同的操作按钮。房东可以处理租客发起的申请拉起一份合同发送给用户签约；租客也可以查看并签约拉起的合同。用户操作合同的活动如图4-5所示。
 
 图4-5 租客与房东签约合同的泳道活动图
 
-1.  账单功能
+ - 账单功能
 
 租客在租赁期间产生的租赁费用，需要房东去向租客发起账单。发起后，租客将收到账单的信息。租客查看账单后可以选择支付方式，向房东支付账单。租客选择线上支付时，租客支付后，账单将变更为已支付状态；租客选择线下支付给房东后，房东需要手动选择房租已入账，账单才能结束。用户操作账单的活动如图4-6所示。
 
 图4-6 房东与租客账单操作的泳道活动图
 
-1.  预约功能
+ - 预约功能
 
 用户可以在自己的中心里查看与自己有关的预约信息。所有的预约信息会以表格的形式呈现在页面里，并且根据角色和预约的状态提供操作按钮。用户可以对预约进行处理。
 
-1.  房源功能
+ - 房源功能
 
 房源功能主要提供给房东角色使用。房东可以利用房源功能新发布自己的房源信息、维护自己的房源信息。新增或维护后的房源信息。
 
 ### 4.2.3 管理员模块
 
-1.  房源信息审核功能
+ - 房源信息审核功能
 
 房东在上传房源信息，或者维护房源信息后，公共前端页面并不能直接搜索到房源的详情。只有管理员审核通过后，房源才允许被用户搜索并查看、租赁等。
 
-1.  实名认证信息审核功能
+ - 实名认证信息审核功能
 
 本网站的用户需要进行实名认证后才允许使用网站的其他功能。所有的实名信息都会被提交至管理员中心等待管理员审核。管理员审核实名信息的活动如图4-7所示。
 
@@ -609,7 +449,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 
 根据本课题的需求分析后，归纳并设计出以下数据库表。都有：用户表，管理员表，房源信息表，房源评价表，用户评价表，租赁合同表，看房预约表，租赁账单表，用户实名信息表，中国省市区信息表，房源地图经纬度记录表。
 
-1.  用户表
+ - 用户表
 
 用户表存放的是用户的信息列表，主要用于记录用户的手机号码、个人信息、登录密码和角色类型。用户表的设计结构图如表4-1所示。
 
@@ -626,7 +466,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 | 7    | u_sex        | int      |      |      | 是   | 性别       |
 | 8    | u_state      | int      |      |      | 否   | 用户状态   |
 
-1.  管理员表
+ - 管理员表
 
 管理员表存放的是管理人员的信息的数据表，包含了管理员的登录账号和登录密码。表结构如表4-2所示。
 
@@ -639,7 +479,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 |      | 续表4-2 |          |      |      |      |              |
 | 3    | syspwd  | varchar  | 30   |      | 否   | 管理员密码   |
 
-1.  房源信息表
+ - 房源信息表
 
 房源信息表储存了房东发布的房源信息，房源表同时还储存了房源的电表和水表，生成账单时，房源的表读数会同步更新数据。表结构如表4-3所示。
 
@@ -666,7 +506,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 | 17   | h_post_time          | date     |      |      | 否   | 发布日期          |
 | 18   | h_pay_type           | int      |      |      | 否   | 意向押付方式      |
 
-1.  房源评价表
+ - 房源评价表
 
 房源评价表是基于合同结束后，租客对房东的房源的一个评价。表的内容包含租客和房东的ID，房源的ID和评价星级等等字段。表结构如表4-4所示。
 
@@ -684,7 +524,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 | 7    | he_sorce     | int      |      |      | 是   | 房屋评价星级（1-5） |
 | 8    | he_anonymous | int      |      |      | 否   | 是否匿名            |
 
-1.  用户评价表
+ - 用户评价表
 
 租赁结束后，用户对用户的评价会储存在用户评价表里。表的结构如表4-5所示。
 
@@ -700,7 +540,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 | 6    | ue_sorce     | float    |      |      | 否   | 评分         |
 | 7    | ue_post_u_id | int      |      |      | 否   | 评价对象ID   |
 
-1.  租赁合同表
+ - 租赁合同表
 
 租赁合同表是储存了当租客发起租房的申请，房东将合同信息补齐后，双方约定的合同信息。存储的字段可供系统生成完整的合同书，也可以提取大纲供用户查看一目了然。表结构如表4-6所示。
 
@@ -724,7 +564,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 | 13   | c_perform_end_date   | date     |      |      | 否   | 合同结束如期 |
 | 14   | c_contract_state     | int      |      |      | 否   | 合同状态     |
 
-1.  看房预约表
+ - 看房预约表
 
 看房预约表是租客对某一房源感兴趣，想要是实地查看房源时向房东提交申请的数据表。主要的字段为租客ID、房源ID、预约时间、租客留言和房东回复等。表结构如表4-7所示。
 
@@ -741,7 +581,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 | 7    | sh_master_message  | varchar  | 255  |      | 是   | 房东回复 |
 | 8    | sh_state           | int      |      |      | 否   | 预约状态 |
 
-1.  租赁账单表
+ - 租赁账单表
 
 租赁账单表是用于存储租客在租赁期间产生的租赁费用需要结算的数据表。由于涉及支付，本表格的字段有相关的读表信息、收费单价、租客ID、房东ID、创建时间、支付时间、支付方式、支付状态等。表结构如表4-8所示。
 
@@ -770,7 +610,7 @@ EE企业级的后台框架。使用它能快速搭建起系统的后台功能。
 | 18   | o_pay_dead_line        | date     |      |      | 否   | 支付截止时间     |
 | 19   | o_pay_time             | datetime |      |      | 否   | 租客支付时间     |
 
-1.  用户实名信息表
+ - 用户实名信息表
 
 用户实名信息表顾名思义，存储着用户的实名数据。包括真实姓名，身份证号码等。表结构如表4-9所示。
 
@@ -835,7 +675,8 @@ this.loicon = "";
 }
 
 });
-```
+
+
 
 
 
@@ -853,6 +694,7 @@ this.loicon = "";
 
 搜索的主要代码如下：
 
+```js
 this.isLoad = true;
 
 getHouseBySearchKey({// 获取房源所在的区级ID
@@ -883,6 +725,11 @@ Object.assign(this.TEMPsearchHouseInfo[i], { cityinfo: citytext })
 ) });}
 
 });
+```
+
+
+
+
 
 ### 5.1.5 房源详情页
 
@@ -898,6 +745,7 @@ Object.assign(this.TEMPsearchHouseInfo[i], { cityinfo: citytext })
 
 使用功能的代码如下：
 
+```js
 checkIsUserAuth() {
 
 checkIsAuth(sessionStorage.getItem("userid")).then(res =\> {
@@ -913,6 +761,7 @@ return false;
 });return true;
 
 }
+```
 
 用户想要上门看房，点击预约上门看房按钮后，系统会显示一个表单给用户选择期望上门看房的时间和想对房东说的留言。输入完信息后点击确定后，该预约申请会发送到房东。发起看房预约的表单如图5-7所示。
 
@@ -926,6 +775,7 @@ return false;
 
 租客发起租房申请的代码如下：
 
+```java
 @PostMapping("insertOneApplicationForContract")
 
 public Result PostRentHouseApplication(@RequestBody RentContractDO applicate){
@@ -941,6 +791,7 @@ return Result.create(true,i);
 return Result.create(false,i);
 
 }
+```
 
 图5-9 房源详情页第二部分界面
 
@@ -965,6 +816,7 @@ return Result.create(false,i);
 
 用户提交实名信息的代码如下：
 
+```java
 @PostMapping("postUserAuthInfo")
 
 public Result insertUserAuthInfomation(@RequestBody UserVerifyDO userAuthInfo){
@@ -982,6 +834,9 @@ int i = userVerifyImpl.insertUserAuthInfo(userAuthInfo);
 return Result.create(i);
 
 }
+```
+
+
 
 ### 5.2.3 租客中心的密码修改功能
 
@@ -991,6 +846,7 @@ return Result.create(i);
 
 修改密码的主要代码如下：
 
+```java
 @PutMapping("updateUserPwd")
 
 public Boolean setUserNewPwd(@RequestBody UsersDO user){
@@ -1002,6 +858,9 @@ if(i==0)return false;
 return true;
 
 }
+```
+
+
 
 ### 5.2.4 租客中心的个人信息编辑功能
 
@@ -1011,6 +870,7 @@ return true;
 
 上传更新自己头像的主要代码如下：
 
+```java
 @PostMapping("addUserHeadPortrait")
 
 public Result uploadUserHeadImage(MultipartFile file) throws IOException {
@@ -1030,6 +890,9 @@ file.transferTo(new File(picPath,newFileName));
 return Result.create(newFileName);
 
 }
+```
+
+
 
 ### 5.2.5 我的合同功能
 
@@ -1047,6 +910,7 @@ return Result.create(newFileName);
 
 租客退房（违约）的主要代码如下：
 
+```java
 let formdata = {
 
 cId: this.contractInfo.cId,
@@ -1078,6 +942,9 @@ type: "info",
 message: "退房申请异常。"
 
 });}});
+```
+
+
 
 ### 5.2.6 我的账单功能
 
@@ -1091,6 +958,7 @@ message: "退房申请异常。"
 
 用户使用支付宝付款，发起页面的主要代码如下：
 
+```java
 @GetMapping("launchToAlipay")
 
 public String luanchOrderToALiPay(@RequestParam(value = "oId") Integer oId,
@@ -1122,6 +990,9 @@ return orderImpl.alipay( new ALiPayDO()
 .setSubject(subject));
 
 }
+```
+
+
 
 ### 5.2.7 我的看房预约功能
 
@@ -1147,6 +1018,7 @@ return orderImpl.alipay( new ALiPayDO()
 
 房东新增房源的主要代码如下：
 
+```java
 @PostMapping("addHouseInfo")
 
 public Result insertHouseInfomation(@RequestBody HouseInfomationDO house){
@@ -1162,6 +1034,9 @@ return Result.create(true,i);
 return Result.create(false,i);
 
 }
+```
+
+
 
 ### 5.3.3 房源列表功能
 
@@ -1171,6 +1046,7 @@ return Result.create(false,i);
 
 展示属于房东的房源列表的主要代码如下：
 
+```java
 @GetMapping("getMastersHouse")
 
 public Result getMasterAllHouse(Integer uid){
@@ -1180,6 +1056,7 @@ List\<HouseInfomationDO\> houselist = houseimpl.getMasterAllHouse(uid);
 return Result.create(houselist);
 
 }
+```
 
 房东查看某一条房源信息的详情编辑按钮，系统会弹出一个模态框，模态框将会展示该条房源的详细信息。房东可以对这条房源进行信息的维护更新；如果房源处于出租状态，房源信息无法更新，需要等房源租赁结束，状态为空闲时，房东才被允许维护房源信息。房源详情编辑“辅助介绍”步骤的界面如图5-24所示。
 
@@ -1207,27 +1084,21 @@ return Result.create(houselist);
 
 房东发起合同的主要代码如下：
 
+```javascript
 MasterUpdateContract(){
-
 masterPutContractInfo(updateformdata).then( res =\> {
-
 if(res.data.success == true){
-
 this.\$message.success("合同创建完成！等待租客阅读并同意签约合同！");
-
 Bus.\$emit("launchNewContract","success")
-
 }else{
-
 this.\$message("合同创建出现了问题");
-
 }
-
 this.isContractFormShow = false;
-
 })
-
 }
+```
+
+
 
 ### 5.3.6 收租功能
 
@@ -1241,6 +1112,7 @@ this.isContractFormShow = false;
 
 房东发起账单的主要代码如下：
 
+```js
 toNextStep() {
 
 if (this.cId == "") {
@@ -1290,6 +1162,7 @@ this.btnLaunchName = "下一步";
 }
 
 },
+```
 
 房东除了发起收租外，也可以查看其他向自己入账的账单信息。对于已支付或者已关闭状态的账单，房东可以查看；对于未支付状态的账单，房东可以选择取消这份账单。取消账单并确认取消后，系统会还原之前的水表和电表的读数，并且该账单会拦截，不让租客支付。如果租客以线下其他方式向房东缴租，房东可以选择线下收到房租。其界面如图5-31所示。
 
@@ -1333,6 +1206,7 @@ this.btnLaunchName = "下一步";
 
 管理员审核房源信息的主要代码如下：
 
+```java
 @PutMapping("adminProcessHouseAuditState")
 
 public Result adminProcessHouseAuditState(@RequestBody HouseInfomationDO
@@ -1343,6 +1217,9 @@ int i = houseimpl.updateHouseInfo(record);
 return Result.create(i);
 
 }
+```
+
+
 
 # 第六章 系统测试
 
@@ -1406,7 +1283,7 @@ UI框架。此框架简洁干净，也贴合租房这一商业性质网站的风
 
 # 参考文献
 
-1.  王飞.论房屋租赁信息系统的设计与实现[J].电脑迷,2017(07):194-195.
+ - 王飞.论房屋租赁信息系统的设计与实现[J].电脑迷,2017(07):194-195.
 
 2.  罗树立.加入WTO给中国房地产业带来的挑战及应对措施[J].中共成都市委党校学报,2002(6):35\~36.
 
@@ -1426,7 +1303,7 @@ UI框架。此框架简洁干净，也贴合租房这一商业性质网站的风
 
 10.  武海龙,李国平.基于SpringBoot的房屋租赁系统设计[J].电脑与信息术,2019,27(03):76-78.
 
-11.  战松,郎妲妮.长租公寓现存问题分析及解决对策[J].辽宁经济,2019(11):70-71.
+1 - 战松,郎妲妮.长租公寓现存问题分析及解决对策[J].辽宁经济,2019(11):70-71.
 
 12.  Márcio Moraes Valença. Social rental housing in HK and the UK: Neoliberal
      policy divergence or the market in the making?[J]. Habitat

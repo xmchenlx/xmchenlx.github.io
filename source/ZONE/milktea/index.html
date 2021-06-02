@@ -26,7 +26,12 @@
     <el-backtop ></el-backtop>
     <p class="desc_p" style="font-size: 0.5rem;">数据更新：{{allJsonData.version_date}}（v.{{allJsonData.version}}） |
         <el-button type="text" style="font-size: 0.5rem;" @click="webDescShow=!webDescShow">关于本网站</el-button>
-        | <el-link href="/milktea">如果有需求欢迎来博客留言，点我跳转到博客</el-link>
+        | <el-link href="/milktea">点我留言</el-link>
+
+    </p>
+    <p class="desc_p">
+        <i class="el-icon-warning"></i>
+        不要被卡路里和焦虑绑架，睡眠也是减脂的一大重要因素。
     </p>
     <!-- <div id="ppSelBox">
         <ul>
@@ -37,7 +42,7 @@
     </div> -->
     <el-form inline @submit.native.prevent>
         <el-form-item label="">
-            <el-input clearable v-model="search" size="mini" placeholder="输入搜索名称，按回车查询"  @keyup.enter.native="searchMk()"> 
+            <el-input clearable @input="searchMk()" v-model="search" size="mini" placeholder="输入搜索名称，按回车查询"  @keyup.enter.native="searchMk()"> 
                 <i slot="prefix" class="el-input__icon el-icon-search"></i>
             </el-input>
         </el-form-item>
@@ -161,8 +166,7 @@
                         <p>目前奶茶的信息来源于以下：</p>
                         <div class="desc_div">
                             <ul>
-                                <li>卡比实验室 - 小红书</li>
-                                <li>老爸测评 - 全网</li>
+                                <li v-for="(obj,index) in allJsonData.data.source" :key="index">{{obj}}</li>
                             </ul>
                         </div>
                     </div>
@@ -182,15 +186,15 @@
                         <el-timeline>
                             <el-timeline-item v-for="(log,index) in devLog" :key="index" :timestamp="log.date" placement="top">
                               <el-card>
-                                    <p v-if="log.content.check !==''">
+                                    <p v-if="log.content.hasOwnProperty('check')">
                                         <span class="icon gre">校正</span>
                                         {{log.content.check}}
                                     </p>
-                                    <p v-if="log.content.new !==''">
+                                    <p v-if="log.content.hasOwnProperty('new')">
                                         <span class="icon new">新增</span>
                                         {{log.content.new}}
                                     </p>
-                                    <p v-if="log.content.fix !==''">
+                                    <p v-if="log.content.hasOwnProperty('fix')">
                                         <span class="icon fix">修复</span>
                                         {{log.content.fix}}
                                     </p>
