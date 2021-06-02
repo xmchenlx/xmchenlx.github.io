@@ -860,7 +860,7 @@ a.footer-logo span {
 
 /*-- about page --*/
 .inner-banner {
-    background: url(../images/school.jpg) no-repeat 0px 0px;
+    background: url(./images/school.jpg) no-repeat 0px 0px;
     background-size: cover;
     background-position: center;
     background-position-x: center;
