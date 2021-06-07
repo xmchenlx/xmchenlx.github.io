@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        #led {
+            display: flex;
+            justify-content: space-between;
+            border: 5px solid lightblue;
+            width: 90%;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            height: 30vh;
+        }
+
+
+        #led #note {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        #led #note #left {
+            width: 30%;
+            height: 100%;
+            vertical-align: middle;
+            background-color: lightblue;
+        }
+
+        #led #note #mid {
+            background-color: lightblue;
+            width: 39.5%;
+            height: 100%;
+        }
+
+        #led #note #right {
+            width: 30%;
+            height: 100%;
+            vertical-align: middle;
+            background-color: lightblue;
+
+        }
+
+        #led #main {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            flex-wrap: nowrap;
+            vertical-align: middle;
+        }
+        #led #led #mainTip{
+            width: 10%;
+        }
+
+        #led #main #content {
+            display: flex;
+            justify-content:center;
+            flex-direction: column;
+            width: 90%;
+
+        }
+        #led #content h1 {
+            font-size: 6vw;
+            text-align: center;
+            height: 50%;
+            width: 100%;
+
+        }
+        #led #content #stop_en {
+            text-align: center;
+            width: 100%;
+            height: 50%;
+          
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btnPlay">播放</button>
+
+    <div id="led">
+        <div id="main">
+            <div id="content">
+                <h1 id="stop">乌石浦</h1><br>
+                <h3 id="stop_en">Wu shipu</h3>
+            </div>
+            <div id="mainTip">
+                <h2>本次开门</h2>
+            </div>
+        </div>
+        <div id="note">
+            <div id="left">
+                <h1>厦门地铁 1号线</h1>
+            </div>
+            <div id="mid">
+
+            </div>
+            <div id="right">
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <audio id="audio1"></audio>
+    <script>
+        var stopIndex=0
+        // var playlist = ["./0.mp3", "./1-1.wav", "./s-c-5.wav", "./1-2.wav","./s-c-1.wav", "./1-3.wav","./s-m-1.wav", "./1-4.wav", "./s-m-1.wav", "./3-1.mp3","./s-e-1.wav","mask.m4a","./在线翻译_有道.mp3"]
+        var ring = ["./0.mp3"]
+        var chineseNextStop = ["./1-1.mp3",null,"./1-2.mp3",null]
+        var fangyanNextStop = ["./1-3.wav",null,"./1-4.wav",null]
+        var englishNextStop = ["./3-1.mp3",null]
+        var tip = ["./gk.mp3","./mask.mp3","./在线翻译_有道.mp3"]
+        var playlist=[]
+        playlist.push(ring)
+        playlist.push(chineseNextStop)
+        // playlist.push(fangyanNextStop)
+        // playlist.push(englishNextStop)
+        playlist.push(tip)
+
+        $(document).ready(function () {
+            //监听播放事件
+            function playEndedHandler() {
+                console.log(this.position)
+                if(this.position == this.playlist.length){
+                    stopIndex++;
+                    this.position=0
+                }
+                this.position++;
+                if (this.position <= 4) {
+                    $('#main').html(`<div id="content"><h1 id="stop"></h1><br>
+                <h3 id="stop_en"></h3></div>`)
+                    $('#stop').text(list[stopIndex]['stop_ch'])
+                    $('#stop_en').text(list[stopIndex]['stop_en'])
+                } 
+                // else if (this.position > 4) {
+                //     let res = ''
+                //     for (let i = this.position; i < this.position + 3; i++) {
+                //         res += list[i]['stop_ch'] + '->'
+                //     }
+                //     $('#stop_en').text(res) 
+                // }
+				   if(this.position == this.playlist.length-3){
+                    $('#main').html('<div id="content"><h1 id="stop">降低音量，爱心护考!</h1><h5  id="stop_en">高考期间，为了孩子们专心考试，请您路过学校区域时主动降低音量。</h5></div><img style="width:120px;height:120px" src="./facemask.gif"/>')
+                }
+                if(this.position == this.playlist.length-2){
+                    $('#main').html('<div id="content"><h1 id="stop">疫情期间，请佩戴口罩</h1><h5  id="stop_en">列车运行期间，车厢将进行最大通风量不间断通风换气。</h5></div><img style="width:120px;height:120px" src="./facemask.gif"/>')
+                }
+                if(this.position == this.playlist.length-1){
+                    $('#main').html('<div id="content"><h3 id="stop_en">Wear face mask up!!</h3><h6>Dear passengers, during the operation of the train, the carriages will be continuously ventilated according to the maximum volume of air. For the sake of your and others\' health, please wear the mask properly throughout the whole process. Thank you for your cooperation.</h6></div>')
+
+                }
+                this.src = this.playlist[this.position % this.playlist.length];
+                this.play();
+            }
+            //播放音频
+            $("#btnPlay").on("click", function () {
+                stopIndex++;
+
+                var audio = $("#audio1")[0];
+                console.log('stopIndex=',stopIndex)
+                audio.addEventListener('ended', playEndedHandler, false);
+                playlist[1][1] =  './s-c-' +    5  + '.mp3'
+                playlist[1][3] =  './s-c-' +    (stopIndex+1) + '.mp3'
+
+                // playlist[2][1] =  './s-m-' +   5 + '.wav'
+                // playlist[2][3] =  './s-m-' +    (stopIndex+1) + '.wav'
+
+
+                // playlist[3][1] =  './s-e-' +    5  + '.wav'
+
+                let playlists = []
+                for(let i in playlist){
+                    for(let j in playlist[i]){
+                        playlists.push(playlist[i][j])
+                    }
+                }
+                    console.log(playlists)
+                //播放列表
+                audio.playlist = playlists
+                audio.position = 0;
+                audio.src = audio.playlist[audio.position % audio.playlist.length];
+                audio.play();
+            });
+        });
+        function play() {
+            au.play
+        }
+    </script>
+    <script>
+        var list =
+            [
+                { "no": 2, "stop_ch": "厦大南门站", "stop_en": "Xiamen University South Gate Station", "belong": 3, "audio": "" },
+                { "no": 3, "stop_ch": "厦大白城站", "stop_en": "Xiadabaicheng Station", "belong": 3, "audio": "" },
+                { "no": 4, "stop_ch": "曾厝垵站", "stop_en": "Zengcuoan Station", "belong": 3, "audio": "" },
+                { "no": 5, "stop_ch": "上李新村站", "stop_en": "Shangli Xincun Station", "belong": 3, "audio": "" },
+                { "no": 6, "stop_ch": "厦门火车站", "stop_en": "Xiamen Railway Station", "belong": 3, "audio": "" },
+                { "no": 7, "stop_ch": "湖滨东路站", "stop_en": "Hubin East Rd Station", "belong": 3, "audio": "" },
+                { "no": 8, "stop_ch": "体育中心站", "stop_en": "Sports Center Station", "belong": 3, "audio": "" },
+                { "no": 9, "stop_ch": "人才中心站", "stop_en": "Talent Center Station", "belong": 3, "audio": "" },
+                { "no": 10, "stop_ch": "湖里公园站", "stop_en": "Huli Park Station", "belong": 3, "audio": "" },
+                { "no": 11, "stop_ch": "华荣路站", "stop_en": "Huarong Rd Station", "belong": 3, "audio": "" },
+                { "no": 12, "stop_ch": "火炬园站", "stop_en": "Torch Hi-tech Park Station", "belong": 3, "audio": "" },
+                { "no": 13, "stop_ch": "创业桥站", "stop_en": "Chuangyeqiao Station", "belong": 3, "audio": "" },
+                { "no": 14, "stop_ch": "安兜站", "stop_en": "Andou Station", "belong": 3, "audio": "" },
+                { "no": 15, "stop_ch": "湖里法院站", "stop_en": "Huli Court Station", "belong": 3, "audio": "" },
+                { "no": 16, "stop_ch": "双十中学站", "stop_en": "Shuangshizhongxue Station", "belong": 3, "audio": "" },
+                { "no": 17, "stop_ch": "五缘湾站", "stop_en": "Wuyuanwan Station", "belong": 3, "audio": "" },
+                { "no": 18, "stop_ch": "体育会展站", "stop_en": "Sports & Exhibition Station", "belong": 3, "audio": "" },
+                { "no": 19, "stop_ch": "东界站", "stop_en": "Dongjie Station", "belong": 3, "audio": "" },
+                { "no": 20, "stop_ch": "洪坑站", "stop_en": "Hongkeng Station", "belong": 3, "audio": "" },
+                { "no": 21, "stop_ch": "林前站", "stop_en": "Linqian Station", "belong": 3, "audio": "" },
+                { "no": 22, "stop_ch": "洋塘站", "stop_en": "Yangtang Station", "belong": 3, "audio": "" },
+                { "no": 23, "stop_ch": "翔安行政中心站", "stop_en": "Xiang'an Administrative Center Station", "belong": 3, "audio": "" },
+                { "no": 24, "stop_ch": "浦边站", "stop_en": "Pubian Station", "belong": 3, "audio": "" },
+                { "no": 25, "stop_ch": "后村站", "stop_en": "Houcun Station", "belong": 3, "audio": "" },
+                { "no": 26, "stop_ch": "蔡厝站", "stop_en": "Caicuo Station", "belong": 3, "audio": "" },
+                { "no": 27, "stop_ch": "大嶝北站", "stop_en": "Dadeng North Station", "belong": 3, "audio": "" },
+                { "no": 28, "stop_ch": "双沪站", "stop_en": "Shuanghu Station", "belong": 3, "audio": "" },
+                { "no": 29, "stop_ch": "空港经济区站", "stop_en": "Airport Economy Zone Station", "belong": 3, "audio": "" },
+                { "no": 30, "stop_ch": "机场西站", "stop_en": "Airport West Station", "belong": 3, "audio": "" },
+                { "no": 31, "stop_ch": "翔安机场站", "stop_en": "Xiang'an Airport Station", "belong": 3, "audio": "" }
+
+
+            ]
+    </script>
+</body>
+
+</html>
