@@ -51,6 +51,7 @@
 
         </el-form-item>
     </el-form>
+    <div v-if="pageStatus ==='NORMAL'">
     <el-table :data="tableData" style="width: 100%" :row-class-name="tableRowClassName">
         <template slot="empty" style="width: 100%;padding: 1rem;">
             <i class="el-icon-milk-tea" style="font-size: 4rem;"></i>
@@ -78,7 +79,10 @@
             </template>
         </el-table-column>
     </el-table>
-
+</div>
+<div v-else-if="pageStatus === 'LX_WARNING'">
+    <h1>你是不是活的有点不耐烦</h1>
+</div>
 
     <el-drawer title="详细热量查阅" :visible.sync="isOpen" direction="ltr" size="90%" >
        <div id="milk-tea-detial" style="height:95vh;overflow-y: scroll;">
@@ -272,6 +276,7 @@
                     sugar: 0,
                     ice: 1
                 },
+                pageStatus:'NORMAL',
                 resKcal: 0,
                 search: '',
                 isOpen: false,
@@ -328,7 +333,14 @@
                     return './images/logo/'+name+'.png'
                 },
                 searchMk(){
+                    let lxFatReg = new RegExp(/.*(chen|c|lx|陈|立|祥|叶展|白小澍|主|up|1号|一号).*(胖|肥|健壮|壮硕|bui|fat|FAT|大|宽).*(猪|狗|dog|pig|dui).*/,'g')
+                    if(this.search.match(lxFatReg)){
+                        this.pageStatus='LX_WARNING'
+                    }else{
+                        this.pageStatus="NORMAL"
+                    }
                     // if(this.search === ''){
+
                         this.loadJson()
                         // return false
                     // }
