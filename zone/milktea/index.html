@@ -333,7 +333,7 @@
                     return './images/logo/'+name+'.png'
                 },
                 searchMk(){
-                    let lxFatReg = new RegExp(/.*(chen|c|lx|陈|立|祥|叶展|白小澍|主|up|1号|一号).*(胖|肥|健壮|壮硕|bui|fat|FAT|大|宽).*(猪|狗|dog|pig|dui).*/,'g')
+                    let lxFatReg = new RegExp(/.*(chen|c|lx|陈|立|祥|叶展|白小澍|主|up|1号|一号).*(胖|肥|健壮|壮硕|bui|fat|FAT|大|宽|猪|狗|dog|pig|dui).*/,'g')
                     if(this.search.match(lxFatReg)){
                         this.pageStatus='LX_WARNING'
                     }else{
