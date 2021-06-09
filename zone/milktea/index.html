@@ -52,7 +52,7 @@
         </el-form-item>
     </el-form>
     <div v-if="pageStatus ==='NORMAL'">
-    <el-table :data="tableData" style="width: 100%" :row-class-name="tableRowClassName">
+    <el-table stripe fit :data="tableData" style="width: 99%" :row-class-name="tableRowClassName">
         <template slot="empty" style="width: 100%;padding: 1rem;">
             <i class="el-icon-milk-tea" style="font-size: 4rem;"></i>
             <p style="line-height: 1rem;width: 100%;">
@@ -61,24 +61,24 @@
                 如您想扩大搜索范围，请单击蓝色文字，
                 <br>将为您跳转到<el-link type="primary" target="_blank" :href="'http://www.boohee.com/food/search?keyword='+search">薄荷健康食物库</el-link>搜索更多信息。</p>
           </template>
-        <el-table-column label="品牌" min-width="15%" prop="pp" :filters="filterPPList" :filter-method="filterHandler">
+        <el-table-column label="品牌" prop="pp" width="50%" :filters="filterPPList" :filter-method="filterHandler">
         <template slot-scope="scope">
-            <img :src="'./images/logo/'+scope.row.pp+'.png'" style="height: 50px;" :alt="scope.row.pp"/>
+            <img :src="'./images/logo/'+scope.row.pp+'.png'" style="width:100%;" :alt="scope.row.pp"/>
         </template>
         </el-table-column>
-        <el-table-column label="饮品名" min-width="25%" prop="ypm">
+        <el-table-column label="饮品名"  prop="ypm">
         </el-table-column>
-        <el-table-column label="价格" min-width="10%" prop="pri">
-        </el-table-column>
-        <el-table-column label="通常热量" min-width="23%" prop="rl" sortable>
+        <!-- <el-table-column label="价格" min-width="10%" prop="pri">
+        </el-table-column> -->
+        <el-table-column label="通常热量"  prop="rl" sortable>
             <template slot-scope="scope">
                 {{scope.row.rl}} Kcal
             </template>
         </el-table-column>
-        <el-table-column label="操作" min-width="27%">
+        <el-table-column label="操作" >
             
             <template slot-scope="scope">
-                <el-button type="primary" size="mini" @click="handleOpen(scope.$index, scope.row)">查看详细</el-button>
+                <el-button type="primary" size="mini" @click="handleOpen(scope.$index, scope.row)">详情</el-button>
             </template>
         </el-table-column>
     </el-table>
@@ -92,7 +92,7 @@
        <div id="milk-tea-detial" style="height:95vh;overflow-y: scroll;">
         <el-form ref="detailMilkTea" label-position="right" :disabled="isDis" label-width="100px" :model="detailMilkTea" size="mini">
             <el-form-item label="奶茶名">
-                <h3><img class="ppImg" :src="processImgPath(detailMilkTea.pp)"/>·{{detailMilkTea.ypm}}</h3>
+                <h3><img class="ppImg" :src="processImgPath(detailMilkTea.pp)" :alt="detailMilkTea.pp"/>·{{detailMilkTea.ypm}}</h3>
             </el-form-item>
             <el-form-item label="价格">
                 <h3>{{((detailMilkTea.pri==='0'?'信息未搜集或免费':detailMilkTea.pri))}}</h3>
