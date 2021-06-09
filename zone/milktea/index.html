@@ -62,6 +62,9 @@
                 <br>将为您跳转到<el-link type="primary" target="_blank" :href="'http://www.boohee.com/food/search?keyword='+search">薄荷健康食物库</el-link>搜索更多信息。</p>
           </template>
         <el-table-column label="品牌" min-width="15%" prop="pp" :filters="filterPPList" :filter-method="filterHandler">
+        <template slot-scope="scope">
+            <img :src="'./images/logo/'+scope.row.pp+'.png'" style="height: 50px;" :alt="scope.row.pp"/>
+        </template>
         </el-table-column>
         <el-table-column label="饮品名" min-width="25%" prop="ypm">
         </el-table-column>
@@ -80,8 +83,9 @@
         </el-table-column>
     </el-table>
 </div>
-<div v-else-if="pageStatus === 'LX_WARNING'">
-    <h1>你是不是活的有点不耐烦</h1>
+<div v-else-if="pageStatus === 'LX_WARNING'" style="width:100%;text-align:center;margin: 0 auto;">
+    <img src="./images/yihuo.jpg" style="width:100px;"/>
+    <h1>让你搜热量，不是让你骂人，好吧？</h1>
 </div>
 
     <el-drawer title="详细热量查阅" :visible.sync="isOpen" direction="ltr" size="90%" >
@@ -113,7 +117,7 @@
                     <el-radio-button :label="0">标糖</el-radio-button>
                     <el-radio-button :label="50">半糖</el-radio-button>
                     <el-radio-button :label="80">少糖</el-radio-button>
-                    <el-radio-button :label="100">微糖/无糖</el-radio-button>
+                    <el-radio-button :label="100">微糖/无糖（不另外加糖）</el-radio-button>
                 </el-radio-group>
 
             </el-form-item>
@@ -334,7 +338,7 @@
                 },
                 searchMk(){
                     let lxFatReg = new RegExp(/.*(chen|c|lx|陈|立|祥|叶展|白小澍|主|up|1号|一号).*(胖|肥|健壮|壮硕|bui|fat|FAT|大|宽|猪|狗|dog|pig|dui).*/,'g')
-                    if(this.search.match(lxFatReg)){
+                    if(this.search.toLowerCase().match(lxFatReg)){
                         this.pageStatus='LX_WARNING'
                     }else{
                         this.pageStatus="NORMAL"
