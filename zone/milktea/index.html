@@ -14,6 +14,9 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" href="./css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"
+/>
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -27,12 +30,22 @@
     <p class="desc_p" style="font-size: 0.5rem;">数据更新：{{allJsonData.version_date}}（v.{{allJsonData.version}}） |
         <el-button type="text" style="font-size: 0.5rem;" @click="webDescShow=!webDescShow">关于本网站</el-button>
         | <el-link href="/milktea">点我留言</el-link>
-
+        
     </p>
-    <p class="desc_p">
-        <i class="el-icon-warning"></i>
-        不要被卡路里和焦虑绑架，睡眠也是减脂的一大重要因素。
-    </p>
+<div>
+    <van-notice-bar
+    left-icon="volume-o"
+    text="不要被卡路里和焦虑绑架，睡眠也是减脂的一大重要因素。不要被卡路里和焦虑绑架，睡眠也是减脂的一大重要因素。不要被卡路里和焦虑绑架，睡眠也是减脂的一大重要因素。不要被卡路里和焦虑绑架，睡眠也是减脂的一大重要因素。"
+  />
+  <!-- <van-picker
+  title="标题"
+  show-toolbar
+  :columns="filterPPList"
+  @confirm="onConfirm"
+  @cancel="onCancel"
+  @change="onChange"
+/>   -->
+</div>
     <!-- <div id="ppSelBox">
         <ul>
             <li v-for="(obj,index) in pplist" :key="index">
@@ -337,7 +350,7 @@
                     return './images/logo/'+name+'.png'
                 },
                 searchMk(){
-                    let lxFatReg = new RegExp(/.*(chen|c|lx|陈|立|祥|叶展|白小澍|主|up|1号|一号).*(胖|肥|健壮|壮硕|bui|fat|FAT|大|宽|猪|狗|dog|pig|dui).*/,'g')
+                    let lxFatReg = new RegExp(/.*(chen|c|lx|陈|立|祥|叶展|白小澍|主|up|1号|一号|同桌|副|班主任).*((?!不)胖|肥|健壮|壮硕|bui|fat|FAT|大|宽|猪|狗|dog|pig|dui|chun|gou|sha|bi|sb|傻|逼|吊|屌|刁|苟).*/,'g')
                     if(this.search.toLowerCase().match(lxFatReg)){
                         this.pageStatus='LX_WARNING'
                     }else{
