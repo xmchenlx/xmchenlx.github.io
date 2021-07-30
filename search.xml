@@ -27,6 +27,48 @@
     
     
     <entry>
+      <title>antdchangestyle</title>
+      <link href="2021/07/05/antdchangestyle/"/>
+      <url>2021/07/05/antdchangestyle/</url>
+      
+        <content type="html"><![CDATA[<p>ant-design-vue是社区基于ant-design研发的UI框架；但，ant-design无法很直接的更改组件中的一些效果（如主题色、字体等样式）。官方也说明了通过less进行编译可以更改他们已提供的样式效果。</p><p>想更改样式的原因，除了换肤，还有一个原因是antd的组件中的字体好像都偏小。这里除了less替换外，还发现了一个特别好用的轮子。整理一下。</p><p>叫作<code> dynamic-antd-theme</code>，链接：<a href="https://dynamic-antd-theme-luffyzh.vercel.app/">https://dynamic-antd-theme-luffyzh.vercel.app/</a> 。</p><p>利用Npm等工具导入依赖后，直接在操作的页面导包（不用导入组件），然后使用其提供的函数即可。</p><p>如果是更改颜色，在功能里直接使用<code>changeAntdTheme </code>函数。需要提供的参数为<code>(color,option)</code>。</p><blockquote><p><code>param: (color, options)</code>, change the antd theme. The options specific attributes are as follows： - <code>storageName</code>: This can be configured to set storageName when not using picker . - <code>customCss</code>: custom Css</p></blockquote><p>color就是需要更改主题颜色的颜色值；而option是一个对象。假设只需要额外更改css效果。将css代码组成合法的字符串后，封装到这个对象里即可。</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">changeAntdTheme(</span><br><span class="line">       <span class="built_in">this</span>.globalSetting.proThemeColor,</span><br><span class="line">      {<span class="attr">customCss</span>:str}</span><br><span class="line">     );</span><br></pre></td></tr></tbody></table></figure><p>啊嘞嘞，直接更改效果的话，可能会造成排版混乱，到时候要注意一下更改样式的组件与组件原生的样式相搭配。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> antd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue中监听宽度变化并指导echarts重绘（自适应）</title>
+      <link href="2021/07/05/20210730echartsresize/"/>
+      <url>2021/07/05/20210730echartsresize/</url>
+      
+        <content type="html"><![CDATA[<p>vue中，可以通过监听的方式感知浏览器窗口的变化。网上的教程很多，这里整理的是测试可用的方法。</p><p>vue里，不能直接对document元素属性进行监听。但可以在<code>data()</code>里先指明元素值，在通过<code>mounted</code>方法，对窗口宽度变化的值进行写入；再通过<code>watch()</code>感知变化后进行代码执行。</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> {</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">        <span class="attr">timer</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">screenWidth</span>: <span class="built_in">document</span>.body.clientWidth</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>mouted中加入对document元素的监听。当宽度发生变化，会执行return体里的内容。</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">const</span> that = <span class="built_in">this</span></span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">return</span> (<span class="function">() =&gt;</span> {</span><br><span class="line">                <span class="built_in">window</span>.screenWidth = <span class="built_in">document</span>.body.clientWidth;</span><br><span class="line">                that.screenWidth = <span class="built_in">window</span>.screenWidth;</span><br><span class="line">            })();</span><br><span class="line">        })</span><br><span class="line">    },</span><br></pre></td></tr></tbody></table></figure><p>最后在<code>watch</code>里加入对需要做的内容的代码。加入timer的原因是为了避免浏览器宽度变化的期间，频繁的进行代码执行，加入timer的间隔后能节约一部分的计算资源，页面也不会看起来巨卡无比。搭配UI框架的加载控件或其余类似的蒙版使用效果更佳。代码要注意闭包问题。</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">watch: {</span><br><span class="line">        <span class="function"><span class="title">screenWidth</span>(<span class="params">val</span>)</span> {</span><br><span class="line">            <span class="built_in">this</span>.isLoadingData = <span class="literal">true</span></span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">this</span>.timer) {</span><br><span class="line">                <span class="comment">// 一旦监听到的screenWidth值改变，就将其重新赋给data里的screenWidth</span></span><br><span class="line">                <span class="built_in">this</span>.screenWidth = val</span><br><span class="line">                <span class="built_in">this</span>.timer = <span class="literal">true</span></span><br><span class="line">                <span class="keyword">let</span> that = <span class="built_in">this</span></span><br><span class="line">                <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">                    <span class="comment">// 打印screenWidth变化的值</span></span><br><span class="line">                    that.processChart()</span><br><span class="line">                    that.timer = <span class="literal">false</span></span><br><span class="line">                    that.isLoadingData = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">                }, <span class="number">1000</span>)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> echarts </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前端练习题</title>
       <link href="2021/06/04/qdlxt/"/>
       <url>2021/06/04/qdlxt/</url>
