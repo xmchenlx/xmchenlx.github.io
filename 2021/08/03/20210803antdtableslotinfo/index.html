@@ -24,7 +24,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chenlx.top/null">
 <meta property="article:published_time" content="2021-08-03T09:58:23.000Z">
-<meta property="article:modified_time" content="2021-08-03T10:12:50.362Z">
+<meta property="article:modified_time" content="2021-08-04T01:18:41.406Z">
 <meta property="article:author" content="chenlx">
 <meta property="article:tag" content="antd">
 <meta property="article:tag" content="vue">
@@ -152,7 +152,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~21.83K
+                            ~21.88K
                         
                         字
                     </li>
@@ -167,7 +167,7 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1627985570362"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1628039921406"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                     <div class="kratos-post-inner-toc">
@@ -191,12 +191,12 @@
 <p>页面包含了封装的组件<code>queryFormTable.vue</code>，在这简称Q吧；</p>
 <p>封装的组件Q中使用到了封装atable组件，叫作<code>MutiFunctionalTable.vue</code>，这个组件包含了table本身的功能，还有排序、显示列、固定列等功能。简称M吧。</p>
 <p>M所用到的参数分别是表头<code>tableColumns</code>和表数据<code>tableData</code>。这些数据会从index传入到Q，再由Q传到M。</p>
-<h1 id="碰壁过程"><a href="#碰壁过程" class="headerlink" title="碰壁过程"></a>碰壁过程</h1><p>在原本的a-table组件里，如果遇到自定义列的需求时，在table标签里填入<template>标签、并在column的信息里指定好相关的slot参数即可。
+<h1 id="碰壁过程"><a href="#碰壁过程" class="headerlink" title="碰壁过程"></a>碰壁过程</h1><p>在原本的a-table组件里，如果遇到自定义列的需求时，在table标签里填入<code>&lt;template&gt;</code>标签、并在column的信息里指定好相关的slot参数即可。</p>
 <p>但是现在，因为封装成组件M了，这些slot相关的信息就没有办法直接填在这里。这些信息就需要由外头引入进来。</p>
 <p>原本我的想法是，由在index里写个<code>&lt;slot name="tableSlot"/&gt;</code>，把原本表格的<code>slot列</code>信息传递到Q里，再由Q传递到M。结果发现，不行。</p>
 <p>接着，我就先不考虑父子孙的传递，考虑在子孙之间传递一下slot。所以我把index这边的信息丢到Q这里试一下，发现，不行。</p>
 <p>然后，我又试着继续用父子孙进行传递，但是不传slot，传递普通的信息<code>&lt;p&gt;hello&lt;/p&gt;</code>，并且，在M里把接收的slot挪到表格外面来。看了一下效果，可以！</p>
-<p>也就是说这个那个。经过试验证明，**<slot>不能通过<slot>传递<slot>。**</slot></slot></slot></p>
+<p>也就是说这个那个。经过试验证明，**<code>&lt;slot&gt;</code>不能通过<code>&lt;slot&gt;</code>传递<code>&lt;slot&gt;</code>。**</p>
 <p>父子孙传递可以用slot一级一级的传递，但是！好像slot不能嵌套slot。准确的说，是因为自己本身就借由插槽传东西了，传递的东西就不能是slot本身的信息。</p>
 <p>但是稍微变一下思路，既然不能从1条高速路将东西传过去，那就自己开路把东西一级一级的传过去，有多少东西开多少路。也就是说，按照自定义的数量n，分别从index开n个插槽到Q；再由Q开插槽到M。再借由层层传递的数据表头循环出对应的插槽内容即可。</p>
 <blockquote>
@@ -218,7 +218,7 @@
 
 
 <h1 id="参考方法"><a href="#参考方法" class="headerlink" title="参考方法"></a>参考方法</h1><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/339501753/answer/1245129317">https://www.zhihu.com/question/339501753/answer/1245129317</a></p>
-</template></p>
+
             </div>
             
             <footer class="kratos-entry-footer clearfix">
@@ -306,7 +306,7 @@
                         <a class="tag-none-link" href="/tags/antd/" rel="tag">antd</a>, <a class="tag-none-link" href="/tags/vue/" rel="tag">vue</a>, <a class="tag-none-link" href="/tags/vue-slot/" rel="tag">vue-slot</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-08-03</span>
+                    <span>最后编辑：2021-08-04</span>
                     </div>
                 </div>
             </footer>
@@ -605,20 +605,5 @@
 <!-- Extra support for third-party plguins  -->
 
 
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+    </body>
 </html>
