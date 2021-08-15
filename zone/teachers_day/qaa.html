@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #option{
+            min-width: 200px;
+            display: inline-block;
+        }
+        .redText,#rightAnswer{
+            color:red;
+        }
+        .rightAnswer{
+            font-size: 0.6rem;
+            display: none;
+            color:red;
+
+            
+        }
+    </style>
+</head>
+<div id="quest"></div>
+<body>
+
+    <script>
+        var qalistJson = [
+{"#":"1","question":"高一年夏季运动会的一分钟入场式使用到的集体道具是？","oa":"喇叭","ob":"面具","oc":"仙女棒","od":"足球","ro":"b","des":"当时全班都戴着面具，由跳舞团队跳《公公偏头痛》哦。"},
+{"#":"2","question":"每一周的班会课在哪一天","oa":"周二","ob":"周三","oc":"周四","od":"周五","ro":"b","des":"那当然是每周三呀。"},
+{"#":"3","question":"第一节英语课老师组织的课堂活动是？","oa":"英文自我介绍","ob":"直接上课","oc":"讨论周围事物的英文念法","od":"自习","ro":"a","des":"当时英语老师把这个作为期末成绩的一部分哦。"},
+{"#":"4","question":"学校门口梅阳花园站经停公交线路不包括？","oa":"134路","ob":"20路","oc":"857路","od":"858路","ro":"c","des":"857路当时属于岛外线路。"},
+{"#":"5","question":"不同于舞动青春，在江四做的广播体操是第几套？","oa":"第一套","ob":"第三套","oc":"第八套","od":"第九套","ro":"d","des":"第三套是舞动青春。"},
+{"#":"6","question":"值周时期是在哪一段时期？","oa":"高二下第一周","ob":"高二下第十周","oc":"高二上第一周","od":"高三上第一周","ro":"a","des":"第一学期一开学，换教室后也没有立即上课，就开始了扫厕所的生活~"},
+{"#":"7","question":"高二下学期教室换到了哪里？","oa":"2503","ob":"2506","oc":"5330","od":"5303","ro":"d","des":""},
+{"#":"8","question":"VB中参数的传递可以分为形参和？","oa":"实参","ob":"传参","oc":"参数","od":"对象","ro":"a","des":""},
+{"#":"9","question":"班级口号的第二句是？","oa":"团结如山","ob":"三班三板","oc":"情何以堪","od":"情比金坚","ro":"a","des":""},
+{"#":"10","question":"想吃沙茶面，得去哪里吃？","oa":"食堂一楼","ob":"食堂二楼","oc":"小卖部","od":"校外","ro":"a","des":"校外可能也有，不过食堂一楼的沙茶面味道也很不赖。"},
+{"#":"11","question":"高一的合唱比赛，参赛歌曲是哪一首？","oa":"《哗啦啦少年再见》","ob":"《打靶归来》","oc":"《北京东路的日子》","od":"《天灯》","ro":"c","des":"《打靶归来》是高三的时候唱的~"},
+{"#":"12","question":"智哥为什么只担任一年的班主任？","oa":"学校外派教育局任职","ob":"家里人催他回去结婚","oc":"学校安排他去其他班级任职","od":"排课太多就没在继续担任","ro":"a","des":"第一学期运动会结束后也出差了两个多月哦~"},
+{"#":"13","question":"毕业典礼在哪一天？","oa":"2016年7月3日","ob":"2016年7月6日","oc":"2016年7月10日","od":"2016年6月25日","ro":"a","des":"可以翻一下群公告~"},
+{"#":"14","question":"《一碗清汤荞麦面》的作者是？","oa":"美国·特朗普","ob":"日本·栗良平","oc":"英国·夏洛克福尔摩斯","od":"法国·罗曼·罗兰","ro":"b","des":""},
+{"#":"15","question":"《鸿门宴》后来被引申为？","oa":"难以忘怀的开心派对","ob":"缅怀先人的宴会","oc":"一场比拼才华的聚贤大会","od":"不怀好意的宴会","ro":"d","des":""},
+{"#":"16","question":"平时的作业本叫什么","oa":"深纹笔记本","ob":"暗纹笔记本","oc":"黑格笔记本","od":"白纸","ro":"b","des":""},
+{"#":"17","question":"高一年在圣诞节班会的圣诞树从哪里拿来的","oa":"隔壁班","ob":"校门口","oc":"办公室","od":"机房","ro":"b","des":"不知道是谁想出来的点子~"},
+{"#":"18","question":"毕业聚餐的地点是在哪里","oa":"小李飞客","ob":"鹭景海鲜酒楼","oc":"林里餐厅","od":"华莱士","ro":"c","des":"毕业之后林里餐厅的价格变贵了，就才换到了鹭景~"},
+{"#":"19","question":"在调整上课安排之前，下课时间通常都在？","oa":"15:40分","ob":"14:20分","oc":"17:30分","od":"18:00分","ro":"a","des":"因为下午通常只有两节课啦~"},
+{"#":"20","question":"通常犯错的罚抄手段，文稿选自？","oa":"《三字经》","ob":"《弟子规》","oc":"《山海经》","od":"《我的空中楼阁》","ro":"b","des":"选错的可能是没怎么抄过吧。"},
+{"#":"21","question":"在食堂五楼的英语公开课上，上的章节是？","oa":"名词","ob":"形容词","oc":"第五单元","od":"音标","ro":"a","des":""},
+{"#":"22","question":"高一年时，体育老师叫同学们练习排球，一年后的期末考试最后考的是？","oa":"跳绳","ob":"篮球","oc":"足球","od":"排球","ro":"a","des":"笑死我了~"}
+
+]
+
+        function generateQAForm(rndCount,maxNumber){
+            let qaListIndex=[]
+            let fori=0
+            let forj=0
+            while(fori<rndCount){
+                let currentRndIndex = Math.floor(Math.random()*maxNumber)
+                let flagRepeat = false
+                for(let forj=0;forj<qaListIndex.length;forj++){
+                    if(qaListIndex[forj] == currentRndIndex){
+                        flagRepeat=true
+                        break
+                    }
+                }
+                if(!flagRepeat){
+                    qaListIndex.push(currentRndIndex)
+                    fori++
+                }
+            }
+            console.log(qaListIndex)
+            return qaListIndex
+        }
+
+        function writeQAForm(qaListIndex,isShowRightOpstion){
+            console.log(qaListIndex)
+            for(let i in qaListIndex){
+                let currentQuestion = qalistJson[qaListIndex[i]]
+                document.getElementById('quest').innerHTML += `
+                    <h3>${currentQuestion.question}</h3>
+                    <button onclick="showAns(${i})">查看答案</button>
+                    <p id="des${i}" class="rightAnswer">正确答案是<b>${currentQuestion.ro.toUpperCase()}.${currentQuestion['o'+currentQuestion.ro]}</b>。${currentQuestion.des}</p>
+                    <ul>
+                        <li id="option" ${isShowRightOpstion&&currentQuestion.ro=='a'?`class="redText"`:``}> A.${currentQuestion.oa}</li id="option">
+                        <li id="option" ${isShowRightOpstion&&currentQuestion.ro=='b'?`class="redText"`:``}> B.${currentQuestion.ob}</li id="option">
+                        <li id="option" ${isShowRightOpstion&&currentQuestion.ro=='c'?`class="redText"`:``}> C.${currentQuestion.oc}</li id="option">
+                        <li id="option" ${isShowRightOpstion&&currentQuestion.ro=='d'?`class="redText"`:``}> D.${currentQuestion.od}</li id="option">
+                            </ul>
+                `
+            }
+        }
+        function showAns(i){
+            document.getElementById('des'+i).setAttribute('style','display:block!important')
+        }
+        var qalist = generateQAForm(5,qalistJson.length)
+        writeQAForm(qalist,false)
+    </script>
+</body>
+
+</html>
