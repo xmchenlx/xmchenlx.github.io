@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>在antd的table里用vue-draggable-resizable进行列伸缩，数值变化了但视图没有更新的解决办法 | lx新博客</title>
+  <title>lx新博客</title>
   <meta name="author" content="chenlx" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,24 +13,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Antd, Vue, vue-draggable-resizable, 组件, 通信" />
+    <meta name="keywords" content="" />
   
-  <meta name="description" content="前言按照antd官网table组件的描述，table并没有集成伸缩功能，而是需要自己去下载依赖并配置相关的东西才可以。而在配好之后，通过控制台输出参数发现，宽度已经完成了更改，但是视图并没有更新。并且，自己去通过this.$forceUpdate()后发现，有变化。但我们需要根据用户的拉伸情况进行实时的变化。 做法因为使用vue-draggable-resizable这个插件需要配置一大堆参数。所">
-<meta property="og:type" content="article">
-<meta property="og:title" content="在antd的table里用vue-draggable-resizable进行列伸缩，数值变化了但视图没有更新的解决办法">
-<meta property="og:url" content="https://chenlx.top/2021/08/05/tableDraggableResizableChangeDataButViewNotUpdate/index.html">
+  <meta name="description" content="var qalistJson &#x3D; [ {&quot;#&quot;:&quot;1&quot;,&quot;question&quot;:&quot;高一年夏季运动会的一分钟入场式使用到的集体道具是？&quot;,&quot;oa&quot;:&quot;喇叭&quot;,&quot;ob&quot;:&quot;面具&quot;,&quot;oc&quot;:&quot;仙女棒&quot;,&quot;od&quot;:&quot;足球&quot;,&quot;ro&quot;:&quot;b&quot;,&quot;des&quot;:&quot;当时全班都戴着面具，由跳舞团队跳《公公偏头痛》哦。&quot;}, {&quot;#&quot;:&quot;2&quot;,&quot;question&quot;:&quot;每一周的班会课在哪一">
+<meta property="og:type" content="website">
+<meta property="og:title" content="lx新博客">
+<meta property="og:url" content="https://chenlx.top/teachers_day/qaa.html">
 <meta property="og:site_name" content="lx新博客">
-<meta property="og:description" content="前言按照antd官网table组件的描述，table并没有集成伸缩功能，而是需要自己去下载依赖并配置相关的东西才可以。而在配好之后，通过控制台输出参数发现，宽度已经完成了更改，但是视图并没有更新。并且，自己去通过this.$forceUpdate()后发现，有变化。但我们需要根据用户的拉伸情况进行实时的变化。 做法因为使用vue-draggable-resizable这个插件需要配置一大堆参数。所">
+<meta property="og:description" content="var qalistJson &#x3D; [ {&quot;#&quot;:&quot;1&quot;,&quot;question&quot;:&quot;高一年夏季运动会的一分钟入场式使用到的集体道具是？&quot;,&quot;oa&quot;:&quot;喇叭&quot;,&quot;ob&quot;:&quot;面具&quot;,&quot;oc&quot;:&quot;仙女棒&quot;,&quot;od&quot;:&quot;足球&quot;,&quot;ro&quot;:&quot;b&quot;,&quot;des&quot;:&quot;当时全班都戴着面具，由跳舞团队跳《公公偏头痛》哦。&quot;}, {&quot;#&quot;:&quot;2&quot;,&quot;question&quot;:&quot;每一周的班会课在哪一">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chenlx.top/null">
-<meta property="article:published_time" content="2021-08-05T09:11:32.000Z">
-<meta property="article:modified_time" content="2021-08-05T09:21:49.216Z">
+<meta property="article:published_time" content="2021-08-15T11:46:18.681Z">
+<meta property="article:modified_time" content="2021-08-15T11:46:18.681Z">
 <meta property="article:author" content="chenlx">
-<meta property="article:tag" content="Vue">
-<meta property="article:tag" content="Antd">
-<meta property="article:tag" content="组件">
-<meta property="article:tag" content="通信">
-<meta property="article:tag" content="vue-draggable-resizable">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://chenlx.top/null">
 <meta name="twitter:site" content="@null">
@@ -142,156 +137,95 @@
         <section class="col-md-8">
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
-            <header class="kratos-entry-header">
-                
-                    <h1 class="kratos-entry-title text-center">在antd的table里用vue-draggable-resizable进行列伸缩，数值变化了但视图没有更新的解决办法</h1>
-                
-                
-                <ul class="kratos-post-meta text-center">
-                    <li><i class="fa fa-calendar"></i> 2021-08-05</li>
-                    <li><i class="fa fa-user"></i> 作者 chenlx</li>
-                    <li>
-                        <i class="fa fa-edit"></i> 
-                        
-                        
-                            1499
-                        
-                        字
-                    </li>
-                    
-                        <li id="/2021/08/05/tableDraggableResizableChangeDataButViewNotUpdate/" class="leancloud_visitors" data-flag-title="在antd的table里用vue-draggable-resizable进行列伸缩，数值变化了但视图没有更新的解决办法">
-                            <i class="fa fa-eye"></i>
-                            <span class="leancloud-visitors-count"> </span> 次阅读
-                        </li>
-                        
-                    
-                </ul>
-            </header>
             <div class="kratos-post-content">
-                <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1628155309216"></time> 前，其中的内容可能需要更新。
-                </div>
-                
-                    <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%81%9A%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">做法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
-                    </div>
-                
-                <hr />
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>按照antd官网table组件的描述，table并没有集成伸缩功能，而是需要自己去下载依赖并配置相关的东西才可以。而在配好之后，通过控制台输出参数发现，宽度已经完成了更改，但是视图并没有更新。并且，自己去通过<code>this.$forceUpdate()</code>后发现，有变化。但我们需要根据用户的拉伸情况进行实时的变化。</p>
-<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>因为使用vue-draggable-resizable这个插件需要配置一大堆参数。所以就集成在了一个外部的.js文件里。但不论有没有分开单独写，这些参数始终是没有在Vue实例里写。所以这里的思路是引入js的时候调用js的方法，并把Vue的this指针作为参数传递过去。这样外部的js在执行拖动事件时，能用这个指针另Vue能执行更新画面的功能。</p>
-<p>这里主要说的是外部引用并相互调用的这个部分，集成进table表头的这个部分不再赘述。</p>
-<p>代码如下。</p>
-<p>Vue里：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> {</span><br><span class="line">  dragResizableFunc,</span><br><span class="line">  forceUpdateView,</span><br><span class="line">  setVueThat,</span><br><span class="line">} <span class="keyword">from</span> <span class="string">"@/utils/draggable-resizable.js"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    setVueThat(<span class="built_in">this</span>);</span><br><span class="line">  },</span><br></pre></td></tr></tbody></table></figure>
-
-<p>在外部Js里：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> setVueThat = <span class="function">(<span class="params">that</span>) =&gt;</span> {</span><br><span class="line">    <span class="comment">// 被vue引用的同时将this指针赋值过来</span></span><br><span class="line">    vueThat = that</span><br><span class="line">}</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> forceUpdateView = <span class="function">(<span class="params">that</span>) =&gt;</span> {</span><br><span class="line">    <span class="comment">// 强制视图更新，已解决宽度数值发生变化，但是视图没有变动的问题</span></span><br><span class="line">    that.viewForceUpdate()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> dragResizableFunc = <span class="function">(<span class="params">columns</span>) =&gt;</span> {</span><br><span class="line">    .......,</span><br><span class="line">    <span class="attr">on</span>: {</span><br><span class="line">                <span class="comment">// 拖动时把isdrag参数设置为true</span></span><br><span class="line">                <span class="attr">dragging</span>: <span class="function">(<span class="params">x</span>) =&gt;</span> {</span><br><span class="line">                vueThat.viewForceUpdate()    <span class="comment">//这边执行Vue页面更新</span></span><br><span class="line">                isDrag = <span class="literal">true</span></span><br><span class="line">                    col.width = <span class="built_in">Math</span>.max(x, <span class="number">5</span>)</span><br><span class="line">                },</span><br><span class="line">                <span class="comment">// 拖动结束后把isdrag参数设置为false</span></span><br><span class="line">                <span class="attr">dragstop</span>: <span class="function">() =&gt;</span> {</span><br><span class="line">                    isDrag = <span class="literal">true</span></span><br><span class="line">                    <span class="comment">// eslint-disable-next-line vue/no-async-in-computed-properties</span></span><br><span class="line">                    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">                        isDrag = <span class="literal">false</span></span><br><span class="line">                    }, <span class="number">300</span>)</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">.......</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+                <h2 class="title-h2 text-center"></h2>
+                <div id="quest"></div>
 
 
+    <script>
+        var qalistJson = [
+{"#":"1","question":"高一年夏季运动会的一分钟入场式使用到的集体道具是？","oa":"喇叭","ob":"面具","oc":"仙女棒","od":"足球","ro":"b","des":"当时全班都戴着面具，由跳舞团队跳《公公偏头痛》哦。"},
+{"#":"2","question":"每一周的班会课在哪一天","oa":"周二","ob":"周三","oc":"周四","od":"周五","ro":"b","des":"那当然是每周三呀。"},
+{"#":"3","question":"第一节英语课老师组织的课堂活动是？","oa":"英文自我介绍","ob":"直接上课","oc":"讨论周围事物的英文念法","od":"自习","ro":"a","des":"当时英语老师把这个作为期末成绩的一部分哦。"},
+{"#":"4","question":"学校门口梅阳花园站经停公交线路不包括？","oa":"134路","ob":"20路","oc":"857路","od":"858路","ro":"c","des":"857路当时属于岛外线路。"},
+{"#":"5","question":"不同于舞动青春，在江四做的广播体操是第几套？","oa":"第一套","ob":"第三套","oc":"第八套","od":"第九套","ro":"d","des":"第三套是舞动青春。"},
+{"#":"6","question":"值周时期是在哪一段时期？","oa":"高二下第一周","ob":"高二下第十周","oc":"高二上第一周","od":"高三上第一周","ro":"a","des":"第一学期一开学，换教室后也没有立即上课，就开始了扫厕所的生活~"},
+{"#":"7","question":"高二下学期教室换到了哪里？","oa":"2503","ob":"2506","oc":"5330","od":"5303","ro":"d","des":""},
+{"#":"8","question":"VB中参数的传递可以分为形参和？","oa":"实参","ob":"传参","oc":"参数","od":"对象","ro":"a","des":""},
+{"#":"9","question":"班级口号的第二句是？","oa":"团结如山","ob":"三班三板","oc":"情何以堪","od":"情比金坚","ro":"a","des":""},
+{"#":"10","question":"想吃沙茶面，得去哪里吃？","oa":"食堂一楼","ob":"食堂二楼","oc":"小卖部","od":"校外","ro":"a","des":"校外可能也有，不过食堂一楼的沙茶面味道也很不赖。"},
+{"#":"11","question":"高一的合唱比赛，参赛歌曲是哪一首？","oa":"《哗啦啦少年再见》","ob":"《打靶归来》","oc":"《北京东路的日子》","od":"《天灯》","ro":"c","des":"《打靶归来》是高三的时候唱的~"},
+{"#":"12","question":"智哥为什么只担任一年的班主任？","oa":"学校外派教育局任职","ob":"家里人催他回去结婚","oc":"学校安排他去其他班级任职","od":"排课太多就没在继续担任","ro":"a","des":"第一学期运动会结束后也出差了两个多月哦~"},
+{"#":"13","question":"毕业典礼在哪一天？","oa":"2016年7月3日","ob":"2016年7月6日","oc":"2016年7月10日","od":"2016年6月25日","ro":"a","des":"可以翻一下群公告~"},
+{"#":"14","question":"《一碗清汤荞麦面》的作者是？","oa":"美国·特朗普","ob":"日本·栗良平","oc":"英国·夏洛克福尔摩斯","od":"法国·罗曼·罗兰","ro":"b","des":""},
+{"#":"15","question":"《鸿门宴》后来被引申为？","oa":"难以忘怀的开心派对","ob":"缅怀先人的宴会","oc":"一场比拼才华的聚贤大会","od":"不怀好意的宴会","ro":"d","des":""},
+{"#":"16","question":"平时的作业本叫什么","oa":"深纹笔记本","ob":"暗纹笔记本","oc":"黑格笔记本","od":"白纸","ro":"b","des":""},
+{"#":"17","question":"高一年在圣诞节班会的圣诞树从哪里拿来的","oa":"隔壁班","ob":"校门口","oc":"办公室","od":"机房","ro":"b","des":"不知道是谁想出来的点子~"},
+{"#":"18","question":"毕业聚餐的地点是在哪里","oa":"小李飞客","ob":"鹭景海鲜酒楼","oc":"林里餐厅","od":"华莱士","ro":"c","des":"毕业之后林里餐厅的价格变贵了，就才换到了鹭景~"},
+{"#":"19","question":"在调整上课安排之前，下课时间通常都在？","oa":"15:40分","ob":"14:20分","oc":"17:30分","od":"18:00分","ro":"a","des":"因为下午通常只有两节课啦~"},
+{"#":"20","question":"通常犯错的罚抄手段，文稿选自？","oa":"《三字经》","ob":"《弟子规》","oc":"《山海经》","od":"《我的空中楼阁》","ro":"b","des":"选错的可能是没怎么抄过吧。"},
+{"#":"21","question":"在食堂五楼的英语公开课上，上的章节是？","oa":"名词","ob":"形容词","oc":"第五单元","od":"音标","ro":"a","des":""},
+{"#":"22","question":"高一年时，体育老师叫同学们练习排球，一年后的期末考试最后考的是？","oa":"跳绳","ob":"篮球","oc":"足球","od":"排球","ro":"a","des":"笑死我了~"}
 
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WuKongHeBaJie/article/details/107493878">https://blog.csdn.net/WuKongHeBaJie/article/details/107493878</a></p>
+]
 
-            </div>
-            
-            <footer class="kratos-entry-footer clearfix">
-                
-                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
-                    
-                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
-                    
-                    
-                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
-                        <div class="share-wrap" style="display: none;">
-    <div class="share-group">
-        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-qq"></i>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-star"></i>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-weixin"></i>
-            </div>
-            <div class="share-int">
-                <div class="qrcode" id="wechat-qr"></div>
-                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-weibo"></i>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-facebook"></i>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-twitter"></i>
-            </div>
-        </a>
-    </div>
-    <script type="text/javascript">
-        $(()=>{
-            new QRCode("wechat-qr", {
-                text: "https://chenlx.top/2021/08/05/tableDraggableResizableChangeDataButViewNotUpdate/",
-                width: 150,
-                height: 150,
-                correctLevel : QRCode.CorrectLevel.H
-            });
-        });
-        function share(dest) {
-            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
-            const weiboBase     = "https://service.weibo.com/share/share.php?";
-            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
-            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
-            const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://chenlx.top/2021/08/05/tableDraggableResizableChangeDataButViewNotUpdate/";
-            const title         = "「在antd的table里用vue-draggable-resizable进行列伸缩，数值变化了但视图没有更新的解决办法」";
-            const excerpt       = `前言按照antd官网table组件的描述，table并没有集成伸缩功能，而是需要自己去下载依赖并配置相关的东西才可以。而在配好之后，通过控制台输出参数发现，宽度已经完成了更改，但是视图并没有更新。并且，自己去通过this.$force...`;
-            let _URL;
-            switch (dest) {
-                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
-                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
-                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
-                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
-                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+        function generateQAForm(rndCount,maxNumber){
+            let qaListIndex=[]
+            let fori=0
+            let forj=0
+            while(fori<rndCount){
+                let currentRndIndex = Math.floor(Math.random()*maxNumber)
+                let flagRepeat = false
+                for(let forj=0;forj<qaListIndex.length;forj++){
+                    if(qaListIndex[forj] == currentRndIndex){
+                        flagRepeat=true
+                        break
+                    }
+                }
+                if(!flagRepeat){
+                    qaListIndex.push(currentRndIndex)
+                    fori++
+                }
             }
-            window.open(_URL);
-        };
+            console.log(qaListIndex)
+            return qaListIndex
+        }
+
+        function writeQAForm(qaListIndex,isShowRightOpstion){
+            console.log(qaListIndex)
+            for(let i in qaListIndex){
+                let currentQuestion = qalistJson[qaListIndex[i]]
+                document.getElementById('quest').innerHTML += `
+                    <h3>${currentQuestion.question}</h3>
+                    <button onclick="showAns(${i})">查看答案</button>
+                    <p id="des${i}" class="rightAnswer">正确答案是<b>${currentQuestion.ro.toUpperCase()}.${currentQuestion['o'+currentQuestion.ro]}</b>。${currentQuestion.des}</p>
+                    <ul>
+                        <li id="option" ${isShowRightOpstion&&currentQuestion.ro=='a'?`class="redText"`:``}> A.${currentQuestion.oa}</li id="option">
+                        <li id="option" ${isShowRightOpstion&&currentQuestion.ro=='b'?`class="redText"`:``}> B.${currentQuestion.ob}</li id="option">
+                        <li id="option" ${isShowRightOpstion&&currentQuestion.ro=='c'?`class="redText"`:``}> C.${currentQuestion.oc}</li id="option">
+                        <li id="option" ${isShowRightOpstion&&currentQuestion.ro=='d'?`class="redText"`:``}> D.${currentQuestion.od}</li id="option">
+                            </ul>
+                `
+            }
+        }
+        function showAns(i){
+            document.getElementById('des'+i).setAttribute('style','display:block!important')
+        }
+        var qalist = generateQAForm(5,qalistJson.length)
+        writeQAForm(qalist,false)
     </script>
-</div>
-                    
-                    </div>
-                
+
+
+
+            </div>
+            <footer class="kratos-entry-footer clearfix">
                 <div class="footer-tag clearfix">
-                    <div class="pull-left">
-                    <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/Antd/" rel="tag">Antd</a>, <a class="tag-none-link" href="/tags/Vue/" rel="tag">Vue</a>, <a class="tag-none-link" href="/tags/vue-draggable-resizable/" rel="tag">vue-draggable-resizable</a>, <a class="tag-none-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a>, <a class="tag-none-link" href="/tags/%E9%80%9A%E4%BF%A1/" rel="tag">通信</a>
-                    </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-08-05</span>
+                    <span>最后编辑：2021-08-15</span>
                     </div>
                 </div>
             </footer>
         </div>
-        
-            <nav class="navigation post-navigation clearfix" role="navigation">
-                
-                <div class="nav-previous clearfix">
-                    <a title=" antd框架的table组件多次封装中的slot问题解决办法" href="/2021/08/03/20210803antdtableslotinfo/">&lt; 上一篇</a>
-                </div>
-                
-                
-            </nav>
-        
         
             <div id="v-comments" class="post-comments"></div>
 <script>
@@ -303,7 +237,7 @@
                 appKey: 'XRedUk8PBsDbjjc11hIToxm5',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/08/05/tableDraggableResizableChangeDataButViewNotUpdate/'
+                path: '/teachers_day/qaa.html'
             });
         }
         if (typeof Valine == 'undefined') {
@@ -459,18 +393,6 @@
 
             
                     <div class="sticky-area">
-                
-                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
-    <div class="photo-background"></div>
-    <h4 class="widget-title no-after">
-        <i class="fa fa-compass"></i>
-        文章目录
-        <span class="toc-progress-bar"></span>
-    </h4>
-    <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%81%9A%E6%B3%95"><span class="toc-text">做法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol>
-    </div>
-</aside>
                 
                     <div class="sticky-area">
                 
