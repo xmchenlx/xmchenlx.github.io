@@ -28,9 +28,7 @@
 			}
 		</style>
 	</head>
-	<p>
-		*解释：本页面内容来自小程序专题预览的同学测试题库。没有提交内容，仅供预览。题随机抽取，刷新页面题目会立即更新。
-	</p>
+	<p>题库来源于科二。页面随机抽取10题，刷新页面时数据会重新抽取。</p>
 	<p id="loadDataDate"></p>
 	<div id="quest"></div>
 	<body>
@@ -68,7 +66,7 @@
 				for (let i in qaListIndex) {
 					let currentQuestion = qalistJson[qaListIndex[i]]
 					document.getElementById('quest').innerHTML += `
-						                 <h3>[${i}]、<span style="color:gray;padding-right:4px;">[${
+						                 <h3>${i}）、<span style="color:gray;padding-right:4px;">[${
 						currentQuestion.type
 					}]</span>
 						                             <span id="q${currentQuestion['#']}">
@@ -106,7 +104,7 @@
 					dataType: 'json',
 					success: (res) => {
 						$('#loadDataDate').text(
-							`已成功加载维护日期为${res.date}的数据。`
+							`数据已加载。维护日期为${res.date}。`
 						)
 						resolve(res.data)
 					},
