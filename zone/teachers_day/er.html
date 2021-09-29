@@ -31,11 +31,13 @@
 	<body>
         <div id="app">
 		<p>
-			题库来源于科二。页面随机抽取10题，刷新页面时数据会重新抽取。如果页面空白，请
+			题库来源于科二。页面随机抽取15题，刷新页面时数据会重新抽取。如果页面空白，请
 			<button @click="init()">重新加载</button>
 		</p>
 		<p id="loadDataDate"></p>
-		<div id="quest"></div>
+		<div id="quest" v-html="htmlStr">
+            
+        </div>
     </div>
 		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -101,7 +103,9 @@
 											})">查看答案</button>
 			`
 						}
-						$('#quest').html(ress)
+						// $('#quest').html(ress)
+                        // console.log(ress)
+                        this.htmlStr=ress
 					},
 					showAns(i) {
                         console.log('相应')
