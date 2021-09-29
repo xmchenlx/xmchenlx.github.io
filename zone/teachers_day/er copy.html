@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>教资科二·十五连抽</title>
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+		<style>
+			#option {
+				min-width: 200px;
+				display: inline-block;
+			}
+			.redText,
+			#rightAnswer {
+				color: red;
+				border-bottom: 1px solid black;
+			}
+			.rightAnswer {
+				font-size: 0.6rem;
+				display: none;
+				color: red;
+			}
+			#loadDataDate {
+				color: white;
+				background-color: rgb(48, 66, 168);
+				border-radius: 4px;
+				width: 400px;
+			}
+		</style>
+	</head>
+    
+	<body>
+		<p>
+			ajax,jquery。题库来源于科二。页面随机抽取15题，刷新页面时数据会重新抽取。如果页面空白，请
+			<button onclick="init()">重新加载</button>
+		</p>
+		<p id="loadDataDate"></p>
+		<div id="quest"></div>
+		<script>
+			var qalistJson = []
+			function generateQAForm(rndCount, maxNumber) {
+				let qaListIndex = []
+				let fori = 0
+				let forj = 0
+				if (rndCount > maxNumber) {
+					rndCount = maxNumber
+				}
+				while (fori < rndCount) {
+					let currentRndIndex = Math.floor(Math.random() * maxNumber)
+					let flagRepeat = false
+					for (let forj = 0; forj < qaListIndex.length; forj++) {
+						if (qaListIndex[forj] == currentRndIndex) {
+							flagRepeat = true
+							break
+						}
+					}
+					if (!flagRepeat) {
+						qaListIndex.push(currentRndIndex)
+						fori++
+					}
+				}
+				console.log(qaListIndex)
+				return qaListIndex
+			}
+
+			function writeQAForm(qaListIndex, isShowRightOpstion) {
+				// console.log(qaListIndex)
+				document.getElementById('quest').innerHTML = ''
+				let ress = ''
+				for (let i in qaListIndex) {
+					let currentQuestion = qalistJson[qaListIndex[i]]
+					ress += `
+						                 <h3>${i}）、<span style="color:gray;padding-right:4px;">[${
+						currentQuestion.type
+					}]</span>
+						                             <span id="q${currentQuestion['#']}">
+						                                 ${currentQuestion.question.replaceAll(
+																'$',
+																'__________'
+															)}
+						                                 </span></h3>
+						                 <button onclick="showAns(${
+												currentQuestion['#']
+											})">查看答案</button>
+			`
+				}
+				$('#quest').html(ress)
+			}
+			function showAns(i) {
+				let currentQuestion = qalistJson[i - 1]
+				let fullStr = `
+						                                 ${currentQuestion.question}
+						                                 `
+				let answerArray = currentQuestion.ro
+				for (let a in answerArray) {
+					fullStr = fullStr.replace(
+						'$',
+						`<span id='rightAnswer'>${answerArray[a]}</span>`
+					)
+				}
+				console.log(i, fullStr)
+				$(`#q${i}`).html(fullStr)
+			}
+			// getData()
+			function init() {
+				new Promise((resolve, reject) => {
+					$.ajax({
+						url: './jz.json',
+						type: 'GET',
+						dataType: 'json',
+						success: (res) => {
+							$('#loadDataDate').text(
+								`数据已加载。维护日期为${res.date}。`
+							)
+							qalistJson = res.data
+							console.log('qalistJson', qalistJson)
+							var qalist = generateQAForm(15, qalistJson.length)
+							writeQAForm(qalist, false)
+							resolve(res.data)
+						},
+						error: (err) => {
+							console.log(err)
+							$('#loadDataDate').text(
+								`加载数据失败。原因：Promise对象发生错误`
+							)
+							reject([])
+						},
+					})
+				}).then((res) => {})
+			}
+			init()
+		</script>
+	</body>
+</html>
