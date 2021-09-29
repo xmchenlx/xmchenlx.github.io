@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>教资科二·十连抽</title>
+		<title>教资科二·十五连抽</title>
 		<style>
 			#option {
 				min-width: 200px;
@@ -28,7 +28,8 @@
 			}
 		</style>
 	</head>
-	<p>题库来源于科二。页面随机抽取10题，刷新页面时数据会重新抽取。</p>
+	<p>题库来源于科二。页面随机抽取10题，刷新页面时数据会重新抽取。如果页面空白，请
+    <button onclick="init()">重新加载</button></p>
 	<p id="loadDataDate"></p>
 	<div id="quest"></div>
 	<body>
@@ -62,7 +63,8 @@
 			}
 
 			function writeQAForm(qaListIndex, isShowRightOpstion) {
-				console.log(qaListIndex)
+				// console.log(qaListIndex)
+                document.getElementById('quest').innerHTML=''
 				for (let i in qaListIndex) {
 					let currentQuestion = qalistJson[qaListIndex[i]]
 					document.getElementById('quest').innerHTML += `
@@ -97,6 +99,7 @@
 				$(`#q${i}`).html(fullStr)
 			}
 			// getData()
+            function init(){
 			new Promise((resolve, reject) => {
 				$.ajax({
 					url: './jz.json',
@@ -109,16 +112,19 @@
 						resolve(res.data)
 					},
 					error: (err) => {
-						$('#loadDataDate').text(`加载数据失败。原因：${err}`)
+                        console.log(err)
+						$('#loadDataDate').text(`加载数据失败。原因：Promise对象发生错误`)
 						reject([])
 					},
 				})
 			}).then((res) => {
 				qalistJson = res
 				console.log('qalistJson', qalistJson)
-				var qalist = generateQAForm(10, qalistJson.length)
+				var qalist = generateQAForm(15, qalistJson.length)
 				writeQAForm(qalist, false)
 			})
+        }
+        init()
 		</script>
 	</body>
 </html>
