@@ -109,6 +109,10 @@
 						$('#loadDataDate').text(
 							`数据已加载。维护日期为${res.date}。`
 						)
+                        qalistJson = res
+				console.log('qalistJson', qalistJson)
+				var qalist = generateQAForm(15, qalistJson.length)
+				writeQAForm(qalist, false)
 						resolve(res.data)
 					},
 					error: (err) => {
@@ -118,10 +122,7 @@
 					},
 				})
 			}).then((res) => {
-				qalistJson = res
-				console.log('qalistJson', qalistJson)
-				var qalist = generateQAForm(15, qalistJson.length)
-				writeQAForm(qalist, false)
+				
 			})
         }
         init()
