@@ -39,7 +39,7 @@ function writeQAForm(qaListIndex, isShowRightOpstion) {
 
   for (var i in qaListIndex) {
     var currentQuestion = qalistJson[qaListIndex[i]];
-    ress += "\n\t\t\t\t\t\t                 <h3>".concat(i, "\uFF09\u3001<span style=\"color:gray;padding-right:4px;\">[").concat(currentQuestion.type, "]</span>\n\t\t\t\t\t\t                             <span id=\"q").concat(currentQuestion['#'], "\">\n\t\t\t\t\t\t                                 ").concat(currentQuestion.question.replaceAll('$', '__________'), "\n\t\t\t\t\t\t                                 </span></h3>\n\t\t\t\t\t\t                 <button onclick=\"showAns(").concat(currentQuestion['#'], ")\">\u67E5\u770B\u7B54\u6848</button>\n\t\t\t");
+    ress += "\n\t\t\t\t\t\t                 <h3>".concat(i, "\uFF09\u3001<span style=\"color:gray;padding-right:4px;\">[").concat(currentQuestion.type, "]</span>\n\t\t\t\t\t\t                             <span id=\"q").concat(currentQuestion['#'], "\">\n\t\t\t\t\t\t                                 ").concat(currentQuestion.question.replace('\$', '__________'), "\n\t\t\t\t\t\t                                 </span></h3>\n\t\t\t\t\t\t                 <button onclick=\"showAns(").concat(currentQuestion['#'], ")\">\u67E5\u770B\u7B54\u6848</button>\n\t\t\t");
   }
 
   $('#quest').html(ress);
@@ -60,7 +60,7 @@ function showAns(i) {
 
 
 function init() {
-  new Promise(function (resolve, reject) {
+  
     $.ajax({
       url: './jz.json',
       type: 'GET',
@@ -71,15 +71,12 @@ function init() {
         console.log('qalistJson', qalistJson);
         var qalist = generateQAForm(15, qalistJson.length);
         writeQAForm(qalist, false);
-        resolve(res.data);
       },
       error: function error(err) {
         console.log(err);
         $('#loadDataDate').text("\u52A0\u8F7D\u6570\u636E\u5931\u8D25\u3002\u539F\u56E0\uFF1APromise\u5BF9\u8C61\u53D1\u751F\u9519\u8BEF");
-        reject([]);
       }
     });
-  }).then(function (res) {});
 }
 
 init();
