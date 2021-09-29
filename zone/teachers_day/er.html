@@ -65,9 +65,10 @@
 			function writeQAForm(qaListIndex, isShowRightOpstion) {
 				// console.log(qaListIndex)
                 document.getElementById('quest').innerHTML=''
+                let ress=''
 				for (let i in qaListIndex) {
 					let currentQuestion = qalistJson[qaListIndex[i]]
-					document.getElementById('quest').innerHTML += `
+					ress += `
 						                 <h3>${i}）、<span style="color:gray;padding-right:4px;">[${
 						currentQuestion.type
 					}]</span>
@@ -82,6 +83,7 @@
 											})">查看答案</button>
 			`
 				}
+                $('#quest').html(ress)
 			}
 			function showAns(i) {
 				let currentQuestion = qalistJson[i - 1]
