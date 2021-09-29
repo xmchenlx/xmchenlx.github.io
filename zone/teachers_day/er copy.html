@@ -28,12 +28,11 @@
 			}
 		</style>
 	</head>
-    <body>
 	<p>题库来源于科二。页面随机抽取10题，刷新页面时数据会重新抽取。如果页面空白，请
     <button onclick="init()">重新加载</button></p>
 	<p id="loadDataDate"></p>
 	<div id="quest"></div>
-
+	<body>
         <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://lib.baomitu.com/vue/2.6.14/vue.esm.js"></script>
         
@@ -132,12 +131,6 @@
 			})
         }
         init()
-        var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
-  }
-})
 		</script>
 	</body>
 </html>
