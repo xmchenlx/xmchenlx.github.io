@@ -39,7 +39,7 @@ function writeQAForm(qaListIndex, isShowRightOpstion) {
 
   for (var i in qaListIndex) {
     var currentQuestion = qalistJson[qaListIndex[i]];
-    ress += "\n\t\t\t\t\t\t                 <h3>".concat(i+1, "\uFF09\u3001<span style=\"color:gray;padding-right:4px;\">[").concat(currentQuestion.type, "]</span>\n\t\t\t\t\t\t                             <span id=\"q").concat(currentQuestion['#'], "\">\n\t\t\t\t\t\t                                 ").concat(currentQuestion.question.replace(/\$/g, '__________'), "\n\t\t\t\t\t\t                                 </span></h3>\n\t\t\t\t\t\t                 <button onclick=\"showAns(").concat(currentQuestion['#'], ")\">\u67E5\u770B\u7B54\u6848</button>\n\t\t\t");
+    ress += "\n\t\t\t\t\t\t                 <h3>".concat(parseInt(i)+1, ".<span style=\"color:gray;padding-right:4px;\">[").concat(currentQuestion.type, "]</span>\n\t\t\t\t\t\t                             <span id=\"q").concat(currentQuestion['#'], "\">\n\t\t\t\t\t\t                                 ").concat(currentQuestion.question.replace(/\$/g, '__________'), "\n\t\t\t\t\t\t                                 </span></h3>\n\t\t\t\t\t\t                 <button onclick=\"showAns(").concat(currentQuestion['#'], ")\">\u67E5\u770B\u7B54\u6848</button>\n\t\t\t");
   }
 
   $('#quest').html(ress);
