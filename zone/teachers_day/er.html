@@ -7,6 +7,16 @@
 		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
 		<style>
+            html{
+                font-size: 12px;
+                color:white;
+            }
+            body{
+                margin: 0;
+                padding: 0;
+                border: 0;
+                background-color: rgb(31, 31, 31);
+            }
 			#option {
 				min-width: 200px;
 				display: inline-block;
@@ -23,20 +33,38 @@
 			}
 			#loadDataDate {
 				color: white;
-				background-color: rgb(48, 66, 168);
-				border-radius: 4px;
-				width: 400px;
+				background-color: rgb(66, 155, 103);
+				
 			}
+            #quest{
+                width: calc(95% - 10px);
+                background-color: white;
+                color: black;
+                margin: 0 auto;
+                margin-bottom: 10px;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid rgba(128, 128, 128, 0.568);
+                box-shadow: 2px 2px 5px rgba(41, 41, 41, 0.3);
+            }
+            .card{
+				width: calc(95% - 10px);
+                border-radius: 4px;
+                margin: 0 auto;
+                margin-bottom: 10px;
+                padding: 5px;
+            }
 		</style>
 	</head>
 
 	<body>
-		<p>
+		<p class="card" style="background-color: rgb(119, 166, 253);">
 			题库来源于科二。页面随机抽取15题，刷新页面时数据会重新抽取。如果页面空白，请
 			<button onclick="init()">重新加载</button>
 		</p>
-		<p id="loadDataDate"></p>
-		<div id="quest"></div>
+		<p id="loadDataDate" class="card"></p>
+		<div id="quest" ></div>
+        <p style="text-align: center;">-到底了-</p>
 		<script src="./eres5.js"></script>
 	</body>
 </html>

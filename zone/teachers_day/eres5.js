@@ -57,7 +57,17 @@ function showAns(i) {
   console.log(i, fullStr);
   $("#q".concat(i)).html(fullStr);
 } // getData()
-
+function stastic(l){
+    let res={}
+    for(let i in l){
+        let name = l[i]['type']
+        if(!res[name]){
+            res[name]=0
+        }
+        res[name]++
+    }
+    return res
+}
 
 function init() {
   
@@ -66,7 +76,12 @@ function init() {
       type: 'GET',
       dataType: 'json',
       success: function success(res) {
-        $('#loadDataDate').text("\u6570\u636E\u5DF2\u52A0\u8F7D\u3002\u7EF4\u62A4\u65E5\u671F\u4E3A".concat(res.date, "\u3002"));
+        let stasValue = stastic(res.data)
+        let stasText='\n 题库：'
+        for(let i in stasValue){
+            stasText+= "["+i+"]" + stasValue[i] + '道\t'
+        }
+        $('#loadDataDate').text("已加载。最新数据是".concat(res.date, "\u3002" + stasText));
         qalistJson = res.data;
         console.log('qalistJson', qalistJson);
         var qalist = generateQAForm(15, qalistJson.length);
