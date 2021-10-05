@@ -47,7 +47,8 @@ function writeQAForm(qaListIndex, isShowRightOpstion) {
 
 function showAns(i) {
   var currentQuestion = qalistJson[i - 1];
-  var fullStr = "\n\t\t\t\t\t\t                                 ".concat(currentQuestion.question, "\n\t\t\t\t\t\t                                 ");
+    console.log(currentQuestion)
+    var fullStr = "\n\t\t\t\t\t\t                                 ".concat(currentQuestion.question, "\n\t\t\t\t\t\t                                 ");
   var answerArray = currentQuestion.ro;
 
   for (var a in answerArray) {
