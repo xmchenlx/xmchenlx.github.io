@@ -122,8 +122,9 @@
                     </el-form-item>
                     <el-form-item label="杯型">
                         <el-radio-group v-model="detailMilkTea.cup" size="small" @change="radioChangeGeneral">
-                            <el-radio-button label="1">大杯</el-radio-button>
-                            <el-radio-button label="2">中杯</el-radio-button>
+                            <el-radio-button :label="2">吨吨桶</el-radio-button>
+                            <el-radio-button :label="1">大杯</el-radio-button>
+                            <el-radio-button :label="0.77">中杯</el-radio-button>
                         </el-radio-group>
                     </el-form-item>
                     <el-form-item label="冰度">
@@ -460,7 +461,8 @@
                         this.isDis = false
 
                     }
-                    let cupPercent = (this.detailMilkTea.cup === '1' ? 1 : 0.77)
+                    // let cupPercent = (this.detailMilkTea.cup === '1' ? 1 : 0.77)
+                    let cupPercent = parseFloat(this.detailMilkTea.cup)
                     this.resKcal = ((baseKacl * this.detailMilkTea.ice) - this.detailMilkTea.sugar) * cupPercent
                     this.resKcal += this.calcIngKcalNum //小料
 
