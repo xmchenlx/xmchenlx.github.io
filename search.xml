@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>theWayToOpenNewPageByRouterLink</title>
+      <link href="2021/10/15/theWayToOpenNewPageByRouterLink/"/>
+      <url>2021/10/15/theWayToOpenNewPageByRouterLink/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在antd的table里用vue-draggable-resizable进行列伸缩，数值变化了但视图没有更新的解决办法</title>
       <link href="2021/08/05/tableDraggableResizableChangeDataButViewNotUpdate/"/>
       <url>2021/08/05/tableDraggableResizableChangeDataButViewNotUpdate/</url>
