@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title>theWayToOpenNewPageByRouterLink</title>
-      <link href="2021/10/15/theWayToOpenNewPageByRouterLink/"/>
-      <url>2021/10/15/theWayToOpenNewPageByRouterLink/</url>
+      <title>Antd里tree组件搜索时，不能高亮的解决办法</title>
+      <link href="2021/08/10/TheResolutionOfWhyIsATree-scopedSlotsNamedTitleIsNotEffective/"/>
+      <url>2021/08/10/TheResolutionOfWhyIsATree-scopedSlotsNamedTitleIsNotEffective/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用antd的tree组件。。</p><p><img src="https://i.loli.net/2021/08/10/5GNUBbRYM4rDX86.png" alt="搜索之后可以展开但不高亮关键字"></p><h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><h2 id="slot的关键字冲突"><a href="#slot的关键字冲突" class="headerlink" title="slot的关键字冲突"></a>slot的关键字冲突</h2><p>可能在其他的地方也有叫title的地方，所以他就不知道哪一个title才是他的。</p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">...  </span><br><span class="line">&lt;a-tooltip&gt;</span><br><span class="line">        &lt;span slot="title"&gt;是否缩小&lt;/span&gt;</span><br><span class="line">        &lt;!-- &lt;a-switch size="small" v-model="isCol" checked-children="缩小" un-checked-children="常规"/&gt; --&gt;</span><br><span class="line">        &lt;a-button</span><br><span class="line">          type="link"</span><br><span class="line">          @click="isCol = !isCol"</span><br><span class="line">          :icon="isCol ? 'menu-unfold' : 'menu-fold'"</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;/a-tooltip&gt;</span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure><p>所以把插槽改成别的名字就可以了。。。</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ite = {</span><br><span class="line">         <span class="attr">title</span>: d[i][<span class="string">"meta"</span>][<span class="string">"title"</span>],</span><br><span class="line">         <span class="attr">key</span>: d[i].path,</span><br><span class="line">         <span class="attr">scopedSlots</span>: { <span class="attr">title</span>: <span class="string">'custom'</span> }</span><br><span class="line">       };</span><br></pre></td></tr></tbody></table></figure>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> antd </tag>
+            
+            <tag> tree </tag>
+            
+            <tag> 搜索 </tag>
+            
+            <tag> scoped </tag>
+            
+        </tags>
       
     </entry>
     
