@@ -351,6 +351,55 @@
   
             
                 
+  <style>
+    .widget li {
+      list-style-type: none;
+      margin-bottom: 10px;
+    }
+    .date{
+        font-weight: bold;
+        font-size: 0.7rem;
+        color:gray;
+    }
+    .content{
+        font-weight: 400;
+    }
+   
+  </style>
+  <div class="kratos-hentry kratos-entry-border-new clearfix">
+    <div class="widget-wrap">
+      <h3 class="widget-title">近期安排</h3>
+      <div class="widget">
+        <ul id="lists">
+          
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script>
+      var scheJson = [
+          {date:'2021/11/14',con:'实战资料整理工作'},
+          {date:'2021/11/20',con:'好友聚会'},
+          {date:'2021/11/21',con:'好友聚会'},
+          {date:'2021/11/30',con:'月度自我总结'},
+          {date:'2021/11/30',con:'账单汇算'},
+      ]
+      function loadSche(){
+        let res = ''
+        for(let i in scheJson){
+        res+= `<li>
+                <span class="date">${scheJson[i].date}</span>
+                <span class="content">${scheJson[i].con}</span>
+            </li>`
+        }
+        document.getElementById('lists').innerHTML=res
+      }
+      loadSche()
+  </script>
+  
+            
+                
 
             
                 
