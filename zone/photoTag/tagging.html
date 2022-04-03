@@ -33,11 +33,11 @@
 			<div v-if="currentIndex!==-1">
 				<div>
 					<span
-						>当前为第{{currentIndex+1}}张照片，共计{{photoList.length}}张。您已阅{{auditCount}}张。</span
+						>当前为第{{currentIndex+1}}张照片，共计{{photoList.length}}张。您已正序阅读{{auditCount}}张。</span
 					>
 					<a-divider type="vertical"></a-divider>
 					<span
-						>当前照片名：{{photoList[currentIndex].title?photoList[currentIndex].title:'未知'}}</span
+						>当前照片名：{{photoList[currentIndex].fields.title?photoList[currentIndex].fields.title:'未知'}}</span
 					>
 
 					<div class="tags-preview">
@@ -78,11 +78,11 @@
 					</div>
 				</div>
 				<img
-					style="width: 30%"
+					style="min-width: 60%;max-width: 100%;"
 					v-if="photoList.length"
 					slot="cover"
 					alt="example"
-					:src="photoList[currentIndex].url?photoList[currentIndex].url:'#'"
+					:src="photoList[currentIndex].fields.url?photoList[currentIndex].fields.url:'#'"
 				/>
 			</div>
 		</div>
@@ -107,19 +107,13 @@
 			})
 		}
 
-		function getData() {
+		function  getData() {
 			let url =
 				'https://api.vika.cn/fusion/v1/datasheets/dstAoYN7FkeB5qyurw/records?viewId=viwBalqHyp1ne&fieldKey=name'
-			return new Promise(resolve=>{
-                resolve( axios({
-				method: 'get',
-				url: url,
+			return  axios.get(url,{
                 headers:{
                     "Authorization": "Bearer uskOVAqvhU7UkL0qSuW2wyn",
-                    'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'
                 }
-				
-			}))
             })
 		}
 		new Vue({
@@ -150,25 +144,28 @@
 			},
 			methods: {
 				handleNext() {
+                    this.$message.info('正在加载下一张照片信息')
 					// 不为空时推入标签组
 					if (this.currentTag.length) {
 						this.handleEnter()
 					}
 					// 保存当前的标签组
 					if (this.currentIndex != -1) {
-						this.photoList[this.currentIndex].tags =
+						this.photoList[this.currentIndex].fields.tags =
 							this.currentTags
 					}
 					if (this.currentIndex + 1 == this.photoList.length) {
 						this.$message.error('已经是最后一张了，感谢您的协力')
 						return false
 					}
+                    this.auditCount++;
 					// 加载下一项信息
-					let item = this.photoList[++this.currentIndex]
+					let item = this.photoList[++this.currentIndex].fields
 					this.currentTags = item.tags
 					this.currentTag = ''
 				},
 				handlePrev() {
+                    this.$message.info('正在加载上一张照片信息')
 					if (this.currentIndex - 1 == -1) {
 						this.$message.warning(
 							'当前已经是第一张照片了，请开始您的工作。'
@@ -180,11 +177,12 @@
 					}
 					// 保存当前的标签组
 					if (this.currentIndex != -1) {
-						this.photoList[this.currentIndex].tags =
+						this.photoList[this.currentIndex].fields.tags =
 							this.currentTags
 					}
+                    this.auditCount--;
 					// 加载上一项信息
-					let item = this.photoList[--this.currentIndex]
+					let item = this.photoList[--this.currentIndex].fields
 					this.currentTags = item.tags
 					this.currentTag = ''
 				},
@@ -195,9 +193,9 @@
 				handleInputHotWord(word) {
 					this.currentTags.push(word)
 				},
-				loadData() {
-					getData().then((res) => {
-						this.photoList = res.data.records
+				async loadData() {
+					await getData().then((res) => {
+						this.photoList = res.data.data.records
                         console.log(this.photoList)
 						this.handleNext()
 					})
