@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>3班十周年纪念站照片标签处理</title>
+		<link
+			href="https://cdn.bootcdn.net/ajax/libs/ant-design-vue/3.0.0-beta.12/antd.css"
+			rel="stylesheet"
+		/>
+		<style>
+			.tags-preview {
+				width: 100%;
+				border: 1px solid #757575;
+				min-height: 40px;
+				margin: 10px 0;
+				border-radius: 4px;
+			}
+			.tags-preview:before {
+				content: '当前已有标签：';
+			}
+		</style>
+		<!-- <script crossorigin="anonymous" integrity="sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg==" src="https://lib.baomitu.com/vue/2.6.14/vue.js"></script>   <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/locale/zh-cn.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ant-design-vue@1.7.8/dist/antd.min.js"></script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<div v-if="currentIndex!==-1">
+				<div>
+					<span
+						>当前为第{{currentIndex+1}}张照片，共计{{photoList.length}}张。您已阅{{auditCount}}张。</span
+					>
+					<a-divider type="vertical"></a-divider>
+					<span
+						>当前照片名：{{photoList[currentIndex].title?photoList[currentIndex].title:'未知'}}</span
+					>
+
+					<div class="tags-preview">
+						<a-tag
+							v-for="(item,index) in currentTags "
+							color="blue"
+							:key="index"
+						>
+							{{item}}
+						</a-tag>
+					</div>
+					<a-input
+						placeholder="输入标签名称，按回车后输入下一个标签"
+						@keyup.enter="handleEnter"
+						v-model="currentTag"
+					></a-input>
+					<a-button
+						icon="left"
+						type="primary"
+						@click="handlePrev"
+						:disabled="currentIndex <1"
+						>上一个</a-button
+					>
+					<a-button icon="right" type="primary" @click="handleNext"
+						>下一个</a-button
+					>
+					<div>
+						快捷推荐：
+						<a-tag
+							color="orange"
+							style="cursor: pointer"
+							v-for="(hotWord,index) in hotWords"
+							:key="index"
+							@click="handleInputHotWord(hotWord)"
+						>
+							{{hotWord}}
+						</a-tag>
+					</div>
+				</div>
+				<img
+					style="width: 30%"
+					v-if="photoList.length"
+					slot="cover"
+					alt="example"
+					:src="photoList[currentIndex].url?photoList[currentIndex].url:'#'"
+				/>
+			</div>
+		</div>
+	</body>
+
+	<script>
+		function returnTestData() {
+			return new Promise((resolve) => {
+				let data = [
+					{
+						title: 'asdasg3eqsf132wefq.jpg',
+						url: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+						tags: ['测试'],
+					},
+					{
+						title: '周杰伦',
+						url: 'https://www.baidu.com/s?rsv_idx=2&tn=baiduhome_pg&wd=Work%20Song&usm=1&ie=utf-8&rsv_pq=eb448f83000073ca&oq=css%20before&rsv_t=87a9vSbQSLSx%2F%2BgePhPYZrzwvApXS3yJtwT5jy0XRMEHN%2FfzP4ImJMyn4DrH4wmUbnQS&rsv_cq=&rsv_dl=0_right_recommends_merge_21102&euri=0359552784f941378f89d7f6eaa9c738',
+						tags: ['测试'],
+					},
+				]
+				resolve(data)
+			})
+		}
+
+		function getData() {
+			let url =
+				'https://api.vika.cn/fusion/v1/datasheets/dstAoYN7FkeB5qyurw/records?viewId=viwBalqHyp1ne&fieldKey=name'
+			return new Promise(resolve=>{
+                resolve( axios({
+				method: 'get',
+				url: url,
+                headers:{
+                    "Authorization": "Bearer uskOVAqvhU7UkL0qSuW2wyn",
+                    'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'
+                }
+				
+			}))
+            })
+		}
+		new Vue({
+			el: '#app',
+			data() {
+				return {
+					test: 'hello',
+					auditCount: 0,
+					currentIndex: -1,
+					photoList: [],
+					currentTags: [],
+					currentTag: '',
+					hotWords: [
+						'集体',
+						'校园风景',
+						'物品',
+						'毕业聚餐',
+						'值周',
+						'聚餐',
+						'课间日常',
+						'军训',
+					],
+				}
+			},
+			created() {},
+			mounted() {
+				this.loadData()
+			},
+			methods: {
+				handleNext() {
+					// 不为空时推入标签组
+					if (this.currentTag.length) {
+						this.handleEnter()
+					}
+					// 保存当前的标签组
+					if (this.currentIndex != -1) {
+						this.photoList[this.currentIndex].tags =
+							this.currentTags
+					}
+					if (this.currentIndex + 1 == this.photoList.length) {
+						this.$message.error('已经是最后一张了，感谢您的协力')
+						return false
+					}
+					// 加载下一项信息
+					let item = this.photoList[++this.currentIndex]
+					this.currentTags = item.tags
+					this.currentTag = ''
+				},
+				handlePrev() {
+					if (this.currentIndex - 1 == -1) {
+						this.$message.warning(
+							'当前已经是第一张照片了，请开始您的工作。'
+						)
+						return false
+					}
+					if (this.currentTag.length) {
+						this.handleEnter()
+					}
+					// 保存当前的标签组
+					if (this.currentIndex != -1) {
+						this.photoList[this.currentIndex].tags =
+							this.currentTags
+					}
+					// 加载上一项信息
+					let item = this.photoList[--this.currentIndex]
+					this.currentTags = item.tags
+					this.currentTag = ''
+				},
+				handleEnter() {
+					this.currentTags.push(this.currentTag)
+					this.currentTag = ''
+				},
+				handleInputHotWord(word) {
+					this.currentTags.push(word)
+				},
+				loadData() {
+					getData().then((res) => {
+						this.photoList = res.data.records
+                        console.log(this.photoList)
+						this.handleNext()
+					})
+				},
+			},
+		})
+	</script>
+</html>
