@@ -60,7 +60,6 @@
 					</div>
 					<a-input
 						placeholder="输入标签名称，按回车后输入下一个标签"
-						@keyup.enter="handleEnter"
                         @keyup.13="handleEnter"
 						v-model="currentTag"
 					></a-input>
@@ -196,10 +195,19 @@
                     return finalUrl
                 },
 				handleNext() {
+                    console.log(this.currentTags.length)
+                    if(this.currentIndex != -1 && this.currentTags.length<1){
+                        this.$message.error('当前照片没有录入标签！');
+                        return false;
+                    }
+                    // 不为空时推入标签组
+					if (this.currentTag.length) {
+						this.handleEnter()
+					}
                     // 保存当前的标签组
-					if (this.currentIndex != -1) {
+					if (this.currentIndex != -1 ) {
 						this.photoList[this.currentIndex].fields.tags =
-							this.currentTags.toString()
+							this.currentTags.toString();
                             this.postTag(this.photoList[this.currentIndex])
 					}
                     if (this.currentIndex + 1 == this.photoList.length) {
@@ -207,14 +215,8 @@
 						return false
 					}
                     this.$message.info('正在加载下一张照片信息')
-					// 不为空时推入标签组
-					if (this.currentTag.length) {
-						this.handleEnter()
-					}
-                    if(this.currentIndex != -1 && this.currentTags.length<1){
-                        this.$message.error('当前照片没有录入标签！');
-                        return false;
-                    }
+					
+                    
 					
 					
                     this.auditCount++;
@@ -271,7 +273,7 @@
 				async loadData() {
                     let {start,end} = this.page
                     let pageSize=end-start+1
-                    let pageNum = 1
+                    let pageNum = Math.ceil(start/pageSize)
 					await getData(pageSize,pageNum).then((res) => {
 						this.photoList = res.data.data.records
                         console.log(this.photoList)
