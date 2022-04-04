@@ -30,7 +30,13 @@
 	</head>
 	<body>
 		<div id="app" v-cloak>
-			<div v-if="currentIndex!==-1">
+            <div v-if="step==1">
+                请输入本次任务安排的处理范围。
+                起点：<a-input-number v-model="page.start"></a-input-number>。
+                结束：<a-input-number v-model="page.end"></a-input-number>
+                <a-button type="primary" @click="handleStart()">确定</a-button>
+            </div>
+			<div v-if="currentIndex!==-1 && step==2">
 				<div>
 					<span
 						>当前为第{{currentIndex+1}}张照片，共计{{photoList.length}}张。您已正序阅读{{auditCount}}张。</span
@@ -41,10 +47,13 @@
 					>
 
 					<div class="tags-preview">
+                        （{{currentTags.length}}项）
 						<a-tag
-							v-for="(item,index) in currentTags "
+							v-for="(item) in currentTags "
 							color="blue"
-							:key="index"
+							:key="item"
+                            closable 
+                            @close="() => handleClose(item)"
 						>
 							{{item}}
 						</a-tag>
@@ -52,6 +61,7 @@
 					<a-input
 						placeholder="输入标签名称，按回车后输入下一个标签"
 						@keyup.enter="handleEnter"
+                        @keyup.13="handleEnter"
 						v-model="currentTag"
 					></a-input>
 					<a-button
@@ -77,12 +87,13 @@
 						</a-tag>
 					</div>
 				</div>
+                <!-- 图片预览 -->
 				<img
 					style="min-width: 60%;max-width: 100%;"
 					v-if="photoList.length"
 					slot="cover"
-					alt="example"
-					:src="photoList[currentIndex].fields.url?photoList[currentIndex].fields.url:'#'"
+					:alt="photoList[currentIndex].fields.title"
+					:src="convertEffectImgUrl(photoList[currentIndex].fields.title)"
 				/>
 			</div>
 		</div>
@@ -106,21 +117,38 @@
 				resolve(data)
 			})
 		}
-
-		function  getData() {
+        axios.defaults.headers.common['Authorization'] = "Bearer uskOVAqvhU7UkL0qSuW2wyn";
+		function  getData(pageSize,pageNum) {
 			let url =
-				'https://api.vika.cn/fusion/v1/datasheets/dstAoYN7FkeB5qyurw/records?viewId=viwBalqHyp1ne&fieldKey=name'
-			return  axios.get(url,{
-                headers:{
-                    "Authorization": "Bearer uskOVAqvhU7UkL0qSuW2wyn",
+				'https://api.vika.cn/fusion/v1/datasheets/dstAoYN7FkeB5qyurw/records';
+                let params={
+                    viewId:'viwBalqHyp1ne',
+                    fieldKey:'name',
+                    pageSize,
+                    pageNum
                 }
+			return  axios.get(url,{
+                params
+            })
+		}
+        function  patchData(data) {
+			let url =
+				'https://api.vika.cn/fusion/v1/datasheets/dstAoYN7FkeB5qyurw/records';
+			return  axios.patch(url,{
+                    ...data,
+                    viewId:'viwBalqHyp1ne',
+                    fieldKey:'name'
             })
 		}
 		new Vue({
 			el: '#app',
 			data() {
 				return {
-					test: 'hello',
+                    step:1,
+					page:{
+                        start:1,
+                        end:1
+                    },
 					auditCount: 0,
 					currentIndex: -1,
 					photoList: [],
@@ -140,29 +168,68 @@
 			},
 			created() {},
 			mounted() {
-				this.loadData()
+				
 			},
 			methods: {
+                handleClose(removedTag) {
+      const tags = this.currentTags.filter(tag => tag !== removedTag);
+      this.currentTags = tags;
+    },
+                postTag(originalData){
+                    let data = {
+                        records:[originalData]
+                    }
+                    patchData(data).then(res=>{
+                        if(res.data.success){
+                            this.$message.success('标签结果已更新')
+                        }
+                    })
+                },
+                handleStart(){
+                    this.loadData()
+                    this.step++
+                },
+                convertEffectImgUrl(filename){
+                    let imgProcessParam = 'imageView2/0/format/jpg/q/75|watermark/2/text/Q2xhc3MgMyBBbm5pdmVyc2FyeSBTZXJpZXMgaW4gY2hlbmx4J3MgQnVja2V0/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/gravity/Center/dx/10/dy/10|imageslim'
+                    let prefix = 'http://pic.chenlx.top/'
+                    let finalUrl = `${prefix}${filename}?${imgProcessParam}`
+                    return finalUrl
+                },
 				handleNext() {
+                    // 保存当前的标签组
+					if (this.currentIndex != -1) {
+						this.photoList[this.currentIndex].fields.tags =
+							this.currentTags.toString()
+                            this.postTag(this.photoList[this.currentIndex])
+					}
+                    if (this.currentIndex + 1 == this.photoList.length) {
+						this.$message.success('已经是最后一张了，感谢您的协力')
+						return false
+					}
                     this.$message.info('正在加载下一张照片信息')
 					// 不为空时推入标签组
 					if (this.currentTag.length) {
 						this.handleEnter()
 					}
-					// 保存当前的标签组
-					if (this.currentIndex != -1) {
-						this.photoList[this.currentIndex].fields.tags =
-							this.currentTags
-					}
-					if (this.currentIndex + 1 == this.photoList.length) {
-						this.$message.error('已经是最后一张了，感谢您的协力')
-						return false
-					}
+                    if(this.currentIndex != -1 && this.currentTags.length<1){
+                        this.$message.error('当前照片没有录入标签！');
+                        return false;
+                    }
+					
+					
                     this.auditCount++;
 					// 加载下一项信息
 					let item = this.photoList[++this.currentIndex].fields
-					this.currentTags = item.tags
-					this.currentTag = ''
+                    item.tags = item.tags?item.tags:[]
+					let tags = item.tags.toString().replace(/[|]|\'/g,'').split(',')
+                    // 处理空标签
+                    let zeroTag = tags.findIndex(tag=>{return !tag.length})
+                    while(zeroTag !== -1){
+                        tags.splice(zeroTag,1)
+                        zeroTag=tags.findIndex(tag=>{return !tag.length})
+                    }
+                    this.currentTags =tags
+                    console.log(this.currentTags)
 				},
 				handlePrev() {
                     this.$message.info('正在加载上一张照片信息')
@@ -182,9 +249,17 @@
 					}
                     this.auditCount--;
 					// 加载上一项信息
-					let item = this.photoList[--this.currentIndex].fields
-					this.currentTags = item.tags
-					this.currentTag = ''
+                    let item = this.photoList[--this.currentIndex].fields
+					let tags = item.tags.replace(/[|]|\'/g,'').split(',')
+                    item.tags = item.tags?item.tags:[]
+                    // 处理空标签
+                    let zeroTag = tags.findIndex(tag=>{return !tag.length})
+                    while(zeroTag !== -1){
+                        tags.splice(zeroTag,1)
+                        zeroTag=tags.findIndex(tag=>{return !tag.length})
+                    }
+
+                    this.currentTags =tags
 				},
 				handleEnter() {
 					this.currentTags.push(this.currentTag)
@@ -194,7 +269,10 @@
 					this.currentTags.push(word)
 				},
 				async loadData() {
-					await getData().then((res) => {
+                    let {start,end} = this.page
+                    let pageSize=end-start+1
+                    let pageNum = 1
+					await getData(pageSize,pageNum).then((res) => {
 						this.photoList = res.data.data.records
                         console.log(this.photoList)
 						this.handleNext()
