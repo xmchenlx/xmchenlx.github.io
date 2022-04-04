@@ -31,15 +31,15 @@
 	<body>
 		<div id="app" v-cloak>
             <div v-if="step==1">
-                请输入本次任务安排的处理范围。
-                起点：<a-input-number v-model="page.start"></a-input-number>。
+                起点：<a-input-number v-model="page.start"></a-input-number>
                 结束：<a-input-number v-model="page.end"></a-input-number>
-                <a-button type="primary" @click="handleStart()">确定</a-button>
+                <a-button type="primary"  @click="handleStartFinish()">确定</a-button>
+                <a-button type="primary" @click="handleCheckRest()">剩余检查</a-button>
             </div>
 			<div v-if="currentIndex!==-1 && step==2">
 				<div>
 					<span
-						>当前为第{{currentIndex+1}}张照片，共计{{photoList.length}}张。您已正序阅读{{auditCount}}张。</span
+						>【任务序号{{page.start}}-{{page.end}}】当前为第{{currentIndex+1}}张照片，共计{{photoList.length}}张。您已正序阅读{{auditCount}}张。</span
 					>
 					<a-divider type="vertical"></a-divider>
 					<span
@@ -117,14 +117,13 @@
 			})
 		}
         axios.defaults.headers.common['Authorization'] = "Bearer uskOVAqvhU7UkL0qSuW2wyn";
-		function  getData(pageSize,pageNum) {
+		function  getData(param) {
 			let url =
 				'https://api.vika.cn/fusion/v1/datasheets/dstAoYN7FkeB5qyurw/records';
                 let params={
                     viewId:'viwBalqHyp1ne',
                     fieldKey:'name',
-                    pageSize,
-                    pageNum
+                    ...param
                 }
 			return  axios.get(url,{
                 params
@@ -182,6 +181,26 @@
                         if(res.data.success){
                             this.$message.success('标签结果已更新')
                         }
+                    })
+                },
+                handleCheckRest(){
+                    let _this=this
+                    this.$confirm({
+                        title:'您是本批次的最后一棒',
+                        content:'当前批次的照片标签处理工作已接近尾声，您负责剩余的照片标签处理工作。点击确认后，将会加载剩下还未处理的照片信息。',
+                        onOk(){_this.loadRestData();_this.step++},
+                        onCancel(){},
+                    })
+                },
+                handleStartFinish(){
+                    let _this =this
+                    this.$confirm({
+                        title:'确认框',
+                        content:'当前批次的照片确认已经接近尾声，是否确认继续按照分工处理照片标签？',
+                        onOk(){
+_this.handleStart()
+                        },
+                        onCancel()
                     })
                 },
                 handleStart(){
@@ -274,7 +293,17 @@
                     let {start,end} = this.page
                     let pageSize=end-start+1
                     let pageNum = Math.ceil(start/pageSize)
-					await getData(pageSize,pageNum).then((res) => {
+					await getData({pageSize,pageNum}).then((res) => {
+						this.photoList = res.data.data.records
+                        console.log(this.photoList)
+						this.handleNext()
+					})
+				},
+				async loadRestData() {
+                    let param = {
+                        filterByFormula:'LEN({tags})<1'
+                    }
+					await getData(param).then((res) => {
 						this.photoList = res.data.data.records
                         console.log(this.photoList)
 						this.handleNext()
