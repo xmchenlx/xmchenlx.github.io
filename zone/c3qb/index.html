@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+		<!-- 引入样式 -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+		/>
+		<!-- 引入组件库 -->
+		<script
+			crossorigin="anonymous"
+			integrity="sha512-4yLzKsO6nw0x1zP8x5cfjEYvQQ7own5O1ObnCg9gKvpDzoeQTQVuW08eG7Utg5rEWkVRBHA9pU+R709rbJvJqA=="
+			src="https://lib.baomitu.com/element-ui/2.15.7/index.min.js"
+		></script>
+		<style>
+			.options {
+				padding: 0;
+			}
+			.options li {
+				min-width: 150px;
+				background-color: rgba(230, 230, 230, 0.26);
+				padding: 15px 20px;
+				border-radius: 10px;
+				list-style-type: none;
+				margin: 20px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div v-show="step==0">
+				<h3>三班小伙伴认证</h3>
+				<p>
+					您访问的版块涉及到三班小伙伴的部分隐私。为了证明您是三班生活的参与者，请您回答下列问题。累计答对6题即视为认证通过。
+				</p>
+				<el-button type="primary" @click="handleStart()"
+					>好的，开始吧</el-button
+				>
+			</div>
+			<div v-if="step==1">
+				当前答对{{rightCount}}题
+				<div>
+					<h3>
+						{{currentIdx+1}})【{{filterQuestions[currentIdx].type}}题】
+						{{filterQuestions[currentIdx].question}}
+					</h3>
+					<img
+						:src="filterQuestions[currentIdx].img"
+						style="width: 100vw"
+						v-show="filterQuestions[currentIdx].img"
+					/>
+					<ul class="options">
+						<li @click="handleWrite('A')">
+							A. {{filterQuestions[currentIdx].oa}}
+						</li>
+						<li @click="handleWrite('B')">
+							B. {{filterQuestions[currentIdx].ob}}
+						</li>
+						<li @click="handleWrite('C')">
+							C. {{filterQuestions[currentIdx].oc}}
+						</li>
+						<li @click="handleWrite('D')">
+							D. {{filterQuestions[currentIdx].od}}
+						</li>
+					</ul>
+					<div v-show="currentSource!==0">
+						<h2 v-show="currentSource==2">回答正确！</h2>
+						<h2 v-show="currentSource==1">回答错误！</h2>
+						<h5>答案解释</h5>
+						<p>
+							正确答案是{{filterQuestions[currentIdx].ro.toUpperCase()}}、{{filterQuestions[currentIdx]['o'+filterQuestions[currentIdx].ro]}}
+						</p>
+						<p>{{filterQuestions[currentIdx].des||'暂无解释'}}</p>
+					</div>
+					<div v-show="currentSource!==0">
+						<el-button type="primary" @click="handleNext()"
+							>下一题</el-button
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			new Vue({
+				el: '#app',
+				data: function () {
+					return {
+						qlist: {},
+						step: 0,
+						filterQuestions: [],
+						allList: [],
+						currentIdx: 0,
+						rightCount: 0,
+						currentSource: 0, //0-未达 1-错误  2-正确
+					}
+				},
+				created() {
+					this.loadJson()
+					setTimeout(() => {
+						this.handleStart()
+					}, 500)
+				},
+				methods: {
+					handleNext() {
+						this.currentIdx++
+						this.currentSource = 0
+					},
+					handleWrite(ans) {
+						if (
+							this.filterQuestions[this.currentIdx].ro !==
+							ans.toLowerCase()
+						) {
+							this.currentSource = 1
+						} else {
+							this.rightCount++
+							this.currentSource = 2
+						}
+					},
+					handleStart() {
+						this.step++
+						// let lipu = this.chooseQuestion('离谱',3)
+						// let jichu = this.chooseQuestion('基础',3)
+
+						this.filterQuestions = this.getRndQuestion(20)
+						// this.filterQuestions = lipu.concat(jichu)
+					},
+					getRndQuestion(count = 10) {
+						let rndList = []
+						for (let i = 0; i < count; ) {
+							let size = this.allList.length
+							let idx = parseInt(Math.random() * size)
+							if (!rndList.includes(idx)) {
+                                console.log(idx)
+								rndList.push(this.allList[idx])
+								i++
+							}
+						}
+						return rndList
+					},
+					chooseQuestion(type, count) {
+						let rndList = []
+						let currentTypeList = this.qlist[type]
+						for (let i = 0; i < count; i++) {
+							let range = currentTypeList.length
+							let idx = parseInt(Math.random() * range)
+							rndList.push(currentTypeList[idx])
+						}
+						return rndList
+					},
+					loadJson() {
+						let _this = this
+						try {
+							axios.get('./res.json').then((res) => {
+								let qlist = {}
+								this.allList = res.data
+								res.data.map((re) => {
+									let { type } = re
+									if (!qlist[type]) {
+										qlist[type] = []
+									}
+									qlist[type].push(re)
+								})
+								this.qlist = qlist
+								//succces callback
+								console.log(this.qlist)
+								// this.allJsonData = this.allJsonData[0]
+								// console.log('this.allJsonData.data')
+								// console.log(this.allJsonData.data)
+							})
+						} catch (e) {
+							console.log('axios异常')
+						}
+					},
+				},
+			})
+		</script>
+	</body>
+</html>
