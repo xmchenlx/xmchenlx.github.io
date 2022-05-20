@@ -132,11 +132,13 @@
 					},
 					getRndQuestion(count = 10) {
 						let rndList = []
+                        let idList=[]
 						for (let i = 0; i < count; ) {
 							let size = this.allList.length
 							let idx = parseInt(Math.random() * size)
-							if (!rndList.includes(idx)) {
+							if (!idList.includes(idx)) {
                                 console.log(idx)
+                                idList.push(idx)
 								rndList.push(this.allList[idx])
 								i++
 							}
