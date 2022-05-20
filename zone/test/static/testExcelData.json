@@ -1,0 +1,276 @@
+{
+	"status": true,
+	"code": 200,
+	"data": [
+		{
+			"leibie": {
+				"rowSpan":6,
+				"colSpan": 1,
+				"text": "支持发展类报表",
+				"style": [
+					{ "key": "fontWeight", "value": "bold" },
+					{ "key": "backgroundColor", "value": "rgb(145,0,0)" }
+				]
+			},
+			"decj": {
+				"rowSpan": 2,
+				"colSpan": 2,
+				"text": "支持重点行业",
+				"style": []
+			},
+			"dscj": {
+				"rowSpan": 0,
+				"colSpan": 0,
+				"text": "",
+				"style": []
+			},
+            "bh":{
+                "rowSpan":1,
+                "colSpan":1,
+                "text":"S72"
+            },
+            "bbmc":{
+                "rowSpan":1,
+                "colSpan":1,
+                "text":"制造业融资情况表",
+                "style":[
+                    {"key":"color","value":"red"}
+                ]
+            },
+			"freq": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "季",
+				"style": []
+			},
+			"day": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "18",
+				"style": []
+			}
+		},
+		{
+			"leibie": {
+                "rowSpan":0,
+				"colSpan": 0,
+				"text": null,
+				"style": [
+				]
+			},
+			"decj": {
+				"rowSpan": 0,
+				"colSpan": 0,
+				"text": "",
+				"style": []
+			},
+			"dscj": {
+				"rowSpan": 0,
+				"colSpan": 0,
+				"text": "",
+				"style": []
+			},
+            "bh":{
+                "rowSpan":1,
+                "colSpan":1,
+                "text":"G19"
+            },
+            "bbmc":{
+                "rowSpan":1,
+                "colSpan":1,
+                "text":"重点关注行业贷款统计表",
+				"style": []
+
+            },
+			"freq": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "月",
+				"style": []
+			},
+			"day": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "13",
+				"style": []
+			}
+		},
+        {
+			"leibie": {
+                "rowSpan":0,
+				"colSpan": 0,
+				"text": null,
+				"style": [
+				]
+			},
+			"decj": {
+				"rowSpan": 4,
+				"colSpan": 1,
+				"text": "普惠金融",
+				"style": []
+			},
+			"dscj": {
+				"rowSpan": 3,
+				"colSpan": 1,
+				"text": "整体情况",
+				"style": []
+			},
+            "bh":{
+                "rowSpan":3,
+                "colSpan":1,
+                "text":"S71"
+            },
+            "bbmc":{
+                "rowSpan":1,
+                "colSpan":1,
+                "text":"普惠金融重点领域贷款情况表 第Ⅰ部分：普惠型小微企业和其它组织贷款",
+				"style": []
+            },
+			"freq": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "月",
+				"style": []
+			},
+
+			"day": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "13",
+				"style": []
+			}
+		},
+        {
+			"leibie": {
+                "rowSpan":0,
+				"colSpan": 0,
+				"text": null,
+				"style": [
+				]
+			},
+			"decj": {
+				"rowSpan": 0,
+				"colSpan": 0,
+				"text": "普惠金融",
+				"style": []
+			},
+			"dscj": {
+				"rowSpan": 0,
+				"colSpan": 0,
+				"text": "整体情况",
+				"style": []
+			},
+            "bh":{
+                "rowSpan":0,
+                "colSpan":0,
+                "text":"S71"
+            },
+            "bbmc":{
+                "rowSpan":1,
+                "colSpan":1,
+                "text":"第Ⅱ部分：普惠型农户及贫困户经营性贷款",
+				"style": []
+            },
+			"freq": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "月",
+				"style": []
+			},
+			"day": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "13",
+				"style": []
+			}
+		},
+        {
+			"leibie": {
+                "rowSpan":0,
+				"colSpan": 0,
+				"text": null,
+				"style": [
+				]
+			},
+			"decj": {
+				"rowSpan": 0,
+				"colSpan": 0,
+				"text": "普惠金融",
+				"style": []
+			},
+			"dscj": {
+				"rowSpan": 0,
+				"colSpan": 0,
+				"text": "整体情况",
+				"style": []
+			},
+            "bh":{
+                "rowSpan":0,
+                "colSpan":0,
+                "text":"S71"
+            },
+            "bbmc":{
+                "rowSpan":1,
+                "colSpan":1,
+                "text":"第Ⅲ部分：普惠型消费贷款",
+				"style": []
+            },
+			"freq": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "月",
+				"style": []
+			},
+			"day": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "13",
+				"style": []
+			}
+		},
+        {
+			"leibie": {
+                "rowSpan":0,
+				"colSpan": 0,
+				"text": null,
+				"style": [
+				]
+			},
+			"decj": {
+				"rowSpan": 0,
+				"colSpan": 0,
+				"text": "普惠金融",
+				"style": []
+			},
+			"dscj": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "支农报表",
+				"style": []
+			},
+            "bh":{
+                "rowSpan":1,
+                "colSpan":1,
+                "text":"S45"
+            },
+            "bbmc":{
+                "rowSpan":1,
+                "colSpan":1,
+                "text":"农村中小金融机构支农服务情况统计表",
+				"style": []
+            },
+			"freq": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "月",
+				"style": []
+			},
+			"day": {
+				"rowSpan": 1,
+				"colSpan": 1,
+				"text": "13",
+				"style": []
+			}
+		}
+	]
+}

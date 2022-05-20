@@ -1,0 +1,38 @@
+{
+    "success": true,
+    "code":200,
+    "data": {
+        "content":[
+            {
+                "_id":"ogsdwSFef1wca",
+                "time":"2021-7-1 17:52:12",
+                "id":"NCRS1",
+                "name":"实例的报表",
+                "remindInfo":"这是一段催办信息的句子",
+                "type":"system"
+            },
+            {
+                "_id":"jkyQHSBVA8asdSFq",
+                "time":"2021-7-2  09:11:36",
+                "id":"NCRS2",
+                "name":"实例的gs报表",
+                "remindInfo":"这是另外一段催办信息的句子",
+                "type":"system"
+    
+            },
+            {
+                "_id":"gsd8iASGSqedgSDHGas",
+                "time":"2021-7-1 14:49:20",
+                "id":"NCRS3",
+                "name":"实例zf的报表",
+                "remindInfo":"当前，中国金融业对外开放取得了哪些新进展？下一阶段将如何扩大开放？9月4日，“2021中国国际金融年度论坛”作为服贸会金融专题展主论坛召开，中国人民银行副行长陈雨露、中国银保监会副主席周亮、中国证监会副主席方星海、国家外汇管理局副局长郑薇出席论坛并发表演讲，释放众多金融业对外开放积极信号。",
+                "type":"user"
+    
+            }
+        ],
+        "pageSize":5,
+        "pageNum":1,
+        "totalPages":1,
+        "totalSize":3
+    }
+}

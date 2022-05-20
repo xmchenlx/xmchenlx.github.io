@@ -1,0 +1,53 @@
+{
+	"success": true,
+	"code": 200,
+	"data": [
+		{
+			"title": "银监报表追踪（统计下级报表数量）",
+			"stastic": {
+				"1104": 2,
+				"east": 12,
+				"newCust": 9
+			}
+		},
+		{
+			"title": "人行报表追踪",
+			"stastic": {
+				"jrtj": 0,
+				"rhzf": 0,
+				"llbb": 9
+			}
+		},
+		{
+			"title": "外管报表追踪",
+			"stastic": {
+				"whsjcjgf": 2,
+				"yhkjwjy": 12,
+				"yishxydm": 9
+			}
+		},
+		{
+			"title": "特色监管报送追踪 ",
+			"stastic": {
+				"tsjg_0": 2,
+				"tsjg_1": 12,
+				"tsjg_2": 9
+			}
+		},
+		{
+			"title": "行内报表追踪",
+			"stastic": {
+				"hnmk_0": 2,
+				"hnmk_1": 12,
+				"hnmk_2": 9
+			}
+		},
+		{
+			"title": "补录报表追踪",
+			"stastic": {
+				"1104_bl": 2,
+				"jrtj_bl": 12
+			}
+		}
+	]
+}

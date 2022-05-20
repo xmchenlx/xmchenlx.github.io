@@ -1,0 +1,48 @@
+{
+	"status": true,
+	"code": 200,
+	"data":[
+    {
+        "title":"类别",
+        "dataIndex":"leibie",
+        "key":"leibie"
+    },
+    {
+        "title":"第二层级",
+        "dataIndex":"decj",
+        "key":"decj"
+    },
+    {
+        "title":"第三层级",
+        "dataIndex":"dscj",
+        "key":"dscj"
+    },
+    {
+        "title":"表号",
+        "dataIndex":"bh",
+        "key":"bh"
+    },
+    {
+        "title":"报表名称",
+        "dataIndex":"bbmc",
+        "key":"bbmc"
+    },
+    {
+        "title":"境内汇总数据",
+        "dataIndex":"jnhzsj",
+        "key":"jnhzsj",
+        "children":[
+            {
+                "title":"频度",
+                "dataIndex":"freq",
+                "key":"freq"
+            },
+            {
+                "title":"时间（天）",
+                "dataIndex":"day",
+                "key":"day"
+            }
+        ]
+    }
+]
+}

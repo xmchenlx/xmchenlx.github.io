@@ -1,0 +1,19 @@
+{
+	"success": true,
+    "code":200,
+	"data": [
+		{
+			"name": "infoReplenish",
+            "path":"/infoReplenish",
+			"children": [
+				{
+					"path": "/infoReplenish/list/peopleofchinabank",
+					"meta": {
+						"keepAlive": true,
+						"title": "中国人行银行补录"
+					}
+				}
+			]
+		}
+	]
+}

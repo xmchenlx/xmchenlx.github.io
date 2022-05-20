@@ -1,0 +1,27 @@
+{
+	"success": true,
+	"code": 200,
+	"data": {
+		"content": [
+			{
+				"sid": "1",
+				"roleCode": "SR11",
+				"roleName": "职员",
+				"status": "0",
+				"builtIn": "0",
+				"dataScopde": "3",
+				"delFlag": "1",
+				"parentSid": "5",
+				"creatorSid": "",
+				"createTime": "",
+				"editorSid": "",
+				"updateTime": "",
+				"remark": "test"
+			}
+		],
+		"pageSize": 5,
+		"pageNum": 1,
+		"totalPages": 1,
+		"totalSize": 3
+	}
+}

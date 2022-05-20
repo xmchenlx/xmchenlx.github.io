@@ -1,0 +1,34 @@
+{
+    "success":true,
+    "code":200,
+    "data":[
+        {
+            "title":"福州市",
+            "value":"fzs",
+            "children":[
+                {
+                    "title":"仓山区",
+                    "value":"hmbb"
+                },
+                {
+                    "title":"鼓楼区",
+                    "value":"pdx"
+                }
+            ]
+        },
+        {
+            "title":"厦门市",
+            "value":"xms",
+            "children":[
+                {
+                    "title":"湖里区",
+                    "value":"hlq"
+                },
+                {
+                    "title":"思明区",
+                    "value":"smq"
+                }
+            ]
+        }
+    ]
+}

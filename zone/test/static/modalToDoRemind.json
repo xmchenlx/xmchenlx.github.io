@@ -1,0 +1,32 @@
+{
+    "sucess":true,
+    "code":200,
+    "data":{
+        "content":[
+            {
+                "id":"ncrs1",
+                "name":"实例报表A",
+                "status":"校验未通过",
+                "org":"***分行",
+                "freq":"日",
+                "agent":"诸葛亮",
+                "coOrgan":"上官婉儿",
+                "progress":1
+            },
+            {
+                "id":"ncrs2",
+                "name":"实例报表A",
+                "status":"校验未通过",
+                "org":"***分行",
+                "freq":"日",
+                "agent":"李元芳",
+                "coOrgan":"武则天",
+                "progress":0
+            }
+        ],
+        "pageSize":5,
+        "pageNum":1,
+        "totalPages":1,
+        "totalSize":3
+    }
+}

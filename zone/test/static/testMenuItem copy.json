@@ -1,0 +1,649 @@
+{
+	"success": true,
+    "code":200,
+	"data": [
+		{
+			"name": "infoReplenish",
+			"lists": [
+				{
+					"path": "/infoReplenish/list/peopleofchinabank",
+					"meta": {
+						"keepAlive": true,
+						"title": "中国人行银行补录"
+					}
+				},
+				{
+					"path": "/infoReplenish/list/chinaBIRCommission",
+					"meta": {
+						"keepAlive": true,
+						"title": "中国银保监会补录"
+					},
+					"children": [
+						{
+							"path": "/infoReplenish/list/chinaBIRCommission/v1",
+							"meta": {
+								"keepAlive": true,
+								"title": "1104补录"
+							}
+						},
+						{
+							"path": "/infoReplenish/list/chinaBIRCommission/v2",
+							"meta": {
+								"keepAlive": true,
+								"title": "EAST补录"
+							}
+						},
+						{
+							"path": "/infoReplenish/list/chinaBIRCommission/v3",
+							"meta": {
+								"keepAlive": true,
+								"title": "新版客户风险补录"
+							},
+							"children": [
+								{
+									"path": "/infoReplenish/list/chinaBIRCommission/v31",
+									"meta": {
+										"keepAlive": true,
+										"title": "补录表A"
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"path": "/infoReplenish/assdgsg",
+					"meta": {
+						"keepAlive": true,
+						"title": "外汇管理局补录"
+					}
+				},
+				{
+					"path": "/infoReplenish/sdaf",
+					"meta": {
+						"keepAlive": true,
+						"title": "地方/特色报表补录"
+					}
+				},
+				{
+					"path": "/infoReplenish/gweg",
+					"meta": {
+						"keepAlive": true,
+						"title": "行内报表补录"
+					}
+				}
+			]
+		},
+		{
+			"name": "cbrcReport",
+			"lists": [
+				{
+					"path": "/cbrcReport/list/1104",
+					"meta": {
+						"keepAlive": true,
+						"title": "1104"
+					}
+				},
+				{
+					"path": "/cbrcReport/list/EAST",
+					"meta": {
+						"keepAlive": true,
+						"title": "EAST"
+					}
+				},
+				{
+					"path": "/cbrcReport/list/newCustomerRisk",
+					"meta": {
+						"keepAlive": true,
+						"title": "新版客户风险"
+					},
+					"children": [
+						{
+							"path": "/cbrcReport/list/newCustomerRisk/NCRS1",
+							"meta": {
+								"keepAlive": true,
+								"title": "NCRS1"
+							}
+						},
+						{
+							"path": "/cbrcReport/list/newCustomerRisk/NCRS2",
+							"meta": {
+								"keepAlive": true,
+								"title": "NCRS2"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "peoplesBankOfChina",
+			"lists": [
+				{
+					"path": "/peoplesBankOfChina/list/financialStatistics",
+					"meta": {
+						"keepAlive": true,
+						"title": "金融统计"
+					}
+				},
+				{
+					"path": "/peoplesBankOfChina/list/pbcPay",
+					"meta": {
+						"keepAlive": true,
+						"title": "人行支付"
+					}
+				},
+				{
+					"path": "/peoplesBankOfChina/list/interestRateReported",
+					"meta": {
+						"keepAlive": true,
+						"title": "利率报备"
+					}
+				},
+				{
+					"path": "/peoplesBankOfChina/list/personalAccountReported",
+					"meta": {
+						"keepAlive": true,
+						"title": "个人账户报送"
+					}
+				},
+				{
+					"path": "/peoplesBankOfChina/list/overseasPay",
+					"meta": {
+						"keepAlive": true,
+						"title": "跨境收付"
+					}
+				},
+				{
+					"path": "/peoplesBankOfChina/list/financialBasicData",
+					"meta": {
+						"keepAlive": true,
+						"title": "金融基础数据模块"
+					}
+				},
+				{
+					"path": "/peoplesBankOfChina/list/financialStandard",
+					"meta": {
+						"keepAlive": true,
+						"title": "金标"
+					}
+				}
+			]
+		},
+		{
+			"name": "AdministrationOfForeignExchange",
+			"lists": [
+				{
+					"path": "/AdministrationOfForeignExchange/list/whywsjcjgf",
+					"meta": {
+						"keepAlive": true,
+						"title": "外汇业务数据采集规范"
+					},
+                    "children":[
+                        {
+                            "path": "/AdministrationOfForeignExchange/test1/a1",
+                            "meta": {
+                                "keepAlive": true,
+                                "title": "测试1"
+                            }
+                        },
+                        {
+                            "path": "/AdministrationOfForeignExchange/test1/a2",
+                            "meta": {
+                                "keepAlive": true,
+                                "title": "测试2"
+                            }
+                        },
+                        {
+                            "path": "/AdministrationOfForeignExchange/test1/a3",
+                            "meta": {
+                                "keepAlive": true,
+                                "title": "测试3"
+                            }
+                        }
+                    ]
+				},
+				{
+					"path": "/AdministrationOfForeignExchange/list/yhkjwjy",
+					"meta": {
+						"keepAlive": true,
+						"title": "银行卡境外交易"
+					}
+				},
+				{
+					"path": "/AdministrationOfForeignExchange/list/tyshxydm",
+					"meta": {
+						"keepAlive": true,
+						"title": "统一社会信用代码"
+					}
+				}
+			]
+		},
+		{
+			"name": "SpecificSupervise",
+			"lists": [
+				{
+					"path": "/SpecificSupervise/list/test1",
+					"meta": {
+						"keepAlive": true,
+						"title": "特色监管模块的1"
+					}
+				},
+				{
+					"path": "/SpecificSupervise/list/test2",
+					"meta": {
+						"keepAlive": true,
+						"title": "特色监管模块的2"
+					}
+				},
+				{
+					"path": "/SpecificSupervise/list/tes3",
+					"meta": {
+						"keepAlive": true,
+						"title": "特色监管模块的3"
+					}
+				}
+			]
+		},
+		{
+			"name": "reportsOfBank",
+			"lists": [
+				{
+					"path": "/reportsOfBank/list/test1",
+					"meta": {
+						"keepAlive": true,
+						"title": "行内报表模块A"
+					}
+				},
+				{
+					"path": "/reportsOfBank/list/test2",
+					"meta": {
+						"keepAlive": true,
+						"title": "行内报表模块B"
+					}
+				},
+				{
+					"path": "/reportsOfBank/list/tes3",
+					"meta": {
+						"keepAlive": true,
+						"title": "行内报表模块C"
+					}
+				}
+			]
+		},
+		{
+			"name": "ManagementOfContent",
+			"lists": [
+				{
+					"path": "/ManagementOfContent/cbrc",
+					"meta": {
+						"keepAlive": true,
+						"title": "中国银保监会"
+					},
+					"children": [
+						{
+							"path": "/ManagementOfContent/cbrc/1104",
+							"meta": {
+								"keepAlive": true,
+								"title": "1104"
+							},
+							"children": [
+								{
+									"path": "/ManagementOfContent/cbrc/1104/list/l01",
+									"meta": {
+										"keepAlive": true,
+										"title": "报表A"
+									}
+								},
+								{
+									"path": "/ManagementOfContent/cbrc/1104/list/l02",
+									"meta": {
+										"keepAlive": true,
+										"title": "报表B"
+									}
+								},
+								{
+									"path": "/ManagementOfContent/cbrc/1104/list/l03",
+									"meta": {
+										"keepAlive": true,
+										"title": "报表C"
+									}
+								},
+								{
+									"path": "/ManagementOfContent/cbrc/1104/list/l04",
+									"meta": {
+										"keepAlive": true,
+										"title": "报表D"
+									}
+								},
+								{
+									"path": "/ManagementOfContent/cbrc/1104/list/l05",
+									"meta": {
+										"keepAlive": true,
+										"title": "报表E"
+									}
+								},
+								{
+									"path": "/ManagementOfContent/cbrc/1104/list/l06",
+									"meta": {
+										"keepAlive": true,
+										"title": "报表F"
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ManagementOfParameters",
+			"lists": [
+				{
+					"path": "/ManagementOfParameters/cbrc",
+					"meta": {
+						"keepAlive": true,
+						"title": "中国银保监会参数配置"
+					},
+					"children": [
+						{
+							"path": "/ManagementOfParameters/cbrc/1104",
+							"meta": {
+								"keepAlive": true,
+								"title": "1104参数"
+							},
+							"children": [
+								{
+									"path": "/ManagementOfParameters/cbrc/1104/org",
+									"meta": {
+										"keepAlive": true,
+										"title": "机构表"
+									}
+								},
+								{
+									"path": "/ManagementOfParameters/cbrc/1104/rt",
+									"meta": {
+										"keepAlive": true,
+										"title": "报送追踪参数表"
+									}
+								},
+								{
+									"path": "/ManagementOfParameters/cbrc/1104/hz",
+									"meta": {
+										"keepAlive": true,
+										"title": "汇总表"
+									}
+								}
+							]
+						},
+						{
+							"path": "/ManagementOfParameters/cbrc/east",
+							"meta": {
+								"keepAlive": true,
+								"title": "EAST参数"
+							},
+							"children": [
+								{
+									"path": "/ManagementOfParameters/cbrc/east/org",
+									"meta": {
+										"keepAlive": true,
+										"title": "EAST机构表"
+									}
+								},
+								{
+									"path": "/ManagementOfParameters/cbrc/east/rt",
+									"meta": {
+										"keepAlive": true,
+										"title": "隐私脱敏规则参数表"
+									}
+								},
+								{
+									"path": "/ManagementOfParameters/cbrc/east/hz",
+									"meta": {
+										"keepAlive": true,
+										"title": "隐私字段脱敏规则参数表"
+									}
+								},
+								{
+									"path": "/ManagementOfParameters/cbrc/east/r4",
+									"meta": {
+										"keepAlive": true,
+										"title": "数据项分割符号参数表"
+									}
+								},
+								{
+									"path": "/ManagementOfParameters/cbrc/east/r5",
+									"meta": {
+										"keepAlive": true,
+										"title": "定制报送参数配置表"
+									}
+								},
+								{
+									"path": "/ManagementOfParameters/cbrc/east/r6",
+									"meta": {
+										"keepAlive": true,
+										"title": "EAST报送追踪参数表"
+									}
+								}
+							]
+						},
+						{
+							"path": "/ManagementOfParameters/cbrc/newCust",
+							"meta": {
+								"keepAlive": true,
+								"title": "新版客户风险参数"
+							},
+							"children": [
+								{
+									"path": "/ManagementOfParameters/cbrc/newCust/org",
+									"meta": {
+										"keepAlive": true,
+										"title": "机构表"
+									}
+								},
+								{
+									"path": "/ManagementOfParameters/cbrc/newCust/rt",
+									"meta": {
+										"keepAlive": true,
+										"title": "报送追踪参数表"
+									}
+								},
+								{
+									"path": "/ManagementOfParameters/cbrc/newCust/hz",
+									"meta": {
+										"keepAlive": true,
+										"title": "汇总表"
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"path": "/ManagementOfParameters/list/boc",
+					"meta": {
+						"keepAlive": true,
+						"title": "中国人民银行参数配置"
+					},
+					"children": []
+				},
+				{
+					"path": "/ManagementOfParameters/list/whglj",
+					"meta": {
+						"keepAlive": true,
+						"title": "外汇管理局参数配置"
+					},
+					"children": []
+				},
+				{
+					"path": "/ManagementOfParameters/list/bi",
+					"meta": {
+						"keepAlive": true,
+						"title": "行内报表参数配置"
+					},
+					"children": []
+				},
+				{
+					"path": "/ManagementOfParameters/list/config",
+					"meta": {
+						"keepAlive": true,
+						"title": "参数配置表"
+					},
+					"children": []
+				}
+			]
+		},
+      
+		{
+			"name": "knowledgeBase",
+			"lists": [
+				{
+					"path": "/knowledgeBase/test1",
+					"meta": {
+						"keepAlive": true,
+						"title": "监管发文/口径"
+					},
+					"children": [
+						{
+							"path": "/knowledgeBase/test1/tes1-1",
+							"meta": {
+								"keepAlive": true,
+								"title": "中国银保监会"
+							},
+							"children": [
+								{
+									"path": "/knowledgeBase/test1/tes1-1/1104",
+									"meta": {
+										"keepAlive": true,
+										"title": "1104"
+									}
+								},
+								{
+									"path": "/knowledgeBase/test1/tes1-1/east",
+									"meta": {
+										"keepAlive": true,
+										"title": "EAST"
+									}
+								},
+								{
+									"path": "/knowledgeBase/test1/tes1-1/newcus",
+									"meta": {
+										"keepAlive": true,
+										"title": "新版客户风险"
+									}
+								}
+							]
+						},
+						{
+							"path": "/knowledgeBase/test1/tes1-2",
+							"meta": {
+								"keepAlive": true,
+								"title": "中国人行银行"
+							}
+						},
+						{
+							"path": "/knowledgeBase/test1/tes1-3",
+							"meta": {
+								"keepAlive": true,
+								"title": "外汇管理局"
+							}
+						},
+						{
+							"path": "/knowledgeBase/test1/tes1-4",
+							"meta": {
+								"keepAlive": true,
+								"title": "地方/特色监管"
+							}
+						},
+						{
+							"path": "/knowledgeBase/test1/tes1-5",
+							"meta": {
+								"keepAlive": true,
+								"title": "行内报表"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "checkSummary",
+			"lists": [
+				{
+					"path": "/checkSummary/list/cbrc",
+					"meta": {
+						"keepAlive": true,
+						"title": "中国银保监会校验"
+					},
+					"children": [
+						{
+							"path": "/checkSummary/list/cbrc/east",
+							"meta": {
+								"keepAlive": true,
+								"title": "EAST校验汇总"
+							}
+						},
+						{
+							"path": "/checkSummary/list/cbrc/1104",
+							"meta": {
+								"keepAlive": true,
+								"title": "1104校验汇总"
+							}
+						},
+						{
+							"path": "/checkSummary/list/cbrc/ncr",
+							"meta": {
+								"keepAlive": true,
+								"title": "新版客户风险校验汇总"
+							}
+						}
+					]
+				},
+				{
+					"path": "/checkSummary/list/people",
+					"meta": {
+						"keepAlive": true,
+						"title": "中国人行校验"
+					},
+                    "children":[
+                        {
+                            "path": "/checkSummary/list/people/test1",
+                            "meta": {
+                                "keepAlive": true,
+                                "title": "金融统计报表校验汇总"
+                            }
+                        },
+                        {
+                            "path": "/checkSummary/list/people/test2",
+                            "meta": {
+                                "keepAlive": true,
+                                "title": "人行支付校验汇总"
+                            }
+                        }
+                    ]
+				},
+				{
+					"path": "/checkSummary/list/ad",
+					"meta": {
+						"keepAlive": true,
+						"title": "外汇管理局校验"
+					}
+				},
+				{
+					"path": "/checkSummary/list/spsu",
+					"meta": {
+						"keepAlive": true,
+						"title": "地方/特色监管校验"
+					}
+				},
+				{
+					"path": "/checkSummary/list/rob",
+					"meta": {
+						"keepAlive": true,
+						"title": "行内报表校验"
+					}
+				}
+			]
+		}
+	]
+}
