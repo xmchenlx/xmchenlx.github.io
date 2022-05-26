@@ -73,10 +73,15 @@
 						<h2 v-show="currentSource==2">回答正确！</h2>
 						<h2 v-show="currentSource==1">回答错误！</h2>
 						<h5>答案解释</h5>
-						<p>
-							正确答案是{{filterQuestions[currentIdx].ro.toUpperCase()}}、{{filterQuestions[currentIdx]['o'+filterQuestions[currentIdx].ro]}}
-						</p>
-						<p>{{filterQuestions[currentIdx].des||'暂无解释'}}</p>
+						<div v-if="filterQuestions[currentIdx].showAns">
+							<p>
+								正确答案是{{filterQuestions[currentIdx].ro.toUpperCase()}}、{{filterQuestions[currentIdx]['o'+filterQuestions[currentIdx].ro]}}
+							</p>
+							<p>
+								{{filterQuestions[currentIdx].des||'暂无解释'}}
+							</p>
+						</div>
+						<div v-else>该题目暂时不开放答案</div>
 					</div>
 					<div v-show="currentSource!==0">
 						<el-button type="primary" @click="handleNext()"
@@ -132,13 +137,14 @@
 					},
 					getRndQuestion(count = 10) {
 						let rndList = []
-                        let idList=[]
+						let idList = []
 						for (let i = 0; i < count; ) {
 							let size = this.allList.length
 							let idx = parseInt(Math.random() * size)
+							// console.log(idx,idList,idList.includes(idx))
 							if (!idList.includes(idx)) {
-                                console.log(idx)
-                                idList.push(idx)
+								console.log(idx)
+								idList.push(idx)
 								rndList.push(this.allList[idx])
 								i++
 							}
@@ -161,7 +167,7 @@
 							axios.get('./res.json').then((res) => {
 								let qlist = {}
 								this.allList = res.data
-								res.data.map((re) => {
+								this.allList.map((re) => {
 									let { type } = re
 									if (!qlist[type]) {
 										qlist[type] = []
