@@ -19,6 +19,22 @@
 			src="https://lib.baomitu.com/element-ui/2.15.7/index.min.js"
 		></script>
 		<style>
+			html,
+			body {
+				border: 0;
+				padding: 0;
+				margin: 0;
+				background-image: url('./11.jpg');
+                font-size: 1vw;
+			}
+			body {
+				height: 100vh;
+
+				width: 100%;
+			}
+            .primary-color{
+                color:#00a1d6;
+            }
 			.options {
 				padding: 0;
 			}
@@ -30,67 +46,136 @@
 				list-style-type: none;
 				margin: 20px 0;
 			}
+            .question-board-page{
+                height: 100vh;
+                width: 100vw;
+                background-color: rgb(0 0 0 / 42%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+			.question-board {
+				border-radius: 20px;
+				box-sizing: border-box;
+				background-color: rgb(240, 240, 240);
+				width: 80%;
+				min-height: 70vh;
+                margin:0 auto;
+                padding:5vw;
+                font-weight: 300;
+                z-index: 500;
+			}
+            .tips-box{
+                text-align: center;
+            }
+            .tips-box h2{
+                font-weight: 400;
+            }
+            .icon{
+                width: 20vw;
+            }
+            .btn-primary{
+                background-color: #00a1d6;
+                border-color: #00a1d6;
+                color: white;
+                border-radius: 10px;
+                padding: 10px 20px;
+                font-size: 1.2rem;
+                font-weight: 300;
+                margin: 10px 0;
+            }
+            
+            .btn{
+                background-color: #a0a0a0;
+                border-color: #00a1d6;
+                color: white;
+                border-radius: 10px;
+                padding: 10px 20px;
+                font-size: 1.2rem;
+                font-weight: 300;
+                margin: 10px 0;
+            }
 		</style>
 	</head>
 	<body>
-		<div id="app">
-			<div v-show="step==0">
-				<h3>三班小伙伴认证</h3>
-				<p>
-					您访问的版块涉及到三班小伙伴的部分隐私。为了证明您是三班生活的参与者，请您回答下列问题。累计答对6题即视为认证通过。
-				</p>
-				<el-button type="primary" @click="handleStart()"
-					>好的，开始吧</el-button
-				>
-			</div>
-			<div v-if="step==1">
-				当前答对{{rightCount}}题
-				<div>
-					<h3>
-						{{currentIdx+1}})【{{filterQuestions[currentIdx].type}}题】
-						{{filterQuestions[currentIdx].question}}
-					</h3>
-					<img
-						:src="filterQuestions[currentIdx].img"
-						style="width: 100vw"
-						v-show="filterQuestions[currentIdx].img"
-					/>
-					<ul class="options">
-						<li @click="handleWrite('A')">
-							A. {{filterQuestions[currentIdx].oa}}
-						</li>
-						<li @click="handleWrite('B')">
-							B. {{filterQuestions[currentIdx].ob}}
-						</li>
-						<li @click="handleWrite('C')">
-							C. {{filterQuestions[currentIdx].oc}}
-						</li>
-						<li @click="handleWrite('D')">
-							D. {{filterQuestions[currentIdx].od}}
-						</li>
-					</ul>
-					<div v-show="currentSource!==0">
-						<h2 v-show="currentSource==2">回答正确！</h2>
-						<h2 v-show="currentSource==1">回答错误！</h2>
-						<h5>答案解释</h5>
-						<div v-if="filterQuestions[currentIdx].showAns">
-							<p>
-								正确答案是{{filterQuestions[currentIdx].ro.toUpperCase()}}、{{filterQuestions[currentIdx]['o'+filterQuestions[currentIdx].ro]}}
-							</p>
-							<p>
-								{{filterQuestions[currentIdx].des||'暂无解释'}}
-							</p>
+        <div id="app">
+		<div class="question-board-page">
+			<div class="question-board">
+                <div v-show="step==7" class="tips-box">
+                    <h2 style="font-size: 5vw;">认证失败，访问终止</h2>
+                    <svg t="1653670018898" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="56742" width="200" height="150"><path d="M855.458909 138.379636a622.312727 622.312727 0 0 1-197.818182-48.546909c-37.608727-16.989091-95.883636-55.854545-129.861818-80.058182a51.153455 51.153455 0 0 0-58.274909 0c-33.978182 24.203636-92.206545 63.069091-131.072 80.058182a622.312727 622.312727 0 0 1-197.818182 48.546909C113.943273 139.589818 93.277091 162.629818 93.277091 189.346909v305.803636a456.657455 456.657455 0 0 0 214.807273 387.165091l94.673454 59.485091 67.956364 42.496a52.596364 52.596364 0 0 0 53.434182 0l67.956363-42.496 94.673455-59.485091a456.657455 456.657455 0 0 0 214.807273-387.118545V188.136727a47.662545 47.662545 0 0 0-46.126546-49.757091z" fill="#F36A5A" p-id="56743"></path><path d="M488.727273 628.363636m-46.545455 0a46.545455 46.545455 0 1 0 93.090909 0 46.545455 46.545455 0 1 0-93.090909 0Z" fill="#FFFFFF" p-id="56744"></path><path d="M465.454545 232.727273m23.272728 0l0 0q23.272727 0 23.272727 23.272727l0 279.272727q0 23.272727-23.272727 23.272728l0 0q-23.272727 0-23.272728-23.272728l0-279.272727q0-23.272727 23.272728-23.272727Z" fill="#FFFFFF" p-id="56745"></path></svg>
+                    <p style="font-size: 3vw;">您的答题次数已用完，但没有累计答对6题，因此您不能进入该模块。您可以尝试重新答题以获得认证。光靠摆烂乱猜可不好通过哦。</p>
+                    <div class="btn-primary" 
+						>好的，关闭认证面板</div>
+                </div>
+                <div v-show="step==6" class="tips-box">
+                    <h2 style="font-size:5vw">认证通过</h2>
+                    <svg t="1653669806351" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="56301" width="200" height="150"><path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#25D4D0" p-id="56302"></path><path d="M315.869867 512.017067c0 82.056533 105.454933 226.730667 199.0144 226.730666s199.0144-144.674133 199.0144-226.730666v-171.6736a297.608533 297.608533 0 0 1-199.0144-66.218667 297.5232 297.5232 0 0 1-199.0144 65.860267z m122.368-42.461867l51.456 50.0224a1380.693333 1380.693333 0 0 1 58.299733-48.2304 625.4592 625.4592 0 0 1 27.306667-20.872533 811.861333 811.861333 0 0 1 28.433066-20.48c17.271467-12.2368 39.594667-28.074667 62.976-43.195734l16.196267 21.947734a399.957333 399.957333 0 0 0-49.664 42.461866c-10.069333 9.710933-20.48 19.797333-30.958933 30.958934q-17.271467 18.346667-36.7104 40.96a1270.3744 1270.3744 0 0 0-79.889067 102.570666l-107.605333-106.530133z" fill="#FFFFFF" p-id="56303"></path><path d="M514.167467 179.831467c-71.253333 54.698667-147.9168 92.859733-278.920534 92.859733v240.6912c0 114.807467 147.9168 317.781333 278.920534 317.781333 131.413333 0 278.920533-202.973867 278.920533-317.781333v-240.64c-131.362133 0-207.6672-38.212267-278.920533-92.910933z m239.325866 332.9024c0 98.6112-126.685867 272.4352-239.325866 272.4352s-239.325867-173.824-239.325867-272.4352v-206.506667a357.700267 357.700267 0 0 0 239.325867-79.530667c60.8256 47.138133 126.685867 79.530667 239.325866 79.530667z" fill="#FFFFFF" p-id="56304"></path></svg>
+                    <p style="font-size:3.5vw">你好，小伙伴！您已通过认证，请继续您的时光之旅吧！</p>
+                    <div class="btn-primary" 
+						>好的</div>
+                </div>
+				<div v-show="step==0" class="tips-box">
+					<h2 style="font-size: 5vw;">三班小伙伴认证</h2>
+                    <svg t="1653667145933" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4986" width="200" height="150"><path d="M12 12m500 0l0 0q500 0 500 500l0 0q0 500-500 500l0 0q-500 0-500-500l0 0q0-500 500-500Z" fill="#DEE5EC" p-id="4987"></path><path d="M707.91 842.15S815 770.29 829 733.65c24.51-64.23 19.51-156.32 19.51-156.32 0-19-125.86-70.66-140.61-70.66s-140.6 51.63-140.6 70.66c0 0-5 92.09 19.5 156.32 13.81 36.64 121.1 108.5 121.1 108.5z m0 0" fill="#005EB8" p-id="4988"></path><path d="M657 159.62a59.46 59.46 0 0 0-42.06-17.42h-344a59.47 59.47 0 0 0-59.47 59.48v622.87A59.47 59.47 0 0 0 270.86 884h326.91a11.9 11.9 0 0 0 0-23.8H270.86a35.64 35.64 0 0 1-35.69-35.68V746h255.29a11.9 11.9 0 1 0 0-23.79H235.17v-435.6h415.41v133.71a11.9 11.9 0 0 0 23.79 0V201.68A59.48 59.48 0 0 0 657 159.62zM235.17 262.83v-61.15A35.66 35.66 0 0 1 270.86 166h344a35.65 35.65 0 0 1 35.69 35.7v61.15z" fill="#0D1633" p-id="4989"></path><path d="M419.08 787.2a11.9 11.9 0 0 0 0 23.79h47.58a11.93 11.93 0 0 0 11.9-11.9 11.78 11.78 0 0 0-11.9-11.89zM488.8 201.45H397a11.89 11.89 0 1 0 0 23.78h91.8a11.89 11.89 0 1 0 0-23.78zM523.06 420.32c0-49-35.93-89-80.18-89s-80.18 40-80.18 89 35.93 89 80.18 89 80.18-39.99 80.18-89z m-80.18 65.42c-30.94 0-56.39-29.26-56.39-65.19s25.22-65.18 56.39-65.18 56.39 29 56.39 65.18c0 35.93-25.46 65.19-56.39 65.19zM442.88 529.77c-91.6 0-163.21 43.77-163.21 99.68v60.43a11.78 11.78 0 0 0 11.9 11.9 12.3 12.3 0 0 0 12.13-11.9v-60.43c0-41.15 63.77-75.89 139.42-75.89a265.78 265.78 0 0 1 34 2.38c6.42 0.71 12.61-3.81 13.32-10.24a12.14 12.14 0 0 0-10.23-13.31 276.89 276.89 0 0 0-37.33-2.62z" fill="#0D1633" p-id="4990"></path><path d="M363.65 652.29a11.77 11.77 0 0 0-11.89 11.89v25.7a11.78 11.78 0 0 0 11.89 11.9 11.93 11.93 0 0 0 11.89-11.9v-25.7a11.77 11.77 0 0 0-11.89-11.89zM903.24 551.89c0-39-183.45-103-195.34-103s-195.32 64.22-195.32 102.53c-0.48 5-6.42 122.28 26.17 206.5 19 49.25 148 135.85 162.5 145.61a13.39 13.39 0 0 0 6.66 1.9 13.92 13.92 0 0 0 6.65-1.9c14.75-9.76 143.47-96.36 162.5-145.61 32.36-84.21 26.42-201.75 26.18-206.03z m-48.76 197.47c-13.08 34-104.91 101.35-146.79 129.91-41.87-28.56-133.69-96.12-146.8-129.91-30.69-79.47-24.75-195.57-25-195.57 9.27-19.5 149.88-79.94 171.77-81.13 22.13 1 162.73 61.63 171.54 79.95 0.02 1.18 5.97 117.29-24.72 196.75zM442.88 575.69A11.77 11.77 0 0 0 431 587.58v65.19a11.78 11.78 0 0 0 11.89 11.89 12.08 12.08 0 0 0 11.89-11.89v-65.19a11.77 11.77 0 0 0-11.9-11.89z" fill="#0D1633" p-id="4991"></path><path d="M693.88 750.79a11.18 11.18 0 0 1-8.34-3.58l-76.13-76.13a12 12 0 1 1 16.9-16.9L694.12 722l115.16-115.16a11.94 11.94 0 0 1 16.89 16.89l-123.49 123.5a13.12 13.12 0 0 1-8.8 3.56z m0 0" fill="#0D1633" p-id="4992"></path></svg>
+					<p>
+						您访问的版块涉及到三班小伙伴的部分隐私。为了证明您是三班生活的参与者，需要您完成下述要求通过认证，才能继续使用。
+					</p>
+                    <p>认证题库的内容涵盖了基础、知识储备（初中）、知识储备（扩展）、细节、离谱各个等级，认证面板会从中随机抽取二十题。您本次需要<span class="primary-color">累计答对6题即可达成认证</span>。</p>
+					<div class="btn-primary" @click="handleStart()"
+						>好的，开始吧</div>
+                    <div class="btn" >算了，下次</div>
+				</div>
+				<div v-if="step==1">
+					当前答对{{rightCount}}题
+					<div>
+						<h3>
+							{{currentIdx+1}})【{{filterQuestions[currentIdx].type}}题】
+							{{filterQuestions[currentIdx].question}}
+						</h3>
+						<img
+							:src="filterQuestions[currentIdx].img"
+							style="width: 100%"
+							v-show="filterQuestions[currentIdx].img"
+						/>
+						<ul class="options">
+							<li @click="handleWrite('A')">
+								A. {{filterQuestions[currentIdx].oa}}
+							</li>
+							<li @click="handleWrite('B')">
+								B. {{filterQuestions[currentIdx].ob}}
+							</li>
+							<li @click="handleWrite('C')">
+								C. {{filterQuestions[currentIdx].oc}}
+							</li>
+							<li @click="handleWrite('D')">
+								D. {{filterQuestions[currentIdx].od}}
+							</li>
+						</ul>
+						<div v-show="currentSource!==0">
+							<h2 v-show="currentSource==2">回答正确！</h2>
+							<h2 v-show="currentSource==1">回答错误！</h2>
+							<h5>答案解释</h5>
+							<div v-if="filterQuestions[currentIdx].showAns">
+								<p>
+									正确答案是{{filterQuestions[currentIdx].ro.toUpperCase()}}、{{filterQuestions[currentIdx]['o'+filterQuestions[currentIdx].ro]}}
+								</p>
+								<p>
+									{{filterQuestions[currentIdx].des||'暂无解释'}}
+								</p>
+							</div>
+							<div v-else>该题目暂时不开放答案</div>
 						</div>
-						<div v-else>该题目暂时不开放答案</div>
-					</div>
-					<div v-show="currentSource!==0">
-						<el-button type="primary" @click="handleNext()"
-							>下一题</el-button
-						>
+						<div v-show="currentSource!==0">
+							<el-button type="primary" @click="handleNext()"
+								>下一题</el-button
+							>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+    </div>
 		<script>
 			new Vue({
 				el: '#app',
@@ -107,13 +192,18 @@
 				},
 				created() {
 					this.loadJson()
-					setTimeout(() => {
-						this.handleStart()
-					}, 500)
+					// setTimeout(() => {
+					// 	this.handleStart()
+					// }, 500)
 				},
 				methods: {
 					handleNext() {
-						this.currentIdx++
+                        if(++this.currentIdx>19){
+                            this.step=7
+                        }else if(this.rightCount>=6){
+                            this.step=6
+                        }
+						
 						this.currentSource = 0
 					},
 					handleWrite(ans) {
